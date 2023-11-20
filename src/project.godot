@@ -13,6 +13,11 @@ config_version=5
 config/name="umak"
 config/features=PackedStringArray("4.1", "Mobile")
 
+[display]
+
+window/stretch/mode="canvas_items"
+
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="mobile"
