@@ -1,3 +1,8 @@
-[gd_scene format=3 uid="uid://d3cxoc5m8wghy"]
+[gd_scene load_steps=2 format=3 uid="uid://d3cxoc5m8wghy"]
+
+[ext_resource type="PackedScene" uid="uid://v8m3lgxrrn0y" path="res://Scenes/Player/joystick.tscn" id="1_ctdth"]
 
 [node name="MenuScreen" type="Node2D"]
+
+[node name="joystick" parent="." instance=ExtResource("1_ctdth")]
+position = Vector2(213, 424)

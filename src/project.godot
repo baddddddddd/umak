@@ -11,13 +11,23 @@ config_version=5
 [application]
 
 config/name="umak"
+run/main_scene="res://Scenes/Player/Player.tscn"
 config/features=PackedStringArray("4.1", "Mobile")
 
 [display]
 
 window/stretch/mode="canvas_items"
 
+[dotnet]
+
+project/assembly_name="umak"
+
+[input_devices]
+
+pointing/emulate_touch_from_mouse=true
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="mobile"
+textures/stretch/scale=4.0
