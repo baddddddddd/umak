@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://2x1uxrl6r6g4"]
 
-[ext_resource type="PackedScene" uid="uid://v8m3lgxrrn0y" path="res://Scenes/joystick.tscn" id="1_g456m"]
-[ext_resource type="PackedScene" uid="uid://b5f8vpqafyeaa" path="res://Scenes/player.tscn" id="2_eyyku"]
+[ext_resource type="PackedScene" uid="uid://v8m3lgxrrn0y" path="res://Scenes/Player/joystick.tscn" id="1_g456m"]
+[ext_resource type="PackedScene" uid="uid://b5f8vpqafyeaa" path="res://Scenes/Player/player.tscn" id="2_eyyku"]
 [ext_resource type="Texture2D" uid="uid://d45ikelnpi3m" path="res://Assets/Utilities/target.png" id="4_s0rmn"]
 
 [node name="World" type="Node2D"]
