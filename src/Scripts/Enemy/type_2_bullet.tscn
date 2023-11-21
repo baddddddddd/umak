@@ -1,0 +1,133 @@
+[gd_scene load_steps=11 format=3 uid="uid://bpbybc0ihfams"]
+
+[ext_resource type="Script" path="res://Scripts/Enemy/type_2_bullet.gd" id="1_yxjs1"]
+[ext_resource type="Texture2D" uid="uid://c1jncf74hktls" path="res://Assets/SpaceShooterAssets/charging.png" id="2_ui8r8"]
+[ext_resource type="Texture2D" uid="uid://c1yubkkkj8ee2" path="res://Assets/SpaceShooterAssets/firing.png" id="3_2vdxb"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yga05"]
+atlas = ExtResource("2_ui8r8")
+region = Rect2(0, 0, 2816, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hlvxv"]
+atlas = ExtResource("3_2vdxb")
+region = Rect2(0, 0, 2816, 31)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_38xcw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yga05")
+}],
+"loop": true,
+"name": &"Charging",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hlvxv")
+}],
+"loop": true,
+"name": &"Fire",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_dqwf5"]
+resource_name = "Charging"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Charging"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.7, 0.9, 1.4, 1.6, 2.1, 2.2, 2.3, 2.4, 2.5, 2.6, 2.7, 2.8, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1]
+}
+
+[sub_resource type="Animation" id="Animation_a3uq8"]
+resource_name = "Fire"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Fire"]
+}
+
+[sub_resource type="Animation" id="Animation_y8m61"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0d6qy"]
+_data = {
+"Charging": SubResource("Animation_dqwf5"),
+"Fire": SubResource("Animation_a3uq8"),
+"RESET": SubResource("Animation_y8m61")
+}
+
+[node name="Type2Bullet" type="CharacterBody2D"]
+scale = Vector2(2, 2)
+script = ExtResource("1_yxjs1")
+metadata/entity_type = "bullet"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-314, 0)
+rotation = 3.14159
+scale = Vector2(0.229478, 0.162915)
+sprite_frames = SubResource("SpriteFrames_38xcw")
+animation = &"Charging"
+frame = 1
+flip_h = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_0d6qy")
+}
+
+[node name="AttackTimer" type="Timer" parent="."]

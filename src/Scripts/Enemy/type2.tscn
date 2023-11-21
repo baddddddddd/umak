@@ -1,18 +1,18 @@
-[gd_scene load_steps=7 format=3 uid="uid://bkex7j6m7a446"]
+[gd_scene load_steps=7 format=3 uid="uid://13403nykthj8"]
 
-[ext_resource type="Texture2D" uid="uid://4oyiimjl8fcm" path="res://Assets/SpaceShooterAssets/SpaceShooterAssetPack_Ships.png" id="1_0ywqm"]
-[ext_resource type="Script" path="res://Scripts/Enemy/type1.gd" id="1_ne2sj"]
-[ext_resource type="PackedScene" path="res://Scripts/Enemy/type_1_bullet.tscn" id="2_1iu7c"]
+[ext_resource type="Script" path="res://Scripts/Enemy/type2.gd" id="1_yke2v"]
+[ext_resource type="PackedScene" uid="uid://bpbybc0ihfams" path="res://Scripts/Enemy/type_2_bullet.tscn" id="2_bvmhu"]
+[ext_resource type="Texture2D" uid="uid://4oyiimjl8fcm" path="res://Assets/SpaceShooterAssets/SpaceShooterAssetPack_Ships.png" id="3_7lyvp"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_2008r"]
-atlas = ExtResource("1_0ywqm")
-region = Rect2(32, 64, 16, 16)
+[sub_resource type="AtlasTexture" id="AtlasTexture_hk8sv"]
+atlas = ExtResource("3_7lyvp")
+region = Rect2(64, 48, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_lil8y"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_2008r")
+"texture": SubResource("AtlasTexture_hk8sv")
 }],
 "loop": true,
 "name": &"default",
@@ -22,8 +22,9 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k1cpk"]
 
 [node name="Enemy" type="CharacterBody2D"]
-script = ExtResource("1_ne2sj")
-bullet = ExtResource("2_1iu7c")
+scale = Vector2(2, 2)
+script = ExtResource("1_yke2v")
+bullet = ExtResource("2_bvmhu")
 metadata/entity_type = "enemy"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -34,7 +35,7 @@ sprite_frames = SubResource("SpriteFrames_lil8y")
 shape = SubResource("RectangleShape2D_k1cpk")
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 2.0
+wait_time = 5.0
 autostart = true
 
 [node name="BulletSpawn" type="Node2D" parent="."]

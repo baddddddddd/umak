@@ -1,0 +1,192 @@
+[gd_scene load_steps=11 format=3 uid="uid://bpbybc0ihfams"]
+
+[ext_resource type="Script" path="res://Scripts/Enemy/type_2_bullet.gd" id="1_yxjs1"]
+[ext_resource type="Texture2D" uid="uid://w4ytut6liapv" path="res://Assets/SpaceShooterAssets/realaser.png" id="2_p7vb8"]
+[ext_resource type="Texture2D" uid="uid://cn5643a0eclnv" path="res://Assets/SpaceShooterAssets/SpaceShooterAssetPack_Miscellaneous.png" id="3_m77tn"]
+[ext_resource type="Texture2D" uid="uid://c2fv8x8pf26pf" path="res://Assets/SpaceShooterAssets/firelaser.png" id="4_jrifc"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xeq6q"]
+atlas = ExtResource("3_m77tn")
+region = Rect2(0, 56, 24, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_38xcw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_p7vb8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xeq6q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xeq6q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xeq6q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xeq6q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xeq6q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_p7vb8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xeq6q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xeq6q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xeq6q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xeq6q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xeq6q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_p7vb8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xeq6q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xeq6q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xeq6q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_p7vb8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xeq6q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xeq6q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_p7vb8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xeq6q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_p7vb8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xeq6q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_p7vb8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xeq6q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_p7vb8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xeq6q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_p7vb8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xeq6q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_p7vb8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_p7vb8")
+}],
+"loop": true,
+"name": &"Charging",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_jrifc")
+}],
+"loop": true,
+"name": &"Fire",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_dqwf5"]
+resource_name = "Charging"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9, 2, 2.1, 2.2, 2.3, 2.4, 2.5, 2.6, 2.7, 2.8, 2.9, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 23, 15, 24, 25, 26, 27, 28, 29, 30]
+}
+
+[sub_resource type="Animation" id="Animation_y8m61"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="Animation" id="Animation_a3uq8"]
+resource_name = "Fire"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(3.1),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0d6qy"]
+_data = {
+"Charging": SubResource("Animation_dqwf5"),
+"Fire": SubResource("Animation_a3uq8"),
+"RESET": SubResource("Animation_y8m61")
+}
+
+[node name="Type2Bullet" type="CharacterBody2D"]
+script = ExtResource("1_yxjs1")
+metadata/entity_type = "bullet"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-330, -1.49012e-08)
+rotation = 3.14159
+scale = Vector2(0.229478, 0.240489)
+sprite_frames = SubResource("SpriteFrames_38xcw")
+animation = &"Charging"
+flip_h = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_0d6qy")
+}
+
+[node name="AttackTimer" type="Timer" parent="."]
