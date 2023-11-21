@@ -3,6 +3,7 @@ extends Sprite2D
 @onready var parent =$".."
 
 var pressing=false
+var usingJoystick = false
 
 @export var maxLength = 100
 @export var deadzone=5
@@ -26,7 +27,6 @@ func _process(delta):
 	else:
 		global_position = lerp(global_position, parent.global_position, delta*50)
 		parent.posVector = Vector2(0,0)
-	print(parent.posVector)
 
 func calculateVector():
 	if(abs(global_position.x - parent.global_position.x)) >=deadzone:
