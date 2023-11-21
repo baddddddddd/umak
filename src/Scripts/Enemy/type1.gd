@@ -20,3 +20,13 @@ func attack():
 
 func _on_timer_timeout():
 	attack()
+
+		
+func deplete_hp(damage):
+	hp -= damage
+	
+	if hp <= 0:
+		destroy()
+		
+func destroy():
+	queue_free()

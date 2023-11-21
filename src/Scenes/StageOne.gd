@@ -7,6 +7,8 @@ var my_random_number = rng.randf_range(-10.0, 10.0)
 @export var enemies: Array[PackedScene]
 
 @onready var spawn_area = $SpawnArea/CollisionShape2D
+@onready var pause_menu = $PauseMenu
+var paused = true
 
 var top_left = Vector2(0, 0)
 
@@ -14,13 +16,15 @@ func _ready():
 	top_left.x = spawn_area.global_position.x - (spawn_area.shape.size.x * 0.5)
 	top_left.y = spawn_area.global_position.y - (spawn_area.shape.size.y * 0.5)
 	
+	pause_menu.hide()
+	
 
 func _on_enemy_spawn_clock_timeout():
 	var number_of_enemies = rng.randi_range(1, 2)
 	
 	for i in range(number_of_enemies):
 		spawn_enemy()
-		await get_tree().create_timer(0.3).timeout
+		await get_tree().create_timer(1).timeout
 
 
 func spawn_enemy():
@@ -37,3 +41,17 @@ func spawn_enemy():
 func _on_despawn_body_exited(body):
 	if body.get_meta("entity_type") in ["bullet", "enemy"]:
 		get_tree().get_root().remove_child(body)
+		
+func pause():
+	if paused:
+		pause_menu.show()
+		Engine.time_scale = 0
+	else:
+		pause_menu.hide()
+		Engine.time_scale = 1
+		
+	paused = !paused
+
+
+func _on_pause_button_pressed():
+	pause()

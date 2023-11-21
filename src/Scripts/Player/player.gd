@@ -7,6 +7,12 @@ signal bullet_shot(bullet_scene, location)
 @onready var muzzle = $muzzle
 @onready var shoot_sound=$shoot_sound
 
+const NUMBER_OF_HP_FRAMES = 6
+
+@onready var start_frame = $"../HealthBar/Fill".frame
+@export var max_hp = 100
+var hp = max_hp
+
 var shooting = false
 var shootingDelay = 0.1
 var shootTimer = 0.0
@@ -52,4 +58,22 @@ func shoot():
 	
 	get_tree().get_root().add_child(bullet_instance)
 	#bullet_shot.emit(bullet_scene, muzzle.global_position)
+	
+	
+func deplete_hp(damage):
+	var bar = max_hp / NUMBER_OF_HP_FRAMES
+	var section = hp / bar
+	var frame_offset = NUMBER_OF_HP_FRAMES - section
+	
+	
+	hp -= damage
+	
+	if hp <= 0:
+		set_game_over()
+		
+	$"../HealthBar/Fill".frame = start_frame + frame_offset 		
+		
+		
+func set_game_over():
+	queue_free()
 
