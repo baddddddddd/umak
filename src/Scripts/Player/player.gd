@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 signal bullet_shot(bullet_scene, location)
 
+@onready var stage = $".."
 @onready var joystick = $'../joystick'
 @export var speed=150
 @onready var muzzle = $muzzle
@@ -37,6 +38,7 @@ func get_input():
 	var input_direction = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 	velocity = input_direction * speed
 	velocity.x *= 0.6
+
 
 func _physics_process(delta):
 	match OS.get_name():
@@ -75,5 +77,5 @@ func deplete_hp(damage):
 		
 		
 func set_game_over():
-	queue_free()
+	stage.end_game()
 
