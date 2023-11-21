@@ -8,11 +8,15 @@ signal bullet_shot(bullet_scene, location)
 @onready var muzzle = $muzzle
 @onready var shoot_sound=$shoot_sound
 
+
 const NUMBER_OF_HP_FRAMES = 6
 
 @onready var start_frame = $"../HealthBar/Fill".frame
 @export var max_hp = 100
 var hp = max_hp
+
+var invincibility = false
+@onready var anim = $AnimationPlayer
 
 var shooting = false
 var shootingDelay = 0.1
@@ -63,6 +67,9 @@ func shoot():
 	
 	
 func deplete_hp(damage):
+	if invincibility:
+		return
+		
 	var bar = max_hp / NUMBER_OF_HP_FRAMES
 	var section = hp / bar
 	var frame_offset = NUMBER_OF_HP_FRAMES - section
@@ -73,8 +80,23 @@ func deplete_hp(damage):
 	if hp <= 0:
 		set_game_over()
 		
-	$"../HealthBar/Fill".frame = start_frame + frame_offset 		
+	$"../HealthBar/Fill".frame = start_frame + frame_offset 
+	
+	activate_invincible()
 		
+		
+func activate_invincible():
+	invincibility = true
+	anim.play("Invincible")
+	
+	await get_tree().create_timer(4.0).timeout
+	deactivate_invincibility()
+	
+	
+func deactivate_invincibility():
+	invincibility = false
+	anim.play("Default")
+	
 		
 func set_game_over():
 	stage.end_game()
