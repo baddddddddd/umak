@@ -21,9 +21,12 @@ animations = [{
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k1cpk"]
 
-[node name="Enemy" type="CharacterBody2D"]
+[node name="Enemy" type="CharacterBody2D" groups=["enemy", "harmful"]]
+scale = Vector2(2, 2)
 collision_layer = 2
+collision_mask = 0
 script = ExtResource("1_ne2sj")
+speed = 70
 bullet = ExtResource("2_1iu7c")
 metadata/entity_type = "enemy"
 
@@ -31,14 +34,14 @@ metadata/entity_type = "enemy"
 rotation = 1.5708
 sprite_frames = SubResource("SpriteFrames_lil8y")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_k1cpk")
-
 [node name="Timer" type="Timer" parent="."]
 wait_time = 2.0
 autostart = true
 
 [node name="BulletSpawn" type="Node2D" parent="."]
 position = Vector2(-16.595, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_k1cpk")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

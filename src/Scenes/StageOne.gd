@@ -20,7 +20,7 @@ func _on_enemy_spawn_clock_timeout():
 	
 	for i in range(number_of_enemies):
 		spawn_enemy()
-		await get_tree().create_timer(0.3).timeout
+		await get_tree().create_timer(1).timeout
 
 
 func spawn_enemy():
