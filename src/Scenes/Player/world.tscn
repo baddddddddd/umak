@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://2x1uxrl6r6g4"]
+
+[ext_resource type="PackedScene" uid="uid://v8m3lgxrrn0y" path="res://Scenes/joystick.tscn" id="1_g456m"]
+[ext_resource type="PackedScene" uid="uid://b5f8vpqafyeaa" path="res://Scenes/player.tscn" id="2_eyyku"]
+[ext_resource type="Texture2D" uid="uid://d45ikelnpi3m" path="res://Assets/Utilities/target.png" id="4_s0rmn"]
+
+[node name="World" type="Node2D"]
+
+[node name="joystick" parent="." instance=ExtResource("1_g456m")]
+position = Vector2(154, 500)
+scale = Vector2(0.7, 0.7)
+
+[node name="fire" type="Sprite2D" parent="."]
+modulate = Color(0.937255, 0.937255, 0.937255, 0.317647)
+position = Vector2(1005, 503)
+scale = Vector2(0.165242, 0.165242)
+texture = ExtResource("4_s0rmn")
+
+[node name="player" parent="." instance=ExtResource("2_eyyku")]
+position = Vector2(162, 161)
+scale = Vector2(5, 5)
