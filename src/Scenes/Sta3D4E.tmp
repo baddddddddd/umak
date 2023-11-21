@@ -75,12 +75,6 @@ metadata/_edit_lock_ = true
 [node name="player" parent="." instance=ExtResource("5_650px")]
 position = Vector2(128, 208)
 
-[node name="PauseButton" type="Button" parent="."]
-offset_left = 8.0
-offset_top = 16.0
-offset_right = 32.0
-offset_bottom = 48.0
-
 [node name="PauseMenu" parent="." instance=ExtResource("7_xpqh7")]
 z_index = 10
 offset_left = 256.0
@@ -90,4 +84,3 @@ offset_bottom = 136.0
 
 [connection signal="timeout" from="EnemySpawnClock" to="." method="_on_enemy_spawn_clock_timeout"]
 [connection signal="body_exited" from="Despawn" to="." method="_on_despawn_body_exited"]
-[connection signal="pressed" from="PauseButton" to="." method="_on_pause_button_pressed"]
