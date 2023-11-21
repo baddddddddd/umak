@@ -1,12 +1,13 @@
-[gd_scene load_steps=8 format=3 uid="uid://dnjk18na4sq4b"]
+[gd_scene load_steps=9 format=3 uid="uid://dnjk18na4sq4b"]
 
 [ext_resource type="Script" path="res://Scripts/Environment/BG.gd" id="1_esl4a"]
 [ext_resource type="Script" path="res://Scenes/StageOne.gd" id="1_oiyt2"]
 [ext_resource type="Texture2D" uid="uid://wubjj38oak5b" path="res://Assets/back.png" id="2_g8k4e"]
 [ext_resource type="PackedScene" uid="uid://g8gsxxmv48ei" path="res://Scripts/Enemy/type1.tscn" id="3_4lwq5"]
+[ext_resource type="PackedScene" uid="uid://b5f8vpqafyeaa" path="res://Scenes/Player/player.tscn" id="5_650px"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5j10q"]
-size = Vector2(284, 211.5)
+size = Vector2(552, 161.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_avkwk"]
 size = Vector2(97, 152)
@@ -16,7 +17,7 @@ size = Vector2(656, 400)
 
 [node name="StageOne" type="Node2D"]
 script = ExtResource("1_oiyt2")
-enemies = [ExtResource("3_4lwq5")]
+enemies = Array[PackedScene]([ExtResource("3_4lwq5")])
 
 [node name="BG" type="ParallaxBackground" parent="."]
 script = ExtResource("1_esl4a")
@@ -36,7 +37,7 @@ autostart = true
 [node name="PlayArea" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayArea"]
-position = Vector2(225, 256.25)
+position = Vector2(292, 231.25)
 shape = SubResource("RectangleShape2D_5j10q")
 
 [node name="SpawnArea" type="Area2D" parent="."]
@@ -52,6 +53,10 @@ position = Vector2(-48, 208)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Despawn"]
 position = Vector2(344, -32)
 shape = SubResource("RectangleShape2D_2lll8")
+metadata/_edit_lock_ = true
+
+[node name="player" parent="." instance=ExtResource("5_650px")]
+position = Vector2(128, 208)
 
 [connection signal="timeout" from="EnemySpawnClock" to="." method="_on_enemy_spawn_clock_timeout"]
 [connection signal="body_exited" from="Despawn" to="." method="_on_despawn_body_exited"]
