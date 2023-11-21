@@ -1,26 +1,39 @@
-[gd_scene load_steps=5 format=3 uid="uid://ccy1equtsobr2"]
+[gd_scene load_steps=4 format=3 uid="uid://ccy1equtsobr2"]
 
 [ext_resource type="Texture2D" uid="uid://qyvq86im6lyj" path="res://Assets/Objects/bullet.png" id="1_02mwa"]
 [ext_resource type="Script" path="res://Scripts/Player/bullet.gd" id="1_d8eki"]
-[ext_resource type="PackedScene" uid="uid://b5f8vpqafyeaa" path="res://Scenes/player.tscn" id="2_0t701"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qn3c7"]
-radius = 5.0
+radius = 18.5677
 
 [node name="bullet" type="Area2D"]
 script = ExtResource("1_d8eki")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(27, 3)
-scale = Vector2(0.0251154, 0.0251154)
+scale = Vector2(0.0785219, 0.0785219)
 texture = ExtResource("1_02mwa")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(27, 3)
+position = Vector2(0.437489, 0.437487)
+rotation = 3.14159
 shape = SubResource("CircleShape2D_qn3c7")
 
-[node name="player" parent="." instance=ExtResource("2_0t701")]
-
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
-position = Vector2(-2, 4)
+position = Vector2(1, 2.38419e-07)
 scale = Vector2(0.45, 0.45)
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+scale = Vector2(0.0785219, 0.0785219)
+texture = ExtResource("1_02mwa")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(0.437489, 0.437487)
+rotation = 3.14159
+shape = SubResource("CircleShape2D_qn3c7")
+
+[node name="VisibleOnScreenNotifier2D2" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(1, 2.38419e-07)
+scale = Vector2(0.45, 0.45)
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D2" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
