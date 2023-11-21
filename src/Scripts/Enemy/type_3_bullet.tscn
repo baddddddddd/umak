@@ -1,0 +1,116 @@
+[gd_scene load_steps=13 format=3 uid="uid://cpbfrn8f0f82h"]
+
+[ext_resource type="Script" path="res://Scripts/Enemy/type_3_bullet.gd" id="1_8ydq3"]
+[ext_resource type="Texture2D" uid="uid://dxadgt8ctuoeg" path="res://Assets/Objects/wp.png" id="2_xrir6"]
+[ext_resource type="Texture2D" uid="uid://bbd15hee4s88l" path="res://Assets/Objects/wp1.png" id="3_p5ppm"]
+[ext_resource type="Texture2D" uid="uid://cslkkrds2xocn" path="res://Assets/Objects/wp2.png" id="4_rcjf7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j43t0"]
+atlas = ExtResource("2_xrir6")
+region = Rect2(0, 0, 154, 108)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a2eh0"]
+atlas = ExtResource("3_p5ppm")
+region = Rect2(0, 0, 154, 108)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_85c5r"]
+atlas = ExtResource("4_rcjf7")
+region = Rect2(0, 0, 154, 107)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_coiqf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j43t0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a2eh0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_85c5r")
+}],
+"loop": true,
+"name": &"Whirlpool",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_3r7fd"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="Animation" id="Animation_c8e3e"]
+resource_name = "Whirlpool"
+length = 3.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Whirlpool"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mtnml"]
+_data = {
+"RESET": SubResource("Animation_3r7fd"),
+"Whirlpool": SubResource("Animation_c8e3e")
+}
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_y32rn"]
+
+[node name="Type3Bullet" type="CharacterBody2D"]
+scale = Vector2(2, 2)
+collision_layer = 4096
+script = ExtResource("1_8ydq3")
+metadata/entity_type = "bullet"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.191153, 0.17419)
+sprite_frames = SubResource("SpriteFrames_coiqf")
+animation = &"Whirlpool"
+frame = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_mtnml")
+}
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_y32rn")
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
