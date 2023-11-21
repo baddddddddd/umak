@@ -1,0 +1,55 @@
+[gd_scene load_steps=3 format=3 uid="uid://n6m2iil72ebo"]
+
+[ext_resource type="Script" path="res://TitleScreen.gd" id="1_jdcpc"]
+[ext_resource type="PackedScene" uid="uid://dnjk18na4sq4b" path="res://Scenes/StageOne.tscn" id="2_vdl02"]
+
+[node name="TitleScreen" type="Node2D"]
+script = ExtResource("1_jdcpc")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 155.0
+offset_top = 16.0
+offset_right = 437.0
+offset_bottom = 88.0
+theme_override_colors/font_color = Color(0.796078, 0.917647, 0.196078, 1)
+theme_override_colors/font_shadow_color = Color(0.431373, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "Title Screen"
+horizontal_alignment = 1
+
+[node name="Start" type="Button" parent="."]
+offset_left = 232.0
+offset_top = 104.0
+offset_right = 348.0
+offset_bottom = 135.0
+focus_mode = 0
+text = "START"
+
+[node name="Options" type="Button" parent="."]
+offset_left = 232.0
+offset_top = 152.0
+offset_right = 348.0
+offset_bottom = 183.0
+focus_mode = 0
+text = "OPTIONS"
+
+[node name="About" type="Button" parent="."]
+offset_left = 232.0
+offset_top = 200.0
+offset_right = 348.0
+offset_bottom = 231.0
+focus_mode = 0
+text = "ABOUT"
+
+[node name="Exit" type="Button" parent="."]
+offset_left = 232.0
+offset_top = 248.0
+offset_right = 348.0
+offset_bottom = 279.0
+focus_mode = 0
+text = "EXIT"
+
+[node name="StageOne" parent="." instance=ExtResource("2_vdl02")]
+
+[connection signal="pressed" from="Start" to="." method="_on_start_pressed"]
