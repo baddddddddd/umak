@@ -8,7 +8,6 @@ func _process(delta):
 	var firing = $"..".get("firing")
 	if is_colliding() and firing:
 		var obj = get_collider()
-		
 		if obj.is_in_group("friendly"):
 			obj.deplete_hp(20)
 		
