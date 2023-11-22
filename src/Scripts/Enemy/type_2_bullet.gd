@@ -13,6 +13,7 @@ func _physics_process(delta):
 
 
 func start_attack():
+	firing = false
 	charge()
 	await get_tree().create_timer(3.0).timeout
 	fire()
@@ -21,11 +22,12 @@ func start_attack():
 	queue_free()
 		
 func charge():
-	firing = false
+	print("charge")
 	anim.play("Charging")
 	
 	
 func fire():
+	print("firing")
 	firing = true
 	anim.play("Fire")
 	

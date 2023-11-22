@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://dm38gd1lhlp5r"]
 
 [ext_resource type="Script" path="res://Scripts/Enemy/type2.gd" id="1_yke2v"]
-[ext_resource type="PackedScene" path="res://Scripts/Enemy/type_2_bullet.tscn" id="2_bvmhu"]
+[ext_resource type="PackedScene" uid="uid://bpbybc0ihfams" path="res://Scripts/Enemy/type_2_bullet.tscn" id="2_bvmhu"]
 [ext_resource type="Texture2D" uid="uid://4oyiimjl8fcm" path="res://Assets/SpaceShooterAssets/SpaceShooterAssetPack_Ships.png" id="3_7lyvp"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hk8sv"]
