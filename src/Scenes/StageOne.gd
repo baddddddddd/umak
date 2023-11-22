@@ -62,10 +62,10 @@ func trigger_qna(question, choices, answer):
 	
 	show_banner(question)
 	
-	var correct_answer = rng.randi_range(1, 4)
+	var correct_answer = rng.randi_range(0, 3)
 	
-	for i in range(1, 5):
-		var y_position = top_left.y + (spawn_area.shape.size.y * (0.20 * i))
+	for i in range(4):
+		var y_position = top_left.y + (spawn_area.shape.size.y * (0.25 * i)) + 20
 		var x_position = top_left.x
 		var position = Vector2(x_position, y_position)
 		
