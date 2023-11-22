@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://bpbybc0ihfams"]
+[gd_scene load_steps=12 format=3 uid="uid://bpbybc0ihfams"]
 
 [ext_resource type="Script" path="res://Scripts/Enemy/type_2_bullet.gd" id="1_yxjs1"]
 [ext_resource type="Texture2D" uid="uid://c1jncf74hktls" path="res://Assets/SpaceShooterAssets/charging.png" id="2_ui8r8"]
 [ext_resource type="Texture2D" uid="uid://c1yubkkkj8ee2" path="res://Assets/SpaceShooterAssets/firing.png" id="3_2vdxb"]
+[ext_resource type="Script" path="res://Scripts/Enemy/RayCast2D.gd" id="4_pri6r"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yga05"]
 atlas = ExtResource("2_ui8r8")
@@ -115,6 +116,14 @@ _data = {
 scale = Vector2(2, 2)
 script = ExtResource("1_yxjs1")
 metadata/entity_type = "bullet"
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2(6, -5.82077e-11)
+scale = Vector2(1, 1)
+target_position = Vector2(-643, 0)
+hit_from_inside = true
+collide_with_areas = true
+script = ExtResource("4_pri6r")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-314, 0)

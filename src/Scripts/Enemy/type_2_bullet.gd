@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 @export var speed = 10
-
+@export var firing = false
 @onready var anim = $AnimationPlayer
 
 func _ready():
@@ -17,15 +17,16 @@ func start_attack():
 	await get_tree().create_timer(3.0).timeout
 	fire()
 	await get_tree().create_timer(1.0).timeout
+	
 	queue_free()
 		
 func charge():
-	print("Chareg")
+	firing = false
 	anim.play("Charging")
 	
 	
 func fire():
-	print("FIre")
+	firing = true
 	anim.play("Fire")
 	
 
