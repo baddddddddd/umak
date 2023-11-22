@@ -16,6 +16,10 @@ var paused = true
 
 var top_left = Vector2(0, 0)
 
+# Quiz mode
+@onready var hud = $Hud
+
+
 func _ready():
 	top_left.x = spawn_area.global_position.x - (spawn_area.shape.size.x * 0.5)
 	top_left.y = spawn_area.global_position.y - (spawn_area.shape.size.y * 0.5)
@@ -25,8 +29,17 @@ func _ready():
 	
 	start_wave()
 	
-	#await get_tree().create_timer(10.0).timeout
-	#trigger_qna()
+	await get_tree().create_timer(10.0).timeout
+	
+	var question = "What is my name?"
+	var choices = [
+		"Vlad",
+		"Blado",
+		"Lad"
+	]
+	var answer = "Vladimir"
+	
+	trigger_qna(question, choices, answer)
 	
 
 func _on_enemy_spawn_clock_timeout():
@@ -37,11 +50,11 @@ func _on_enemy_spawn_clock_timeout():
 		await get_tree().create_timer(1).timeout
 
 
-func trigger_qna():
+func trigger_qna(question, choices, answer):
 	spawn_timer.stop()
+	await get_tree().create_timer(3.0).timeout
 	
 	var correct_answer = rng.randi_range(1, 4)
-	correct_answer = 1
 	
 	for i in range(1, 5):
 		var y_position = top_left.y + (spawn_area.shape.size.y * (0.20 * i))
@@ -50,9 +63,14 @@ func trigger_qna():
 		var enemy_instance = type_4.instantiate()
 		enemy_instance.global_position = Vector2(x_position, y_position)
 		
+		var banner_text = ""
+		
 		if i == correct_answer:
 			enemy_instance.set("invincible", false)
-		
+			banner_text = answer
+		else:
+			banner_text = choices.pop_front()
+			
 		get_tree().current_scene.add_child(enemy_instance)
 	
 	
