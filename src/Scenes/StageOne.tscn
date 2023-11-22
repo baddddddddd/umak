@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dnjk18na4sq4b"]
+[gd_scene load_steps=17 format=3 uid="uid://dnjk18na4sq4b"]
 
 [ext_resource type="Script" path="res://Scripts/Environment/BG.gd" id="1_esl4a"]
 [ext_resource type="Script" path="res://Scenes/StageOne.gd" id="1_oiyt2"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://ds0xgatxquywp" path="res://Assets/Pixel UI pack 3/04.png" id="3_w6px1"]
 [ext_resource type="PackedScene" uid="uid://b5f8vpqafyeaa" path="res://Scenes/Player/player.tscn" id="5_650px"]
 [ext_resource type="PackedScene" uid="uid://71x7rr26fjou" path="res://Scenes/pause_menu.tscn" id="7_xpqh7"]
+[ext_resource type="PackedScene" uid="uid://bvb7b5qu535gq" path="res://Scripts/Enemy/hud.tscn" id="9_ai6gi"]
 [ext_resource type="PackedScene" uid="uid://dfbx04ou617ld" path="res://Scenes/game_over_screen.tscn" id="10_k1l4d"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5j10q"]
@@ -133,6 +134,12 @@ offset_left = 248.0
 offset_top = 112.0
 offset_right = 248.0
 offset_bottom = 112.0
+
+[node name="Hud" parent="." instance=ExtResource("9_ai6gi")]
+offset_left = 216.0
+offset_top = 16.0
+offset_right = 216.0
+offset_bottom = 16.0
 
 [connection signal="timeout" from="EnemySpawnClock" to="." method="_on_enemy_spawn_clock_timeout"]
 [connection signal="body_exited" from="Despawn" to="." method="_on_despawn_body_exited"]

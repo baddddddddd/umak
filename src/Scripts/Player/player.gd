@@ -3,11 +3,10 @@ extends CharacterBody2D
 signal bullet_shot(bullet_scene, location)
 
 @onready var stage = $".."
-@onready var joystick = $'../joystick'
 @export var speed=150
 @onready var muzzle = $muzzle
 @onready var shoot_sound=$shoot_sound
-
+@onready var joystick = preload("res://Scenes/Player/joystick.tscn").instantiate()
 
 const NUMBER_OF_HP_FRAMES = 6
 
@@ -26,22 +25,43 @@ var bullet_scene=preload("res://Scenes/Player/bullet.tscn")
 
 
 func _ready():
+	if OS.get_name() == "Android":
+		joystick.position = Vector2(92, 233)
+		joystick.scale = Vector2(0.35, 0.35)
+		get_tree().current_scene.add_child.call_deferred(joystick)
+	
 	anim.play("Default")
 	
+	
+func _input(event):
+	if event is InputEventScreenTouch:
+		if event.pressed and not shooting:
+			shooting = true
+			shoot()
+		else:
+			shooting = false
+	
+	elif event is InputEventKey and event.keycode == KEY_SPACE:
+		if event.pressed and not shooting:
+			shooting = true
+			shoot()
+		else:
+			shooting = false
+		
+
 
 func _process(delta):
-	if Input.is_action_pressed("shoot"):  # Replace "shoot" with your spacebar input action
-		shooting = true
-	else:
-		shooting = false
-		shootTimer = 0.0  # Reset the timer when not shooting
+	match OS.get_name():
+		"Windows":
+			
+			if Input.is_action_pressed("shoot"):  # Replace "shoot" with your spacebar input action
+				shooting = true
+			else:
+				shooting = false
+				shootTimer = 0.0  # Reset the timer when not shooting
+		"Android":
+			pass
 
-	if shooting:
-		shootTimer += delta
-		if shootTimer > shootingDelay:
-			shootTimer = 0.0
-			shoot()  # Call your shooting function here
-			#shoot_sound.play()
 			
 	if not invincibility and entered_body != null:
 		deplete_hp(30)
@@ -56,7 +76,7 @@ func get_input():
 func _physics_process(delta):
 	match OS.get_name():
 		"Android":
-			var direction= joystick.posVector
+			var direction = joystick.posVector
 			if direction:
 				velocity=direction*speed
 			else:
@@ -72,6 +92,10 @@ func shoot():
 	bullet_instance.global_position = muzzle.global_position
 	
 	get_tree().current_scene.add_child(bullet_instance)
+	
+	if shooting:
+		await get_tree().create_timer(0.1).timeout
+		return await shoot()
 	#bullet_shot.emit(bullet_scene, muzzle.global_position)
 	
 	
