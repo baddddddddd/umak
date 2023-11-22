@@ -3,7 +3,7 @@ extends CharacterBody2D
 @export var speed: int
 @export var bullet: PackedScene
 @export var max_hp: int
-var hp = max_hp
+@onready var hp = max_hp
 
 
 func _ready():
