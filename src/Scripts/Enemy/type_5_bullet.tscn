@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=3 uid="uid://chsyoiycv3cm8"]
+
+[ext_resource type="Script" path="res://Scripts/Enemy/type_1_bullet.gd" id="1_voc48"]
+[ext_resource type="Texture2D" uid="uid://cn5643a0eclnv" path="res://Assets/SpaceShooterAssets/SpaceShooterAssetPack_Miscellaneous.png" id="2_35fa4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aakes"]
+atlas = ExtResource("2_35fa4")
+region = Rect2(63, 48, 9, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_coiqf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aakes")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yahxm"]
+radius = 4.0
+
+[node name="Type1Bullet" type="RigidBody2D" groups=["harmful"]]
+scale = Vector2(1e-05, 1e-05)
+collision_layer = 32
+mass = 0.01
+gravity_scale = 0.0
+max_contacts_reported = 1
+contact_monitor = true
+script = ExtResource("1_voc48")
+metadata/entity_type = "bullet"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_coiqf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(2, 2)
+shape = SubResource("CircleShape2D_yahxm")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
