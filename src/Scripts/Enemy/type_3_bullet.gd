@@ -18,7 +18,7 @@ func _process(delta):
 		target_body.global_position += direction * suction_speed * delta
 		var acceleration = Input.get_accelerometer()
 		var acceleration_length = acceleration.length()
-		
+
 		if acceleration_length > shake_threshold:
 			if acceleration_length > shake_threshold:
 				elapsed_time_since_shake += delta
