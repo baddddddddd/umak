@@ -14,6 +14,10 @@ config/name="umak"
 run/main_scene="res://Scenes/title_screen.tscn"
 config/features=PackedStringArray("4.1", "Mobile")
 
+[autoload]
+
+Global="*res://Scripts/Global.gd"
+
 [display]
 
 window/size/viewport_width=576

@@ -32,6 +32,8 @@ func _ready():
 	
 	anim.play("Default")
 	
+	Global.player_position = self.global_position
+	
 	
 func _input(event):
 	if event is InputEventScreenTouch:
@@ -78,6 +80,7 @@ func _physics_process(delta):
 			get_input()
 			
 	move_and_slide()
+	Global.player_position = self.global_position
 	
 	
 func shoot():

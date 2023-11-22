@@ -12,6 +12,7 @@ var my_random_number = rng.randf_range(-10.0, 10.0)
 var paused = true
 
 @onready var spawn_timer = $EnemySpawnClock
+@onready var player = $player
 @onready var type_4 = preload("res://Scripts/Enemy/type_4.tscn")
 @onready var banner_ui = preload("res://Scenes/banner.tscn")
 
@@ -21,6 +22,10 @@ var top_left = Vector2(0, 0)
 @onready var hud = $Hud
 
 
+# boss fight
+@onready var homing_missile_scene = preload("res://Scenes/homing_missile.tscn")
+@onready var boss_scene = preload("res://Scenes/boss_1.tscn")
+
 func _ready():
 	top_left.x = spawn_area.global_position.x - (spawn_area.shape.size.x * 0.5)
 	top_left.y = spawn_area.global_position.y - (spawn_area.shape.size.y * 0.5)
@@ -28,19 +33,25 @@ func _ready():
 	pause_menu.hide()
 	game_over_screen.hide()
 	
-	start_wave()
+	#start_wave()
 	
-	await get_tree().create_timer(4.0).timeout
+	#await get_tree().create_timer(10.0).timeout
 	
-	var question = "What is my name?"
+	var question = "Bibingka came from the word Bebinca which is influenced by ______"
 	var choices = [
-		"Vlad",
-		"Blado",
-		"Lad"
+		"Chinese",
+		"Spanish",
+		"Russians"
 	]
-	var answer = "Vladimir"
+	var answer = "Indians"
 	
-	trigger_qna(question, choices, answer)
+	#await trigger_qna(question, choices, answer)
+	
+	#start_wave()
+	
+	#await get_tree().create_timer(10.0).timeout
+
+	start_bossfight()	
 	
 
 func _on_enemy_spawn_clock_timeout():
@@ -62,6 +73,8 @@ func trigger_qna(question, choices, answer):
 	
 	show_banner(question)
 	
+	await get_tree().create_timer(2.0).timeout
+	
 	var correct_answer = rng.randi_range(0, 3)
 	
 	for i in range(4):
@@ -75,7 +88,7 @@ func trigger_qna(question, choices, answer):
 			var banner_text = choices.pop_front()
 			spawn_type_4(position, banner_text, true)
 			
-			
+	await get_tree().create_timer(10.0).timeout
 	
 
 func spawn_type_4(position, banner_text, invincible):
@@ -120,6 +133,25 @@ func pause():
 		
 	paused = !paused
 
+func start_bossfight():
+	spawn_timer.stop()
+	await get_tree().create_timer(5.0).timeout
+	
+	var boss_body = boss_scene.instantiate()
+	boss_body.global_position = spawn_area.global_position
+	get_tree().current_scene.add_child(boss_body)
+	
+	#shoot_missile()
+	
+
+func shoot_missile():
+	var homing_missile = homing_missile_scene.instantiate()
+	homing_missile.set("target_body", player)
+	
+	homing_missile.global_position = Vector2(150, 150)
+	
+	get_tree().current_scene.add_child(homing_missile)
+	
 
 func end_game():
 	Engine.time_scale = 0

@@ -1,9 +1,14 @@
 extends CharacterBody2D
 
-@export var speed = 50
+@export var speed = 20
 @export var bullet: PackedScene
-@export var hp = 100
+@export var hp = 150
 
+
+func _ready():
+	await get_tree().create_timer(1.0).timeout
+	attack()
+	$Timer.start()
 
 func _physics_process(delta):
 	velocity.x = -speed
