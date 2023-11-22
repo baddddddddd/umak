@@ -71,7 +71,7 @@ func shoot():
 	var bullet_instance = bullet_scene.instantiate()
 	bullet_instance.global_position = muzzle.global_position
 	
-	get_tree().get_root().add_child(bullet_instance)
+	get_tree().current_scene.add_child(bullet_instance)
 	#bullet_shot.emit(bullet_scene, muzzle.global_position)
 	
 	
@@ -109,7 +109,6 @@ func deactivate_invincibility():
 		
 func set_game_over():
 	stage.end_game()
-
 
 
 func _on_area_2d_body_entered(body):

@@ -15,7 +15,7 @@ func attack():
 	var bullet_instance = bullet.instantiate()
 	bullet_instance.global_position = $BulletSpawn.global_position
 	
-	get_tree().get_root().add_child(bullet_instance)
+	get_tree().current_scene.add_child(bullet_instance)
 
 
 func _on_timer_timeout():

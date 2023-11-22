@@ -37,12 +37,12 @@ func spawn_enemy():
 	var enemy = enemies[random_type].instantiate()
 	enemy.global_position = Vector2(top_left.x, random_y)
 	
-	get_tree().get_root().add_child(enemy)
+	get_tree().current_scene.add_child(enemy)
 
 
 func _on_despawn_body_exited(body):
 	if body.get_meta("entity_type") in ["bullet", "enemy"]:
-		get_tree().get_root().remove_child(body)
+		body.queue_free()
 		
 func pause():
 	if paused:
