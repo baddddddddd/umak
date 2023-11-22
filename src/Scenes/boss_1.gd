@@ -5,7 +5,7 @@ var rng = RandomNumberGenerator.new()
 @export var movement_range: Vector2 = Vector2(160, 300)
 
 @export var entrance_speed = 30
-@export var max_hp = 3000
+@export var max_hp = 5000
 var hp = max_hp
 
 @onready var attack_timer = $AttackTimer
@@ -38,7 +38,7 @@ func attack():
 		await attacks[attack_type].call()
 		
 	await move_random()
-	await get_tree().create_timer(3.0).timeout
+	await get_tree().create_timer(0.5).timeout
 	return await attack()
 	
 	
@@ -60,7 +60,7 @@ func move_random():
 	
 func laser_attack():
 	await lock_to_player()
-	await get_tree().create_timer(0.3).timeout
+	await get_tree().create_timer(0.2).timeout
 	
 	var laser_bullet = laser_scene.instantiate()
 	laser_bullet.global_position = cannon_muzzle.global_position
@@ -68,12 +68,12 @@ func laser_attack():
 	
 	get_tree().current_scene.add_child(laser_bullet)
 	
-	await get_tree().create_timer(6.0).timeout
+	await get_tree().create_timer(5.0).timeout
 	
 	
 func cannon_fire():
 	await lock_to_player()
-	await get_tree().create_timer(0.3).timeout
+	await get_tree().create_timer(0.2).timeout
 	
 	var cannon_bullet = cannon_scene.instantiate()
 	cannon_bullet.global_position = cannon_muzzle.global_position
@@ -84,9 +84,8 @@ func cannon_fire():
 func cannon_attack():
 	for i in range(3):
 		await cannon_fire()
-		await get_tree().create_timer(0.5).timeout
 		
-	await get_tree().create_timer(2.0).timeout	
+	await get_tree().create_timer(1.0).timeout	
 	
 	
 func deplete_hp(damage):

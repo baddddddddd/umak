@@ -113,7 +113,7 @@ _data = {
 }
 
 [node name="Type2Bullet" type="CharacterBody2D"]
-scale = Vector2(2, 2)
+y_sort_enabled = true
 script = ExtResource("1_yxjs1")
 metadata/entity_type = "bullet"
 
@@ -126,7 +126,7 @@ script = ExtResource("4_pri6r")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-314, 0)
 rotation = 3.14159
-scale = Vector2(0.229478, 0.162915)
+scale = Vector2(0.229, 1)
 sprite_frames = SubResource("SpriteFrames_38xcw")
 animation = &"Charging"
 frame = 1

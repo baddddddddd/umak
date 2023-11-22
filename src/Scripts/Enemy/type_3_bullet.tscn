@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cpbfrn8f0f82h"]
+[gd_scene load_steps=13 format=3 uid="uid://bjnhnrasmevd8"]
 
 [ext_resource type="Script" path="res://Scripts/Enemy/type_3_bullet.gd" id="1_8ydq3"]
 [ext_resource type="Texture2D" uid="uid://dxadgt8ctuoeg" path="res://Assets/Objects/wp.png" id="2_xrir6"]
@@ -87,6 +87,7 @@ _data = {
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_y32rn"]
 
 [node name="Type3Bullet" type="CharacterBody2D"]
+y_sort_enabled = true
 scale = Vector2(2, 2)
 collision_layer = 4096
 script = ExtResource("1_8ydq3")

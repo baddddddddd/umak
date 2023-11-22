@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://b860snt4y3ku4"]
+[gd_scene load_steps=11 format=3 uid="uid://d2flkeje3ciyt"]
 
 [ext_resource type="Script" path="res://Scenes/Player/ultimate.gd" id="1_h68l3"]
 [ext_resource type="Script" path="res://Scenes/Player/ultimateray.gd" id="2_xl2mf"]
@@ -112,6 +112,7 @@ _data = {
 }
 
 [node name="Ultimate" type="CharacterBody2D"]
+y_sort_enabled = true
 scale = Vector2(25, 2)
 script = ExtResource("1_h68l3")
 metadata/entity_type = "bullet"

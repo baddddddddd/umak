@@ -35,9 +35,9 @@ func _ready():
 	pause_menu.hide()
 	game_over_screen.hide()
 	
-	#start_wave()
+	start_wave()
 	
-	#await get_tree().create_timer(10.0).timeout
+	await get_tree().create_timer(10.0).timeout
 	
 	var question = "Bibingka came from the word Bebinca which is influenced by ______"
 	var choices = [
@@ -47,11 +47,11 @@ func _ready():
 	]
 	var answer = "Indians"
 	
-	#await trigger_qna(question, choices, answer)
+	await trigger_qna(question, choices, answer)
 	
-	#start_wave()
+	start_wave()
 	
-	#await get_tree().create_timer(10.0).timeout
+	await get_tree().create_timer(10.0).timeout
 
 	start_bossfight()	
 	
@@ -112,7 +112,7 @@ func spawn_type_4(position, banner_text, invincible):
 	
 func start_wave():
 	spawn_timer.start()
-	powerup_timer.start()
+	#powerup_timer.start()
 	
 
 func spawn_enemy():
@@ -124,8 +124,10 @@ func spawn_enemy():
 	enemy.global_position = Vector2(top_left.x, random_y)
 	
 	get_tree().current_scene.add_child(enemy)
+	
 
 func spawn_powerup():
+	return
 	var random_y = rng.randf_range(top_left.y, top_left.y + spawn_area.shape.size.y)
 	
 	var random_type = rng.randi_range(0, enemies.size() - 1)

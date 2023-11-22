@@ -22,7 +22,7 @@ animations = [{
 radius = 4.0
 
 [node name="Type1Bullet" type="RigidBody2D" groups=["harmful"]]
-scale = Vector2(1e-05, 1e-05)
+y_sort_enabled = true
 collision_layer = 32
 mass = 0.01
 gravity_scale = 0.0

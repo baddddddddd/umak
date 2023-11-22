@@ -21,6 +21,7 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k8ebk"]
 
 [node name="Boss1" type="CharacterBody2D" groups=["enemy"]]
+y_sort_enabled = true
 scale = Vector2(10, 10)
 collision_layer = 2
 collision_mask = 0
