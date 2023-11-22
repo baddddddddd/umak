@@ -21,7 +21,7 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_yahxm"]
 radius = 4.0
 
-[node name="Type1Bullet" type="RigidBody2D" groups=["harmful"]]
+[node name="Type5Bullet" type="RigidBody2D" groups=["harmful"]]
 scale = Vector2(1e-05, 1e-05)
 collision_layer = 32
 mass = 0.01
