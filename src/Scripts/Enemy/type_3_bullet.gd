@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 @export var speed = 40
-@export var suction_speed = 100
+@export var suction_speed = 300
 var entered = false
 var target_body
 var shake_threshold = 10.0

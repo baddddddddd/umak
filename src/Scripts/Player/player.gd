@@ -7,6 +7,10 @@ signal bullet_shot(bullet_scene, location)
 @onready var muzzle = $muzzle
 @onready var shoot_sound=$shoot_sound
 @onready var joystick = preload("res://Scenes/Player/joystick.tscn").instantiate()
+@onready var bbm = 0
+@onready var double_bullet = false
+@export var ultimate : PackedScene
+@onready var ult_active = false
 
 const NUMBER_OF_HP_FRAMES = 6
 
@@ -22,6 +26,7 @@ var shooting = false
 var shootingDelay = 0.1
 var shootTimer = 0.0
 var bullet_scene=preload("res://Scenes/Player/bullet.tscn")
+#var bullet_scene=preload("res://Scenes/PowerUps/BBM.tscn")
 
 
 func _ready():
@@ -59,8 +64,7 @@ func _process(delta):
 	
 	if not invincibility and entered_body != null:
 		deplete_hp(30)
-		
-		
+	
 
 func get_input():
 	var input_direction = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
@@ -72,7 +76,7 @@ func _physics_process(delta):
 	match OS.get_name():
 		"Android":
 			var direction = joystick.posVector
-			if direction:
+			if direction and (ult_active == false):
 				velocity=direction*speed
 			else:
 				velocity=Vector2(0,0)
@@ -85,11 +89,29 @@ func _physics_process(delta):
 	
 func shoot():
 	var bullet_instance = bullet_scene.instantiate()
-	bullet_instance.global_position = muzzle.global_position
-	
-	get_tree().current_scene.add_child(bullet_instance)
+	var second_bullet_instance = bullet_scene.instantiate()
+	if double_bullet:
+		bullet_instance.global_position = muzzle.global_position + Vector2(0, 10)
+		get_tree().current_scene.add_child(bullet_instance)
+		second_bullet_instance.global_position = muzzle.global_position + Vector2(0, -0)
+		get_tree().current_scene.add_child(second_bullet_instance)
+	else:
+		bullet_instance.global_position = muzzle.global_position
+		get_tree().current_scene.add_child(bullet_instance)
 	#bullet_shot.emit(bullet_scene, muzzle.global_position)
+	if bbm > 0:
+		bbm -= 1
+		if bbm == 0:
+			bullet_scene=preload("res://Scenes/Player/bullet.tscn")
 	
+	
+func fire_ultimate():
+	ult_active = true
+	var ultimate_instance = ultimate.instantiate()
+	ultimate_instance.global_position = muzzle.global_position
+	get_tree().current_scene.add_child(ultimate_instance)
+	await get_tree().create_timer(5.0).timeout
+	ult_active = false
 	
 func deplete_hp(damage):
 	if invincibility:
@@ -132,9 +154,21 @@ func _on_area_2d_body_entered(body):
 		entered_body = body
 		deplete_hp(30)
 
-
 func _on_area_2d_body_exited(body):
 	if entered_body != null:
 		if body == entered_body:
 			entered_body = null
-			
+
+func _on_area_2d_area_entered(area):
+	if area.is_in_group("powerup1"):
+		bullet_scene=preload("res://Scenes/PowerUps/BBM.tscn")
+		bbm = 3
+	if area.is_in_group("powerup2"):
+		shootingDelay = 0.05
+		await get_tree().create_timer(5.0).timeout
+		shootingDelay = 0.1
+	if area.is_in_group("powerup3"):
+		double_bullet = true
+		await get_tree().create_timer(5.0).timeout
+		double_bullet = false
+		

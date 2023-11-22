@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://b5f8vpqafyeaa"]
+[gd_scene load_steps=11 format=3 uid="uid://b5f8vpqafyeaa"]
 
 [ext_resource type="Script" path="res://Scripts/Player/player.gd" id="1_15tx1"]
 [ext_resource type="Texture2D" uid="uid://pt5s68i4crlp" path="res://Assets/Character/player.png" id="1_y50mj"]
+[ext_resource type="PackedScene" uid="uid://b860snt4y3ku4" path="res://Scenes/Player/ultimate.tscn" id="2_nkfk5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_guvb3"]
 size = Vector2(32, 32)
@@ -114,7 +115,9 @@ _data = {
 size = Vector2(32, 32)
 
 [node name="player" type="CharacterBody2D" groups=["friendly"]]
+collision_mask = 5
 script = ExtResource("1_15tx1")
+ultimate = ExtResource("2_nkfk5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_guvb3")
@@ -136,10 +139,11 @@ libraries = {
 }
 
 [node name="Area2D" type="Area2D" parent="."]
-collision_mask = 2
+collision_mask = 6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_4dh58")
 
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
