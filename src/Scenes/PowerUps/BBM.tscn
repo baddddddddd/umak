@@ -1,0 +1,69 @@
+[gd_scene load_steps=10 format=3 uid="uid://dej82gk236off"]
+
+[ext_resource type="Texture2D" uid="uid://bdx1lwunh3o6d" path="res://Assets/SpaceShooterAssets/SpaceShooterAssetPack_Projectiles.png" id="1_eyqfr"]
+[ext_resource type="Texture2D" uid="uid://cn5643a0eclnv" path="res://Assets/SpaceShooterAssets/SpaceShooterAssetPack_Miscellaneous.png" id="2_h764j"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qk8qw"]
+atlas = ExtResource("1_eyqfr")
+region = Rect2(16, 48, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fnpnu"]
+atlas = ExtResource("2_h764j")
+region = Rect2(96, 48, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_quomf"]
+atlas = ExtResource("2_h764j")
+region = Rect2(88, 48, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_umu3v"]
+atlas = ExtResource("2_h764j")
+region = Rect2(80, 48, 8, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wbelk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qk8qw")
+}],
+"loop": true,
+"name": &"BBM",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fnpnu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_quomf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_umu3v")
+}],
+"loop": true,
+"name": &"Explosion",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_e40cp"]
+radius = 3.0
+height = 10.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_a5r46"]
+radius = 21.0238
+
+[node name="BBM" type="RigidBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+rotation = 0.785398
+sprite_frames = SubResource("SpriteFrames_wbelk")
+animation = &"BBM"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 0)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_e40cp")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_a5r46")
