@@ -8,6 +8,7 @@ var my_random_number = rng.randf_range(-10.0, 10.0)
 
 @onready var spawn_area = $SpawnArea/CollisionShape2D
 @onready var pause_menu = $PauseMenu
+@onready var game_over_screen = $GameOverScreen
 var paused = true
 
 var top_left = Vector2(0, 0)
@@ -17,6 +18,7 @@ func _ready():
 	top_left.y = spawn_area.global_position.y - (spawn_area.shape.size.y * 0.5)
 	
 	pause_menu.hide()
+	game_over_screen.hide()
 	
 
 func _on_enemy_spawn_clock_timeout():
@@ -35,12 +37,12 @@ func spawn_enemy():
 	var enemy = enemies[random_type].instantiate()
 	enemy.global_position = Vector2(top_left.x, random_y)
 	
-	get_tree().get_root().add_child(enemy)
+	get_tree().current_scene.add_child(enemy)
 
 
 func _on_despawn_body_exited(body):
 	if body.get_meta("entity_type") in ["bullet", "enemy"]:
-		get_tree().get_root().remove_child(body)
+		body.queue_free()
 		
 func pause():
 	if paused:
@@ -52,6 +54,11 @@ func pause():
 		
 	paused = !paused
 
+
+func end_game():
+	Engine.time_scale = 0
+	game_over_screen.show()
+	
 
 func _on_pause_button_pressed():
 	pause()

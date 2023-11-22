@@ -30,4 +30,4 @@ func spawn_whirlpool():
 	var whirlpool = preload("res://Scripts/Enemy/type_3_bullet.tscn").instantiate()
 	whirlpool.global_position = Vector2(random_x, random_y)
 	
-	get_tree().get_root().add_child(whirlpool)
+	get_tree().current_scene.add_child(whirlpool)

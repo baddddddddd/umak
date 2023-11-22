@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://4oyiimjl8fcm" path="res://Assets/SpaceShooterAssets/SpaceShooterAssetPack_Ships.png" id="1_0ywqm"]
 [ext_resource type="Script" path="res://Scripts/Enemy/type1.gd" id="1_ne2sj"]
-[ext_resource type="PackedScene" path="res://Scripts/Enemy/type_1_bullet.tscn" id="2_1iu7c"]
+[ext_resource type="PackedScene" uid="uid://dvx84x75xn6gu" path="res://Scripts/Enemy/type_1_bullet.tscn" id="2_1iu7c"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2008r"]
 atlas = ExtResource("1_0ywqm")
