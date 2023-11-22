@@ -11,6 +11,9 @@ var my_random_number = rng.randf_range(-10.0, 10.0)
 @onready var game_over_screen = $GameOverScreen
 var paused = true
 
+@onready var spawn_timer = $EnemySpawnClock
+@onready var type_4 = preload("res://Scripts/Enemy/type_4.tscn")
+
 var top_left = Vector2(0, 0)
 
 func _ready():
@@ -20,6 +23,11 @@ func _ready():
 	pause_menu.hide()
 	game_over_screen.hide()
 	
+	start_wave()
+	
+	#await get_tree().create_timer(10.0).timeout
+	#trigger_qna()
+	
 
 func _on_enemy_spawn_clock_timeout():
 	var number_of_enemies = rng.randi_range(1, 2)
@@ -28,6 +36,29 @@ func _on_enemy_spawn_clock_timeout():
 		spawn_enemy()
 		await get_tree().create_timer(1).timeout
 
+
+func trigger_qna():
+	spawn_timer.stop()
+	
+	var correct_answer = rng.randi_range(1, 4)
+	correct_answer = 1
+	
+	for i in range(1, 5):
+		var y_position = top_left.y + (spawn_area.shape.size.y * (0.20 * i))
+		var x_position = top_left.x
+		
+		var enemy_instance = type_4.instantiate()
+		enemy_instance.global_position = Vector2(x_position, y_position)
+		
+		if i == correct_answer:
+			enemy_instance.set("invincible", false)
+		
+		get_tree().current_scene.add_child(enemy_instance)
+	
+	
+func start_wave():
+	spawn_timer.start()
+	
 
 func spawn_enemy():
 	var random_y = rng.randf_range(top_left.y, top_left.y + spawn_area.shape.size.y)
