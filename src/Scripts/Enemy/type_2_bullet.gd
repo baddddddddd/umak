@@ -22,12 +22,10 @@ func start_attack():
 	queue_free()
 		
 func charge():
-	print("charge")
 	anim.play("Charging")
 	
 	
 func fire():
-	print("firing")
 	firing = true
 	anim.play("Fire")
 	

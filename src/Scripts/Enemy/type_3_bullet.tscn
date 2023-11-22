@@ -87,6 +87,7 @@ _data = {
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_y32rn"]
 
 [node name="Type3Bullet" type="CharacterBody2D"]
+z_index = -1
 y_sort_enabled = true
 scale = Vector2(2, 2)
 collision_layer = 4096
