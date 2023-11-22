@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://h3owqnn3esxd"]
+[gd_scene load_steps=7 format=3 uid="uid://h3owqnn3esxd"]
 
 [ext_resource type="Texture2D" uid="uid://4oyiimjl8fcm" path="res://Assets/SpaceShooterAssets/SpaceShooterAssetPack_Ships.png" id="1_3n16o"]
 [ext_resource type="Script" path="res://Scripts/Enemy/type_4.gd" id="1_puw0u"]
+[ext_resource type="PackedScene" uid="uid://bbelkotkcijx3" path="res://Scenes/banner.tscn" id="3_gyiho"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ss366"]
 
@@ -33,10 +34,18 @@ shape = SubResource("RectangleShape2D_ss366")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_d2ptj")
 
-[node name="Label" type="Label" parent="."]
-offset_left = -20.0
-offset_top = -96.0
-offset_right = 20.0
-offset_bottom = -10.0
-text = "awdwad"
-autowrap_mode = 3
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -8.00004
+offset_top = -12.0
+offset_right = 32.0
+offset_bottom = 28.0
+
+[node name="Banner" parent="." instance=ExtResource("3_gyiho")]
+offset_left = -7.50003
+offset_top = -12.0
+offset_right = -7.50003
+offset_bottom = -12.0
+rotation = 4.71239
+scale = Vector2(0.4, 0.4)
