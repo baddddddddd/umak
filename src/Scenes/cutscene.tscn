@@ -1,0 +1,515 @@
+[gd_scene load_steps=17 format=3 uid="uid://cq2riibf1pe61"]
+
+[ext_resource type="Script" path="res://cutscene.gd" id="1_6tqvt"]
+[ext_resource type="Texture2D" uid="uid://cgth5oi6p2uai" path="res://Assets/1.jpg" id="1_7twfj"]
+[ext_resource type="Texture2D" uid="uid://cy73uwdjl5iyn" path="res://Assets/black.png" id="2_8q1uc"]
+[ext_resource type="Texture2D" uid="uid://dwgcpkd8112yn" path="res://Assets/2.jpg" id="2_qus4m"]
+[ext_resource type="Texture2D" uid="uid://c0iid7p3mipcw" path="res://Assets/6.jpg" id="3_7sqbx"]
+[ext_resource type="Script" path="res://AnimationPlayer.gd" id="3_rwcrr"]
+[ext_resource type="Texture2D" uid="uid://c4s6a5kjkc5x6" path="res://Assets/5.jpg" id="4_nq7qk"]
+[ext_resource type="Texture2D" uid="uid://bt6vc1ot66mgc" path="res://Assets/3.jpg" id="5_n1y1o"]
+[ext_resource type="Texture2D" uid="uid://cid6vnql751gu" path="res://Assets/4.jpg" id="5_qraht"]
+[ext_resource type="Texture2D" uid="uid://tytlplaldh6q" path="res://Assets/banner.png" id="9_cpreh"]
+[ext_resource type="FontFile" uid="uid://timtq8nyjxep" path="res://Assets/font/Pixeled.ttf" id="10_0lo6t"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_o11xv"]
+font = ExtResource("10_0lo6t")
+font_size = 70
+
+[sub_resource type="Animation" id="Animation_uda4u"]
+resource_name = "pan1"
+length = 43.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("one:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 4.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(652.5, 324.25), Vector2(503, 324.25)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("one:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(4.9, 5.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("two:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(4.9, 9.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(511.011, 323.974), Vector2(651.011, 323.974)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("two:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(8, 10.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("three:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(8.1, 14.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(651, 325), Vector2(501, 323)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("three:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(13.3, 15.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("four:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(13.3, 19),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(501, 324), Vector2(651, 324)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("four:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(18, 20.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("five:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(18.1, 25.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(431, 364), Vector2(726, 286)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("five:modulate")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(22.7, 25.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.756863, 0.592157, 0.831373, 0)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("six:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(25, 33.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(503, 227), Vector2(503, 323)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("six:modulate")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(32.6, 34.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("v1:modulate")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0.2, 0.8, 5, 5.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("v2:modulate")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(4.9, 5.2, 7.9, 8.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("v3:modulate")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(7.9, 8.4, 13.9, 14.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("v5:modulate")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(18.6, 19.8, 22.1, 22.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("v4:modulate")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(13.9, 14.7, 18.6, 19.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/17/type = "value"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("narrator:modulate")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"times": PackedFloat32Array(21.2, 22.2, 25, 26),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/18/type = "value"
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/path = NodePath("v6:modulate")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/keys = {
+"times": PackedFloat32Array(21.2, 22.4, 26.7, 28.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/19/type = "value"
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/path = NodePath("v7:modulate")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/keys = {
+"times": PackedFloat32Array(25.8, 27.3, 29.2, 30.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/20/type = "value"
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/path = NodePath("v8:modulate")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/keys = {
+"times": PackedFloat32Array(29.1, 30.2, 31.9, 32.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_qsuw0"]
+resource_name = "pan2"
+length = 5.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("two:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.03, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(506, 324), Vector2(652.5, 323.25)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("two:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(4.8, 5.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_b0xji"]
+_data = {
+"pan1": SubResource("Animation_uda4u"),
+"pan2": SubResource("Animation_qsuw0")
+}
+
+[sub_resource type="LabelSettings" id="LabelSettings_645vu"]
+font = ExtResource("10_0lo6t")
+font_size = 60
+
+[node name="cutscene" type="Node2D"]
+script = ExtResource("1_6tqvt")
+
+[node name="before_homepage" type="Sprite2D" parent="."]
+position = Vector2(597, 338)
+scale = Vector2(0.646296, 0.646296)
+texture = ExtResource("2_8q1uc")
+metadata/_edit_lock_ = true
+
+[node name="Label" type="Label" parent="before_homepage"]
+offset_left = -809.226
+offset_top = -464.183
+offset_right = 811.774
+offset_bottom = 389.817
+text = "Can Jun reclaim the Pearlest Sea?"
+label_settings = SubResource("LabelSettings_o11xv")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_b0xji")
+}
+script = ExtResource("3_rwcrr")
+
+[node name="six" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(503, 323)
+scale = Vector2(1.26855, 1.26172)
+texture = ExtResource("3_7sqbx")
+metadata/_edit_lock_ = true
+
+[node name="five" type="Sprite2D" parent="."]
+modulate = Color(0.756863, 0.592157, 0.831373, 0)
+position = Vector2(726, 286)
+scale = Vector2(1.41797, 1.41797)
+texture = ExtResource("4_nq7qk")
+metadata/_edit_lock_ = true
+
+[node name="narrator" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(592, 343)
+scale = Vector2(0.795833, 0.775926)
+texture = ExtResource("2_8q1uc")
+metadata/_edit_lock_ = true
+
+[node name="four" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(651, 324)
+scale = Vector2(1.26953, 1.26563)
+texture = ExtResource("5_qraht")
+metadata/_edit_lock_ = true
+
+[node name="three" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(501, 323)
+scale = Vector2(1.01648, 1.01794)
+texture = ExtResource("5_n1y1o")
+metadata/_edit_lock_ = true
+
+[node name="two" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(651.011, 323.974)
+scale = Vector2(1.27051, 1.27051)
+texture = ExtResource("2_qus4m")
+metadata/_edit_lock_ = true
+
+[node name="one" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+visibility_layer = 513
+position = Vector2(503, 324.25)
+scale = Vector2(1.27246, 1.27246)
+texture = ExtResource("1_7twfj")
+metadata/_edit_lock_ = true
+
+[node name="v8" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(577, 549.125)
+scale = Vector2(0.315747, 0.299107)
+texture = ExtResource("9_cpreh")
+
+[node name="Label" type="Label" parent="v8"]
+offset_left = -1489.0
+offset_top = -221.0
+offset_right = 1551.0
+offset_bottom = 120.0
+text = "With the help of my amphibian vehicle, TOAD, I'll reclaim the Pearlest Sea back myself!"
+label_settings = SubResource("LabelSettings_645vu")
+autowrap_mode = 2
+justification_flags = 171
+
+[node name="v7" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(577, 549.125)
+scale = Vector2(0.315747, 0.299107)
+texture = ExtResource("9_cpreh")
+
+[node name="Label" type="Label" parent="v7"]
+offset_left = -1489.0
+offset_top = -221.0
+offset_right = 1551.0
+offset_bottom = 120.0
+text = "Jun: Fear not! I hail from PhilipBeans land!"
+label_settings = SubResource("LabelSettings_645vu")
+autowrap_mode = 2
+justification_flags = 171
+
+[node name="v6" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(577, 549.125)
+scale = Vector2(0.315747, 0.299107)
+texture = ExtResource("9_cpreh")
+
+[node name="Label" type="Label" parent="v6"]
+offset_left = -1489.0
+offset_top = -221.0
+offset_right = 1551.0
+offset_bottom = 120.0
+text = "Suddenly, a courageous figure enters."
+label_settings = SubResource("LabelSettings_645vu")
+autowrap_mode = 2
+justification_flags = 171
+
+[node name="v5" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(577, 549.125)
+scale = Vector2(0.315747, 0.299107)
+texture = ExtResource("9_cpreh")
+
+[node name="Label" type="Label" parent="v5"]
+offset_left = -1489.0
+offset_top = -221.0
+offset_right = 1551.0
+offset_bottom = 120.0
+text = "Therefore I shall return, adios! [flees]"
+label_settings = SubResource("LabelSettings_645vu")
+autowrap_mode = 2
+justification_flags = 171
+
+[node name="v4" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(577, 549.125)
+scale = Vector2(0.315747, 0.299107)
+texture = ExtResource("9_cpreh")
+
+[node name="Label" type="Label" parent="v4"]
+offset_left = -1488.53
+offset_top = -221.075
+offset_right = 1551.47
+offset_bottom = 627.925
+text = "That stirred my stew! I wanted Pearlest Sea back but lacked hands, feet, and tails...."
+label_settings = SubResource("LabelSettings_645vu")
+autowrap_mode = 2
+justification_flags = 171
+
+[node name="v3" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(577, 549.125)
+scale = Vector2(0.315747, 0.299107)
+texture = ExtResource("9_cpreh")
+
+[node name="Label" type="Label" parent="v3"]
+offset_left = -1489.0
+offset_top = -221.0
+offset_right = 1551.0
+offset_bottom = 227.0
+text = "but Zhi Jin's vessel sprayed him away like an angry cat with a water cannon! "
+label_settings = SubResource("LabelSettings_645vu")
+autowrap_mode = 2
+justification_flags = 171
+
+[node name="v2" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(577, 549.125)
+scale = Vector2(0.315747, 0.299107)
+texture = ExtResource("9_cpreh")
+
+[node name="Label" type="Label" parent="v2"]
+offset_left = -1489.0
+offset_top = -221.0
+offset_right = 1551.0
+offset_bottom = 130.0
+text = "Our fisherman went to Pearlest Sea to fish"
+label_settings = SubResource("LabelSettings_645vu")
+autowrap_mode = 2
+justification_flags = 171
+
+[node name="v1" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(577, 549.125)
+scale = Vector2(0.315747, 0.299107)
+texture = ExtResource("9_cpreh")
+
+[node name="Label" type="Label" parent="v1"]
+offset_left = -1488.53
+offset_top = -221.075
+offset_right = 1551.47
+offset_bottom = 627.925
+text = "Chief Banban: Attention to all people of PhilipBeans! Chief Zhi Jin lays claim to Pearl Sea!"
+label_settings = SubResource("LabelSettings_645vu")
+autowrap_mode = 2
+justification_flags = 171
