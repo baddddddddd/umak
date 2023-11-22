@@ -28,33 +28,6 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4pplm"]
 size = Vector2(37, 37)
 
-[sub_resource type="Animation" id="Animation_06p4d"]
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite2D:animation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [&"default"]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("AnimatedSprite2D:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [0, 0]
-}
-
 [sub_resource type="Animation" id="Animation_2pr7q"]
 resource_name = "Powerup1"
 loop_mode = 1
@@ -83,14 +56,41 @@ tracks/1/keys = {
 "values": [0, 1]
 }
 
+[sub_resource type="Animation" id="Animation_06p4d"]
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"default"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 0]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_th8iw"]
 _data = {
 "Powerup1": SubResource("Animation_2pr7q"),
 "RESET": SubResource("Animation_06p4d")
 }
 
-[node name="powerup1" type="CharacterBody2D"]
-collision_layer = 4
+[node name="powerup1" type="CharacterBody2D" groups=["powerup"]]
+collision_layer = 0
 collision_mask = 0
 script = ExtResource("1_pcvjr")
 
@@ -99,7 +99,8 @@ sprite_frames = SubResource("SpriteFrames_5s48p")
 animation = &"Powerup1"
 frame_progress = 0.582957
 
-[node name="Area2D" type="Area2D" parent="AnimatedSprite2D"]
+[node name="Area2D" type="Area2D" parent="AnimatedSprite2D" groups=["powerup"]]
+collision_layer = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/Area2D"]
 position = Vector2(0.5, -2.5)

@@ -7,6 +7,7 @@ signal bullet_shot(bullet_scene, location)
 @onready var muzzle = $muzzle
 @onready var shoot_sound=$shoot_sound
 @onready var joystick = preload("res://Scenes/Player/joystick.tscn").instantiate()
+@onready var bbm = 0
 
 const NUMBER_OF_HP_FRAMES = 6
 
@@ -22,6 +23,7 @@ var shooting = false
 var shootingDelay = 0.1
 var shootTimer = 0.0
 var bullet_scene=preload("res://Scenes/Player/bullet.tscn")
+#var bullet_scene=preload("res://Scenes/PowerUps/BBM.tscn")
 
 
 func _ready():
@@ -57,8 +59,7 @@ func _process(delta):
 	
 	if not invincibility and entered_body != null:
 		deplete_hp(30)
-		
-		
+	
 
 func get_input():
 	var input_direction = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
@@ -86,6 +87,12 @@ func shoot():
 	
 	get_tree().current_scene.add_child(bullet_instance)
 	#bullet_shot.emit(bullet_scene, muzzle.global_position)
+	if bbm > 0:
+		print("bbming")
+		bbm -= 1
+		if bbm == 0:
+			bullet_scene=preload("res://Scenes/Player/bullet.tscn")
+	
 	
 	
 func deplete_hp(damage):
@@ -129,9 +136,15 @@ func _on_area_2d_body_entered(body):
 		entered_body = body
 		deplete_hp(30)
 
-
 func _on_area_2d_body_exited(body):
 	if entered_body != null:
 		if body == entered_body:
 			entered_body = null
-			
+
+
+
+func _on_area_2d_area_entered(area):
+	if area.is_in_group("powerup"):
+		bullet_scene=preload("res://Scenes/PowerUps/BBM.tscn")
+		bbm = 3
+
