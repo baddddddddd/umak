@@ -57,15 +57,15 @@ func _ready():
 	
 
 func _on_enemy_spawn_clock_timeout():
-    var number_of_enemies = rng.randi_range(1, 2)
-    
-    for i in range(number_of_enemies):
-        spawn_enemy()
-        await get_tree().create_timer(1).timeout
+	var number_of_enemies = rng.randi_range(1, 2)
+	
+	for i in range(number_of_enemies):
+		spawn_enemy()
+		await get_tree().create_timer(1).timeout
 
 func _on_power_up_spawn_clock_timeout():
-    spawn_powerup()
-    await get_tree().create_timer(5).timeout
+	spawn_powerup()
+	await get_tree().create_timer(5).timeout
 
 
 func show_banner(text):
@@ -111,34 +111,34 @@ func spawn_type_4(position, banner_text, invincible):
 	
 	
 func start_wave():
-    spawn_timer.start()
-    powerup_timer.start()
-    
+	spawn_timer.start()
+	powerup_timer.start()
+	
 
 func spawn_enemy():
-    var random_y = rng.randf_range(top_left.y, top_left.y + spawn_area.shape.size.y)
-    
-    var random_type = rng.randi_range(0, enemies.size() - 1)
-    
-    var enemy = enemies[random_type].instantiate()
-    enemy.global_position = Vector2(top_left.x, random_y)
-    
-    get_tree().current_scene.add_child(enemy)
+	var random_y = rng.randf_range(top_left.y, top_left.y + spawn_area.shape.size.y)
+	
+	var random_type = rng.randi_range(0, enemies.size() - 1)
+	
+	var enemy = enemies[random_type].instantiate()
+	enemy.global_position = Vector2(top_left.x, random_y)
+	
+	get_tree().current_scene.add_child(enemy)
 
 func spawn_powerup():
-    var random_y = rng.randf_range(top_left.y, top_left.y + spawn_area.shape.size.y)
-    
-    var random_type = rng.randi_range(0, enemies.size() - 1)
-    
-    var powerup = powerups[random_type].instantiate()
-    powerup.global_position = Vector2(top_left.x, random_y)
-    
-    get_tree().current_scene.add_child(powerup)
-    
+	var random_y = rng.randf_range(top_left.y, top_left.y + spawn_area.shape.size.y)
+	
+	var random_type = rng.randi_range(0, enemies.size() - 1)
+	
+	var powerup = powerups[random_type].instantiate()
+	powerup.global_position = Vector2(top_left.x, random_y)
+	
+	get_tree().current_scene.add_child(powerup)
+	
 func _on_despawn_body_exited(body):
-    if body.get_meta("entity_type") in ["bullet", "enemy"]:
-        body.queue_free()
-        
+	if body.get_meta("entity_type") in ["bullet", "enemy"]:
+		body.queue_free()
+		
 func pause():
 	if paused:
 		pause_menu.show()
@@ -150,12 +150,32 @@ func pause():
 	paused = !paused
 
 
+func start_bossfight():
+	spawn_timer.stop()
+	await get_tree().create_timer(5.0).timeout
+	
+	var boss_body = boss_scene.instantiate()
+	boss_body.global_position = spawn_area.global_position
+	get_tree().current_scene.add_child(boss_body)
+	
+	#shoot_missile()
+	
+func shoot_missile():
+	var homing_missile = homing_missile_scene.instantiate()
+	homing_missile.set("target_body", player)
+	
+	homing_missile.global_position = Vector2(150, 150)
+	
+	get_tree().current_scene.add_child(homing_missile)
+
+
+
 func end_game():
-    Engine.time_scale = 0
-    game_over_screen.show()
-    
+	Engine.time_scale = 0
+	game_over_screen.show()
+	
 
 func _on_pause_button_pressed():
-    pause()
+	pause()
 
 
