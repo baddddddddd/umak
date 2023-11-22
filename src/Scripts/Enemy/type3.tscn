@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://eppq2k6h042w"]
 
 [ext_resource type="Script" path="res://Scripts/Enemy/type3.gd" id="1_cd5vj"]
-[ext_resource type="PackedScene" path="res://Scripts/Enemy/type_3_bullet.tscn" id="2_020yr"]
+[ext_resource type="PackedScene" uid="uid://bjnhnrasmevd8" path="res://Scripts/Enemy/type_3_bullet.tscn" id="2_020yr"]
 [ext_resource type="Texture2D" uid="uid://4oyiimjl8fcm" path="res://Assets/SpaceShooterAssets/SpaceShooterAssetPack_Ships.png" id="3_285or"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jp8as"]
@@ -21,13 +21,15 @@ animations = [{
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k1cpk"]
 
-[node name="Enemy" type="CharacterBody2D"]
+[node name="Enemy" type="CharacterBody2D" groups=["enemy", "harmful"]]
 y_sort_enabled = true
-scale = Vector2(2, 2)
+scale = Vector2(2.5, 2.5)
 collision_layer = 2
 collision_mask = 0
 script = ExtResource("1_cd5vj")
+speed = 70
 bullet = ExtResource("2_020yr")
+max_hp = 150
 metadata/entity_type = "enemy"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

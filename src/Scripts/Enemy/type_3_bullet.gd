@@ -32,7 +32,7 @@ func _physics_process(delta):
 	move_and_slide()
 
 func _on_area_2d_body_entered(body):
-	if body.has_method("shoot"):
+	if body.is_in_group("friendly"):
 		target_body = body
 		entered = true
 
