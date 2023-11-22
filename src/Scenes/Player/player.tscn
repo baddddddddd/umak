@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://b5f8vpqafyeaa"]
+[gd_scene load_steps=10 format=3 uid="uid://b5f8vpqafyeaa"]
 
 [ext_resource type="Script" path="res://Scripts/Player/player.gd" id="1_15tx1"]
 [ext_resource type="Texture2D" uid="uid://pt5s68i4crlp" path="res://Assets/Character/player.png" id="1_y50mj"]
@@ -110,8 +110,10 @@ _data = {
 "RESET": SubResource("Animation_lbowt")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4dh58"]
+size = Vector2(32, 32)
+
 [node name="player" type="CharacterBody2D" groups=["friendly"]]
-collision_mask = 3
 script = ExtResource("1_15tx1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -132,3 +134,12 @@ speed_scale = 1.2
 libraries = {
 "": SubResource("AnimationLibrary_uyu0g")
 }
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_4dh58")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

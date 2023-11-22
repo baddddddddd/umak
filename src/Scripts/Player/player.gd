@@ -16,6 +16,7 @@ const NUMBER_OF_HP_FRAMES = 6
 var hp = max_hp
 
 var invincibility = false
+var entered_body = null
 @onready var anim = $AnimationPlayer
 
 var shooting = false
@@ -23,6 +24,10 @@ var shootingDelay = 0.1
 var shootTimer = 0.0
 var bullet_scene=preload("res://Scenes/Player/bullet.tscn")
 
+
+func _ready():
+	anim.play("Default")
+	
 
 func _process(delta):
 	if Input.is_action_pressed("shoot"):  # Replace "shoot" with your spacebar input action
@@ -37,6 +42,10 @@ func _process(delta):
 			shootTimer = 0.0
 			shoot()  # Call your shooting function here
 			#shoot_sound.play()
+			
+	if not invincibility and entered_body != null:
+		deplete_hp(30)
+		
 
 func get_input():
 	var input_direction = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
@@ -89,7 +98,7 @@ func activate_invincible():
 	invincibility = true
 	anim.play("Invincible")
 	
-	await get_tree().create_timer(4.0).timeout
+	await get_tree().create_timer(4.2).timeout
 	deactivate_invincibility()
 	
 	
@@ -101,3 +110,16 @@ func deactivate_invincibility():
 func set_game_over():
 	stage.end_game()
 
+
+
+func _on_area_2d_body_entered(body):
+	if body.is_in_group("enemy"):
+		entered_body = body
+		deplete_hp(30)
+
+
+func _on_area_2d_body_exited(body):
+	if entered_body != null:
+		if body == entered_body:
+			entered_body = null
+			
