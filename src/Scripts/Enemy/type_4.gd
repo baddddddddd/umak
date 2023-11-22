@@ -4,6 +4,9 @@ extends CharacterBody2D
 @export var hp = 500
 @export var invincible: bool = true
 
+func _ready():
+	$Banner.hide()
+
 
 func _physics_process(delta):
 	velocity.x = -speed

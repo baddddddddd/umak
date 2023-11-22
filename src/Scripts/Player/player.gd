@@ -35,36 +35,29 @@ func _ready():
 	
 func _input(event):
 	if event is InputEventScreenTouch:
-		if event.pressed and not shooting:
+		if event.pressed and event.position.x >= (get_viewport_rect().size.x / 2) and not shooting:
 			shooting = true
-			shoot()
 		else:
 			shooting = false
 	
 	elif event is InputEventKey and event.keycode == KEY_SPACE:
-		if event.pressed and not shooting:
+		if event.pressed:
 			shooting = true
-			shoot()
 		else:
 			shooting = false
-		
 
 
 func _process(delta):
-	match OS.get_name():
-		"Windows":
-			
-			if Input.is_action_pressed("shoot"):  # Replace "shoot" with your spacebar input action
-				shooting = true
-			else:
-				shooting = false
-				shootTimer = 0.0  # Reset the timer when not shooting
-		"Android":
-			pass
-
-			
+	shootTimer += delta
+	
+	if shooting:	
+		if shootTimer >= shootingDelay:
+			shootTimer = 0
+			shoot()
+	
 	if not invincibility and entered_body != null:
 		deplete_hp(30)
+		
 		
 
 func get_input():
@@ -92,10 +85,6 @@ func shoot():
 	bullet_instance.global_position = muzzle.global_position
 	
 	get_tree().current_scene.add_child(bullet_instance)
-	
-	if shooting:
-		await get_tree().create_timer(0.1).timeout
-		return await shoot()
 	#bullet_shot.emit(bullet_scene, muzzle.global_position)
 	
 	
