@@ -186,6 +186,16 @@ func _on_area_2d_body_entered(body):
 			await get_tree().create_timer(5.0).timeout
 			$"../ActivePowerup/Powerup3".visible = false
 			double_bullet = false
+		elif body.is_in_group("powerup4"):
+			body.queue_free()
+			invincibility = true
+			$muzzle/Sprite2D.visible = true
+			$"../ActivePowerup/Powerup4".visible = true
+			await get_tree().create_timer(5.0).timeout
+			invincibility = false
+			$muzzle/Sprite2D.visible = false
+			$"../ActivePowerup/Powerup4".visible = false
+			
 			
 			
 		
