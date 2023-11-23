@@ -1,11 +1,11 @@
-[gd_scene load_steps=31 format=3 uid="uid://bfoc0his1pf4p"]
+[gd_scene load_steps=32 format=3 uid="uid://bfoc0his1pf4p"]
 
 [ext_resource type="Script" path="res://Scenes/StageTwo.gd" id="1_5pkdt"]
 [ext_resource type="PackedScene" uid="uid://bkex7j6m7a446" path="res://Scripts/Enemy/type1.tscn" id="2_65kpi"]
 [ext_resource type="PackedScene" uid="uid://dm38gd1lhlp5r" path="res://Scripts/Enemy/type2.tscn" id="3_1x48i"]
 [ext_resource type="Texture2D" uid="uid://ds0xgatxquywp" path="res://Assets/Pixel UI pack 3/04.png" id="3_3bf5q"]
 [ext_resource type="Script" path="res://Scripts/Environment/BG.gd" id="4_8mscw"]
-[ext_resource type="PackedScene" path="res://Scenes/PowerUps/powerup4.tscn" id="4_fuonr"]
+[ext_resource type="PackedScene" uid="uid://c5qnocipj4yq1" path="res://Scenes/PowerUps/powerup4.tscn" id="4_fuonr"]
 [ext_resource type="PackedScene" uid="uid://bvo3e3uq6vffw" path="res://Scenes/PowerUps/powerup2.tscn" id="5_cwbyj"]
 [ext_resource type="PackedScene" uid="uid://b5f8vpqafyeaa" path="res://Scenes/Player/player.tscn" id="6_7x3ni"]
 [ext_resource type="PackedScene" uid="uid://c7lsoh7frekg6" path="res://Scenes/PowerUps/powerup3.tscn" id="6_nxm0n"]
@@ -23,6 +23,7 @@
 [ext_resource type="PackedScene" uid="uid://twv1egtiejei" path="res://Scenes/artifacts.tscn" id="18_nwwbp"]
 [ext_resource type="Texture2D" uid="uid://cq44rh4a3gr34" path="res://Assets/Objects/artifact.png" id="19_6ws0c"]
 [ext_resource type="PackedScene" uid="uid://dfvk5l83m2lid" path="res://Scenes/level_success.tscn" id="20_yb0eo"]
+[ext_resource type="PackedScene" uid="uid://btqqgd4cvsgif" path="res://Scenes/StageThree.tscn" id="26_4ue25"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5j10q"]
 size = Vector2(552, 161.5)
@@ -52,7 +53,7 @@ b = Vector2(572, 149)
 [node name="StageTwo" type="Node2D"]
 script = ExtResource("1_5pkdt")
 enemies = Array[PackedScene]([ExtResource("2_65kpi"), ExtResource("3_1x48i")])
-powerups = Array[PackedScene]([ExtResource("4_fuonr"), ExtResource("5_cwbyj"), ExtResource("6_nxm0n")])
+powerups = Array[PackedScene]([ExtResource("4_fuonr"), ExtResource("5_cwbyj"), ExtResource("6_nxm0n"), null])
 
 [node name="HealthBar" type="Sprite2D" parent="."]
 position = Vector2(97.132, 30.25)
@@ -62,6 +63,19 @@ hframes = 7
 vframes = 15
 
 [node name="Fill" type="Sprite2D" parent="HealthBar"]
+texture = ExtResource("3_3bf5q")
+hframes = 7
+vframes = 15
+frame = 8
+
+[node name="UltimateBar" type="Sprite2D" parent="."]
+position = Vector2(97.132, 54.25)
+scale = Vector2(2.5, 1.735)
+texture = ExtResource("3_3bf5q")
+hframes = 7
+vframes = 15
+
+[node name="Fill" type="Sprite2D" parent="UltimateBar"]
 texture = ExtResource("3_3bf5q")
 hframes = 7
 vframes = 15
@@ -318,7 +332,7 @@ offset_left = 224.0
 offset_top = 96.0
 offset_right = 224.0
 offset_bottom = 96.0
-next_stage = null
+next_stage = ExtResource("26_4ue25")
 
 [connection signal="timeout" from="PowerUpSpawnClock" to="." method="_on_power_up_spawn_clock_timeout"]
 [connection signal="timeout" from="EnemySpawnClock" to="." method="_on_enemy_spawn_clock_timeout"]
