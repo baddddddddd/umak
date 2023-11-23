@@ -1,15 +1,23 @@
-[gd_scene load_steps=18 format=3 uid="uid://dnjk18na4sq4b"]
+[gd_scene load_steps=26 format=3 uid="uid://dnjk18na4sq4b"]
 
 [ext_resource type="Script" path="res://Scripts/Environment/BG.gd" id="1_esl4a"]
 [ext_resource type="Script" path="res://Scenes/StageOne.gd" id="1_oiyt2"]
-[ext_resource type="Texture2D" uid="uid://wubjj38oak5b" path="res://Assets/back.png" id="2_g8k4e"]
 [ext_resource type="PackedScene" uid="uid://bkex7j6m7a446" path="res://Scripts/Enemy/type1.tscn" id="2_gdivj"]
+[ext_resource type="PackedScene" uid="uid://cprwy5678flet" path="res://Scenes/PowerUps/powerup4.tscn" id="3_3qkk7"]
 [ext_resource type="Texture2D" uid="uid://ds0xgatxquywp" path="res://Assets/Pixel UI pack 3/04.png" id="3_w6px1"]
 [ext_resource type="PackedScene" uid="uid://b5f8vpqafyeaa" path="res://Scenes/Player/player.tscn" id="5_650px"]
+[ext_resource type="Texture2D" uid="uid://dl5gdjukqkwmy" path="res://Assets/BG/day_seabg1.png" id="5_tkq36"]
+[ext_resource type="Texture2D" uid="uid://bx6gbb1f1rkjs" path="res://Assets/BG/day_seabg2.png" id="6_a0mky"]
+[ext_resource type="Texture2D" uid="uid://datjoc6o6qhiu" path="res://Assets/BG/day_seabg3.png" id="7_f7ha2"]
 [ext_resource type="PackedScene" uid="uid://71x7rr26fjou" path="res://Scenes/pause_menu.tscn" id="7_xpqh7"]
+[ext_resource type="Texture2D" uid="uid://bc7rttv62tkdu" path="res://Assets/BG/day_seabg4.png" id="8_7q0oh"]
+[ext_resource type="Texture2D" uid="uid://b06nbdxrne3ri" path="res://Assets/BG/day_seacloud.png" id="9_8h622"]
 [ext_resource type="PackedScene" uid="uid://bvb7b5qu535gq" path="res://Scripts/Enemy/hud.tscn" id="9_ai6gi"]
 [ext_resource type="PackedScene" uid="uid://c2kacknu36x4l" path="res://Scenes/artifact_counter.tscn" id="10_2jw3l"]
 [ext_resource type="PackedScene" uid="uid://dfbx04ou617ld" path="res://Scenes/game_over_screen.tscn" id="10_k1l4d"]
+[ext_resource type="Texture2D" uid="uid://kq0apa0yv5yb" path="res://Assets/BG/day_sea.png" id="10_lxrlf"]
+[ext_resource type="PackedScene" uid="uid://twv1egtiejei" path="res://Scenes/artifacts.tscn" id="11_0hv7f"]
+[ext_resource type="Texture2D" uid="uid://bwp53dykhoxwn" path="res://Assets/Objects/artifact.png" id="17_223y2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5j10q"]
 size = Vector2(552, 161.5)
@@ -39,6 +47,7 @@ b = Vector2(572, 149)
 [node name="StageOne" type="Node2D"]
 script = ExtResource("1_oiyt2")
 enemies = Array[PackedScene]([ExtResource("2_gdivj")])
+powerups = Array[PackedScene]([ExtResource("3_3qkk7")])
 
 [node name="HealthBar" type="Sprite2D" parent="."]
 position = Vector2(97.132, 30.25)
@@ -53,22 +62,115 @@ hframes = 7
 vframes = 15
 frame = 8
 
+[node name="UltimateBar" type="Sprite2D" parent="."]
+position = Vector2(97.132, 54.25)
+scale = Vector2(2.5, 1.735)
+texture = ExtResource("3_w6px1")
+hframes = 7
+vframes = 15
+
+[node name="Fill" type="Sprite2D" parent="UltimateBar"]
+texture = ExtResource("3_w6px1")
+hframes = 7
+vframes = 15
+frame = 8
+
 [node name="BG" type="ParallaxBackground" parent="."]
-scroll_base_scale = Vector2(4, 4)
 script = ExtResource("1_esl4a")
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="BG"]
 position = Vector2(89, 45)
-motion_mirroring = Vector2(700, 0)
+motion_scale = Vector2(0.1, 0.1)
+motion_mirroring = Vector2(1152, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="BG/ParallaxLayer"]
-position = Vector2(261, 127)
-scale = Vector2(1.82292, 1.4375)
-texture = ExtResource("2_g8k4e")
-metadata/_edit_lock_ = true
+position = Vector2(199, 59)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("5_tkq36")
+
+[node name="Sprite2D2" type="Sprite2D" parent="BG/ParallaxLayer"]
+position = Vector2(775, 59)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("5_tkq36")
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="BG"]
+position = Vector2(89, 45)
+motion_scale = Vector2(0.15, 0.15)
+motion_mirroring = Vector2(1152, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="BG/ParallaxLayer2"]
+position = Vector2(199, 59)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("6_a0mky")
+
+[node name="Sprite2D2" type="Sprite2D" parent="BG/ParallaxLayer2"]
+position = Vector2(775, 59)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("6_a0mky")
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="BG"]
+position = Vector2(89, 45)
+motion_scale = Vector2(0.2, 0.2)
+motion_mirroring = Vector2(1152, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="BG/ParallaxLayer3"]
+position = Vector2(199, 59)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("7_f7ha2")
+
+[node name="Sprite2D2" type="Sprite2D" parent="BG/ParallaxLayer3"]
+position = Vector2(775, 59)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("7_f7ha2")
+
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="BG"]
+position = Vector2(89, 45)
+motion_scale = Vector2(0.25, 0.25)
+motion_mirroring = Vector2(1152, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="BG/ParallaxLayer4"]
+position = Vector2(199, 59)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("8_7q0oh")
+
+[node name="Sprite2D2" type="Sprite2D" parent="BG/ParallaxLayer4"]
+position = Vector2(775, 59)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("8_7q0oh")
+
+[node name="ParallaxLayer5" type="ParallaxLayer" parent="BG"]
+position = Vector2(89, 45)
+motion_scale = Vector2(0.4, 0.4)
+motion_mirroring = Vector2(1152, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="BG/ParallaxLayer5"]
+position = Vector2(199, 59)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("9_8h622")
+
+[node name="Sprite2D2" type="Sprite2D" parent="BG/ParallaxLayer5"]
+position = Vector2(775, 59)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("9_8h622")
+
+[node name="ParallaxLayer6" type="ParallaxLayer" parent="BG"]
+position = Vector2(89, 45)
+motion_scale = Vector2(1.5, 1.5)
+motion_mirroring = Vector2(1152, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="BG/ParallaxLayer6"]
+position = Vector2(199, 59)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("10_lxrlf")
+
+[node name="Sprite2D2" type="Sprite2D" parent="BG/ParallaxLayer6"]
+position = Vector2(775, 59)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("10_lxrlf")
 
 [node name="PowerUpSpawnClock" type="Timer" parent="."]
-wait_time = 5.0
+wait_time = 15.0
+autostart = true
 
 [node name="EnemySpawnClock" type="Timer" parent="."]
 wait_time = 3.0
@@ -96,7 +198,6 @@ metadata/_edit_lock_ = true
 
 [node name="player" parent="." instance=ExtResource("5_650px")]
 position = Vector2(128, 208)
-ultimate = null
 
 [node name="Walls" type="Node2D" parent="."]
 
@@ -143,17 +244,71 @@ offset_bottom = 112.0
 
 [node name="Hud" parent="." instance=ExtResource("9_ai6gi")]
 offset_left = 173.0
-offset_top = 12.0
+offset_top = -61.0
 offset_right = 173.0
-offset_bottom = 12.0
+offset_bottom = -61.0
 
 [node name="ArtifactCounter" parent="." instance=ExtResource("10_2jw3l")]
-offset_left = 392.0
-offset_top = 112.0
-offset_right = 392.0
-offset_bottom = 112.0
+offset_left = -41.0
+offset_top = 89.0
+offset_right = -41.0
+offset_bottom = 89.0
+
+[node name="artifacts" parent="." instance=ExtResource("11_0hv7f")]
+visible = false
+z_index = 10
+offset_left = 11.0
+offset_top = 63.0
+offset_right = 582.0
+offset_bottom = 387.0
+
+[node name="Button" type="Button" parent="."]
+offset_left = 8.0
+offset_top = 91.0
+offset_right = 32.0
+offset_bottom = 118.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Button"]
+position = Vector2(12, 14)
+scale = Vector2(0.102941, 0.102941)
+texture = ExtResource("17_223y2")
+
+[node name="ActivePowerup" type="Node2D" parent="."]
+
+[node name="Powerup1" type="Sprite2D" parent="ActivePowerup"]
+visible = false
+position = Vector2(53, 86)
+scale = Vector2(0.122549, 0.127451)
+texture = ExtResource("17_223y2")
+
+[node name="Powerup2" type="Sprite2D" parent="ActivePowerup"]
+visible = false
+position = Vector2(89, 86)
+scale = Vector2(0.122549, 0.127451)
+texture = ExtResource("17_223y2")
+
+[node name="Powerup3" type="Sprite2D" parent="ActivePowerup"]
+visible = false
+position = Vector2(128, 86)
+scale = Vector2(0.122549, 0.127451)
+texture = ExtResource("17_223y2")
+
+[node name="Powerup4" type="Sprite2D" parent="ActivePowerup"]
+visible = false
+position = Vector2(165, 86)
+scale = Vector2(0.122549, 0.127451)
+texture = ExtResource("17_223y2")
+
+[node name="UltimateButton" type="Button" parent="."]
+visible = false
+offset_left = 447.0
+offset_top = 217.0
+offset_right = 520.0
+offset_bottom = 285.0
 
 [connection signal="timeout" from="PowerUpSpawnClock" to="." method="_on_power_up_spawn_clock_timeout"]
 [connection signal="timeout" from="EnemySpawnClock" to="." method="_on_enemy_spawn_clock_timeout"]
 [connection signal="body_exited" from="Despawn" to="." method="_on_despawn_body_exited"]
 [connection signal="pressed" from="PauseButton" to="." method="_on_pause_button_pressed"]
+[connection signal="button_down" from="Button" to="artifacts" method="_on_button_button_down"]
+[connection signal="pressed" from="UltimateButton" to="player" method="_on_ultimate_button_pressed"]

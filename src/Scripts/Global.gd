@@ -93,3 +93,5 @@ var artifact_information = [
 
 var artifact_info_tracker = []
 var artifact_collected = []
+
+var ultimate_charge = 0

@@ -47,13 +47,14 @@ animations = [{
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_e40cp"]
 radius = 25.0
-height = 96.0
+height = 72.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_a5r46"]
-radius = 134.2
+radius = 86.35
 
 [sub_resource type="Animation" id="Animation_2fumw"]
 resource_name = "BBM"
+length = 2.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -78,11 +79,22 @@ tracks/1/keys = {
 "update": 1,
 "values": [0]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatedSprite2D:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.9, 1),
+"transitions": PackedFloat32Array(1, 0.784584),
+"update": 0,
+"values": [-2.35619, -5.49779]
+}
 
 [sub_resource type="Animation" id="Animation_t26bg"]
 resource_name = "Explosion"
-length = 2.0
-loop_mode = 1
+length = 0.22
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -90,7 +102,7 @@ tracks/0/path = NodePath("AnimatedSprite2D:animation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0.1),
+"times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [&"Explosion"]
@@ -102,10 +114,22 @@ tracks/1/path = NodePath("AnimatedSprite2D:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.5, 1),
+"times": PackedFloat32Array(0, 0.1, 0.2),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [0, 1, 2]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatedSprite2D:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2(10, 10)]
 }
 
 [sub_resource type="Animation" id="Animation_tudx8"]
@@ -134,6 +158,18 @@ tracks/1/keys = {
 "update": 1,
 "values": [0]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatedSprite2D:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.785398]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_l1f5y"]
 _data = {
@@ -143,6 +179,7 @@ _data = {
 }
 
 [node name="Type6Bullet" type="RigidBody2D"]
+rotation = 1.5708
 collision_layer = 0
 collision_mask = 0
 mass = 0.01
@@ -152,13 +189,13 @@ contact_monitor = true
 script = ExtResource("1_8rhtd")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-rotation = -2.35619
-scale = Vector2(10, 10)
+rotation = 0.785398
+scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_wbelk")
 animation = &"BBM"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-10, 1)
+position = Vector2(-1, 0)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_e40cp")
 
@@ -174,10 +211,6 @@ libraries = {
 "": SubResource("AnimationLibrary_l1f5y")
 }
 
-[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
-scale = Vector2(0.45, 0.45)
-
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
-[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

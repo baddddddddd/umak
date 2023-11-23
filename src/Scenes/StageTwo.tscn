@@ -1,15 +1,22 @@
-[gd_scene load_steps=18 format=3 uid="uid://bfoc0his1pf4p"]
+[gd_scene load_steps=25 format=3 uid="uid://bfoc0his1pf4p"]
 
 [ext_resource type="Script" path="res://Scenes/StageTwo.gd" id="1_5pkdt"]
 [ext_resource type="PackedScene" uid="uid://bkex7j6m7a446" path="res://Scripts/Enemy/type1.tscn" id="2_65kpi"]
 [ext_resource type="PackedScene" uid="uid://dm38gd1lhlp5r" path="res://Scripts/Enemy/type2.tscn" id="3_1x48i"]
 [ext_resource type="Texture2D" uid="uid://ds0xgatxquywp" path="res://Assets/Pixel UI pack 3/04.png" id="3_3bf5q"]
 [ext_resource type="Script" path="res://Scripts/Environment/BG.gd" id="4_8mscw"]
-[ext_resource type="Texture2D" uid="uid://wubjj38oak5b" path="res://Assets/back.png" id="5_rqswv"]
 [ext_resource type="PackedScene" uid="uid://b5f8vpqafyeaa" path="res://Scenes/Player/player.tscn" id="6_7x3ni"]
 [ext_resource type="PackedScene" uid="uid://71x7rr26fjou" path="res://Scenes/pause_menu.tscn" id="7_vmume"]
 [ext_resource type="PackedScene" uid="uid://dfbx04ou617ld" path="res://Scenes/game_over_screen.tscn" id="8_li6lg"]
 [ext_resource type="PackedScene" uid="uid://bvb7b5qu535gq" path="res://Scripts/Enemy/hud.tscn" id="9_r23go"]
+[ext_resource type="PackedScene" uid="uid://c2kacknu36x4l" path="res://Scenes/artifact_counter.tscn" id="11_8nvil"]
+[ext_resource type="Texture2D" uid="uid://lq4po1oq0mbf" path="res://Assets/BG/sunset_seastar.png" id="11_ox464"]
+[ext_resource type="Texture2D" uid="uid://dd07nrxl33i7v" path="res://Assets/BG/sunset_seabg1.png" id="12_s8dqj"]
+[ext_resource type="Texture2D" uid="uid://bbagphk1a1qjs" path="res://Assets/BG/sunset_seabg2.png" id="13_0jlpk"]
+[ext_resource type="Texture2D" uid="uid://wtbomb1bylno" path="res://Assets/BG/sunset_seabg3.png" id="14_1gkqj"]
+[ext_resource type="Texture2D" uid="uid://c3t6e3fb0skmv" path="res://Assets/BG/sunset_seabg4.png" id="15_h51ym"]
+[ext_resource type="Texture2D" uid="uid://by2tddm70nhnb" path="res://Assets/BG/sunset_seacloud.png" id="16_hhws0"]
+[ext_resource type="Texture2D" uid="uid://bv02fcorbbwcd" path="res://Assets/BG/sunset_sea.png" id="17_1biab"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5j10q"]
 size = Vector2(552, 161.5)
@@ -53,20 +60,6 @@ hframes = 7
 vframes = 15
 frame = 8
 
-[node name="BG" type="ParallaxBackground" parent="."]
-scroll_base_scale = Vector2(4, 4)
-script = ExtResource("4_8mscw")
-
-[node name="ParallaxLayer" type="ParallaxLayer" parent="BG"]
-position = Vector2(89, 45)
-motion_mirroring = Vector2(700, 0)
-
-[node name="Sprite2D" type="Sprite2D" parent="BG/ParallaxLayer"]
-position = Vector2(261, 127)
-scale = Vector2(1.82292, 1.4375)
-texture = ExtResource("5_rqswv")
-metadata/_edit_lock_ = true
-
 [node name="PowerUpSpawnClock" type="Timer" parent="."]
 wait_time = 5.0
 
@@ -96,7 +89,6 @@ metadata/_edit_lock_ = true
 
 [node name="player" parent="." instance=ExtResource("6_7x3ni")]
 position = Vector2(128, 208)
-ultimate = null
 
 [node name="Walls" type="Node2D" parent="."]
 
@@ -146,6 +138,120 @@ offset_left = 173.0
 offset_top = 12.0
 offset_right = 173.0
 offset_bottom = 12.0
+
+[node name="ArtifactCounter" parent="." instance=ExtResource("11_8nvil")]
+offset_left = 392.0
+offset_top = 112.0
+offset_right = 392.0
+offset_bottom = 112.0
+
+[node name="BG" type="ParallaxBackground" parent="."]
+script = ExtResource("4_8mscw")
+
+[node name="ParallaxLayer0" type="ParallaxLayer" parent="BG"]
+position = Vector2(89, 45)
+motion_scale = Vector2(0.1, 0.1)
+motion_mirroring = Vector2(1152, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="BG/ParallaxLayer0"]
+position = Vector2(199, 59)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("11_ox464")
+
+[node name="Sprite2D2" type="Sprite2D" parent="BG/ParallaxLayer0"]
+position = Vector2(775, 59)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("11_ox464")
+
+[node name="ParallaxLayer1" type="ParallaxLayer" parent="BG"]
+position = Vector2(89, 45)
+motion_scale = Vector2(0.1, 0.1)
+motion_mirroring = Vector2(1152, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="BG/ParallaxLayer1"]
+position = Vector2(199, 59)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("12_s8dqj")
+
+[node name="Sprite2D2" type="Sprite2D" parent="BG/ParallaxLayer1"]
+position = Vector2(775, 59)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("12_s8dqj")
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="BG"]
+position = Vector2(89, 45)
+motion_scale = Vector2(0.2, 0.2)
+motion_mirroring = Vector2(1152, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="BG/ParallaxLayer2"]
+position = Vector2(199, 59)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("13_0jlpk")
+
+[node name="Sprite2D2" type="Sprite2D" parent="BG/ParallaxLayer2"]
+position = Vector2(775, 59)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("13_0jlpk")
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="BG"]
+position = Vector2(89, 45)
+motion_scale = Vector2(0.3, 0.3)
+motion_mirroring = Vector2(1152, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="BG/ParallaxLayer3"]
+position = Vector2(199, 59)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("14_1gkqj")
+
+[node name="Sprite2D2" type="Sprite2D" parent="BG/ParallaxLayer3"]
+position = Vector2(775, 59)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("14_1gkqj")
+
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="BG"]
+position = Vector2(89, 45)
+motion_scale = Vector2(0.4, 0.4)
+motion_mirroring = Vector2(1152, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="BG/ParallaxLayer4"]
+position = Vector2(199, 59)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("15_h51ym")
+
+[node name="Sprite2D2" type="Sprite2D" parent="BG/ParallaxLayer4"]
+position = Vector2(775, 59)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("15_h51ym")
+
+[node name="ParallaxLayer5" type="ParallaxLayer" parent="BG"]
+position = Vector2(89, 45)
+motion_scale = Vector2(0.5, 0.5)
+motion_mirroring = Vector2(1152, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="BG/ParallaxLayer5"]
+position = Vector2(199, 59)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("16_hhws0")
+
+[node name="Sprite2D2" type="Sprite2D" parent="BG/ParallaxLayer5"]
+position = Vector2(775, 59)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("16_hhws0")
+
+[node name="ParallaxLayer6" type="ParallaxLayer" parent="BG"]
+position = Vector2(89, 45)
+motion_scale = Vector2(1.5, 1.5)
+motion_mirroring = Vector2(1152, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="BG/ParallaxLayer6"]
+position = Vector2(199, 59)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("17_1biab")
+
+[node name="Sprite2D2" type="Sprite2D" parent="BG/ParallaxLayer6"]
+position = Vector2(775, 59)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("17_1biab")
 
 [connection signal="timeout" from="PowerUpSpawnClock" to="." method="_on_power_up_spawn_clock_timeout"]
 [connection signal="timeout" from="EnemySpawnClock" to="." method="_on_enemy_spawn_clock_timeout"]

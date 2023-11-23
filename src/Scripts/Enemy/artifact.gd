@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@export var speed = 60
+@export var speed = 150
 
 var quiz: Global.QuizInformation
 

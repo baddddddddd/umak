@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/Player/player.gd" id="1_15tx1"]
 [ext_resource type="Texture2D" uid="uid://pt5s68i4crlp" path="res://Assets/Character/player.png" id="1_y50mj"]
-[ext_resource type="PackedScene" uid="uid://d2flkeje3ciyt" path="res://Scenes/Player/ultimate.tscn" id="2_nkfk5"]
+[ext_resource type="Texture2D" uid="uid://bnf5ab7y7f3mh" path="res://Assets/Pixel UI pack 3/00.png" id="4_mfty5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_guvb3"]
 size = Vector2(32, 32)
@@ -116,9 +116,9 @@ size = Vector2(32, 32)
 
 [node name="player" type="CharacterBody2D" groups=["friendly"]]
 y_sort_enabled = true
+scale = Vector2(0.7, 0.7)
 collision_mask = 5
 script = ExtResource("1_15tx1")
-ultimate = ExtResource("2_nkfk5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_guvb3")
@@ -130,6 +130,15 @@ animation = &"Idle"
 
 [node name="muzzle" type="Marker2D" parent="."]
 position = Vector2(32, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="muzzle"]
+visible = false
+position = Vector2(15.1429, -2.85714)
+scale = Vector2(1.67857, 2.08036)
+texture = ExtResource("4_mfty5")
+hframes = 18
+vframes = 5
+frame = 17
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 

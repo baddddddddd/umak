@@ -1,0 +1,111 @@
+[gd_scene load_steps=10 format=3 uid="uid://cprwy5678flet"]
+
+[ext_resource type="Script" path="res://Scenes/PowerUps/powerup1.gd" id="1_td2n3"]
+[ext_resource type="Texture2D" uid="uid://btstwqd85sxbu" path="res://Assets/Pixel UI pack 3/01.png" id="2_qa2i6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4pplm"]
+size = Vector2(37, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_710ef"]
+atlas = ExtResource("2_qa2i6")
+region = Rect2(225, 48, 45, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a3num"]
+atlas = ExtResource("2_qa2i6")
+region = Rect2(225, 52, 45, 45)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5s48p"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_710ef")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a3num")
+}],
+"loop": true,
+"name": &"Powerup4",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_0safo"]
+resource_name = "Bob"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Powerup4"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="Animation" id="Animation_06p4d"]
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Powerup4"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_th8iw"]
+_data = {
+"Bob": SubResource("Animation_0safo"),
+"RESET": SubResource("Animation_06p4d")
+}
+
+[node name="powerup4" type="CharacterBody2D" groups=["powerup", "powerup4"]]
+collision_layer = 2048
+collision_mask = 0
+script = ExtResource("1_td2n3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, -2.5)
+shape = SubResource("RectangleShape2D_4pplm")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_5s48p")
+animation = &"Powerup4"
+frame = 1
+frame_progress = 0.738844
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+reset_on_save = false
+libraries = {
+"": SubResource("AnimationLibrary_th8iw")
+}

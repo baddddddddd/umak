@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://ds0radj6s2ohs"]
+
+[node name="UltiEffect" type="ColorRect"]
+z_index = 100
+anchors_preset = -1
+anchor_right = 0.122
+anchor_bottom = 0.136
+offset_left = -28.0
+offset_top = -36.0
+offset_right = 632.728
+offset_bottom = 365.936
+color = Color(0, 0, 0, 1)

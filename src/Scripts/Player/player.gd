@@ -9,7 +9,8 @@ signal bullet_shot(bullet_scene, location)
 @onready var joystick = preload("res://Scenes/Player/joystick.tscn").instantiate()
 @onready var bbm = 0
 @onready var double_bullet = false
-@export var ultimate : PackedScene
+@onready var ultimate = preload("res://Scenes/Player/ultimate.tscn")
+@onready var ultieffect = preload("res://Scenes/UltiEffect.tscn").instantiate()
 @onready var ult_active = false
 
 const NUMBER_OF_HP_FRAMES = 6
@@ -38,11 +39,11 @@ func _ready():
 		get_tree().current_scene.add_child.call_deferred(joystick)
 	
 	anim.play("Default")
-	
+	get_tree().current_scene.add_child(ultieffect)
 	Global.player_position = self.global_position
 	
 	var display_text = str(Global.artifact_collected.size()) + " / 7" 
-	artifact_counter_label.get_node("MarginContainer/VBoxContainer/RichTextLabel").text = "[center]" + display_text + "[/center]"
+	#artifact_counter_label.get_node("MarginContainer/VBoxContainer/RichTextLabel").text = "[center]" + display_text + "[/center]"
 		
 	
 	
@@ -108,15 +109,26 @@ func shoot():
 	if bbm > 0:
 		bbm -= 1
 		if bbm == 0:
+			$"../ActivePowerup/Powerup1".visible = false
 			bullet_scene=preload("res://Scenes/Player/bullet.tscn")
 	
+func blink():
+	print("ass")
+	print(ultieffect)
+	var tween = create_tween().set_trans(Tween.TRANS_QUAD)
+	await tween.tween_property(ultieffect, "modulate", Color(0, 0, 0, 0), 3.0).set_ease(Tween.EASE_IN_OUT).finished
 	
 func fire_ultimate():
+	print("aaa")
 	ult_active = true
+	blink()
+	await get_tree().create_timer(3.0).timeout
 	var ultimate_instance = ultimate.instantiate()
 	ultimate_instance.global_position = muzzle.global_position
 	get_tree().current_scene.add_child(ultimate_instance)
 	await get_tree().create_timer(5.0).timeout
+	Global.ultimate_charge = 0
+	$"../UltimateButton".visible = false
 	ult_active = false
 	
 func deplete_hp(damage):
@@ -127,7 +139,7 @@ func deplete_hp(damage):
 	var section = hp / bar
 	var frame_offset = NUMBER_OF_HP_FRAMES - section
 	
-	
+	#offset = Vector2(randf)
 	hp -= damage
 	
 	if hp <= 0:
@@ -163,25 +175,44 @@ func _on_area_2d_body_entered(body):
 		Global.artifact_collected.push_back(body)
 		var display_text = str(Global.artifact_collected.size()) + " / 7" 
 		artifact_counter_label.get_node("MarginContainer/VBoxContainer/RichTextLabel").text = "[center]" + display_text + "[/center]"
-		body.queue_free()
+		get_tree().current_scene.remove_child(body)
 		
+	elif body.is_in_group("powerup"):
+		if body.is_in_group("powerup1"):
+			body.queue_free()
+			bullet_scene=preload("res://Scenes/PowerUps/BBM.tscn")
+			$"../ActivePowerup/Powerup1".visible = true
+			bbm = 3			
+		elif body.is_in_group("powerup2"):
+			body.queue_free()
+			shootingDelay = 0.05
+			$"../ActivePowerup/Powerup2".visible = true
+			await get_tree().create_timer(5.0).timeout
+			$"../ActivePowerup/Powerup2".visible = false
+			shootingDelay = 0.1
+		elif body.is_in_group("powerup3"): 
+			body.queue_free()
+			double_bullet = true
+			$"../ActivePowerup/Powerup3".visible = true
+			await get_tree().create_timer(5.0).timeout
+			$"../ActivePowerup/Powerup3".visible = false
+			double_bullet = false
+		elif body.is_in_group("powerup4"):
+			body.queue_free()
+			invincibility = true
+			$muzzle/Sprite2D.visible = true
+			$"../ActivePowerup/Powerup4".visible = true
+			await get_tree().create_timer(5.0).timeout
+			invincibility = false
+			$muzzle/Sprite2D.visible = false
+			$"../ActivePowerup/Powerup4".visible = false
+			
 
 func _on_area_2d_body_exited(body):
 	if entered_body != null:
 		if body == entered_body:
 			entered_body = null
-
-func _on_area_2d_area_entered(area):
-		
-	if area.is_in_group("powerup1"):
-		bullet_scene=preload("res://Scenes/PowerUps/BBM.tscn")
-		bbm = 3
-	if area.is_in_group("powerup2"):
-		shootingDelay = 0.05
-		await get_tree().create_timer(5.0).timeout
-		shootingDelay = 0.1
-	if area.is_in_group("powerup3"):
-		double_bullet = true
-		await get_tree().create_timer(5.0).timeout
-		double_bullet = false
-		
+	
+func _on_ultimate_button_pressed():
+	fire_ultimate()
+	$"../UltimateButton".visible = false
