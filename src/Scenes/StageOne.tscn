@@ -232,9 +232,9 @@ offset_bottom = 112.0
 
 [node name="Hud" parent="." instance=ExtResource("9_ai6gi")]
 offset_left = 173.0
-offset_top = 12.0
+offset_top = -61.0
 offset_right = 173.0
-offset_bottom = 12.0
+offset_bottom = -61.0
 
 [node name="ArtifactCounter" parent="." instance=ExtResource("10_2jw3l")]
 offset_left = -41.0
