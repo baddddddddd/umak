@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Scripts/Environment/BG.gd" id="1_esl4a"]
 [ext_resource type="Script" path="res://Scenes/StageOne.gd" id="1_oiyt2"]
 [ext_resource type="PackedScene" uid="uid://bkex7j6m7a446" path="res://Scripts/Enemy/type1.tscn" id="2_gdivj"]
-[ext_resource type="PackedScene" path="res://Scenes/PowerUps/powerup4.tscn" id="3_3qkk7"]
+[ext_resource type="PackedScene" uid="uid://cprwy5678flet" path="res://Scenes/PowerUps/powerup4.tscn" id="3_3qkk7"]
 [ext_resource type="Texture2D" uid="uid://ds0xgatxquywp" path="res://Assets/Pixel UI pack 3/04.png" id="3_w6px1"]
 [ext_resource type="PackedScene" uid="uid://b5f8vpqafyeaa" path="res://Scenes/Player/player.tscn" id="5_650px"]
 [ext_resource type="Texture2D" uid="uid://dl5gdjukqkwmy" path="res://Assets/BG/day_seabg1.png" id="5_tkq36"]
@@ -17,7 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://dfbx04ou617ld" path="res://Scenes/game_over_screen.tscn" id="10_k1l4d"]
 [ext_resource type="Texture2D" uid="uid://kq0apa0yv5yb" path="res://Assets/BG/day_sea.png" id="10_lxrlf"]
 [ext_resource type="PackedScene" uid="uid://twv1egtiejei" path="res://Scenes/artifacts.tscn" id="11_0hv7f"]
-[ext_resource type="Texture2D" uid="uid://cq44rh4a3gr34" path="res://Assets/Objects/artifact.png" id="17_223y2"]
+[ext_resource type="Texture2D" uid="uid://bwp53dykhoxwn" path="res://Assets/Objects/artifact.png" id="17_223y2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5j10q"]
 size = Vector2(552, 161.5)
@@ -57,6 +57,19 @@ hframes = 7
 vframes = 15
 
 [node name="Fill" type="Sprite2D" parent="HealthBar"]
+texture = ExtResource("3_w6px1")
+hframes = 7
+vframes = 15
+frame = 8
+
+[node name="UltimateBar" type="Sprite2D" parent="."]
+position = Vector2(97.132, 54.25)
+scale = Vector2(2.5, 1.735)
+texture = ExtResource("3_w6px1")
+hframes = 7
+vframes = 15
+
+[node name="Fill" type="Sprite2D" parent="UltimateBar"]
 texture = ExtResource("3_w6px1")
 hframes = 7
 vframes = 15
@@ -185,7 +198,6 @@ metadata/_edit_lock_ = true
 
 [node name="player" parent="." instance=ExtResource("5_650px")]
 position = Vector2(128, 208)
-ultimate = null
 
 [node name="Walls" type="Node2D" parent="."]
 
@@ -265,30 +277,38 @@ texture = ExtResource("17_223y2")
 
 [node name="Powerup1" type="Sprite2D" parent="ActivePowerup"]
 visible = false
-position = Vector2(54, 57)
+position = Vector2(53, 86)
 scale = Vector2(0.122549, 0.127451)
 texture = ExtResource("17_223y2")
 
 [node name="Powerup2" type="Sprite2D" parent="ActivePowerup"]
 visible = false
-position = Vector2(87, 57)
+position = Vector2(89, 86)
 scale = Vector2(0.122549, 0.127451)
 texture = ExtResource("17_223y2")
 
 [node name="Powerup3" type="Sprite2D" parent="ActivePowerup"]
 visible = false
-position = Vector2(118, 57)
+position = Vector2(128, 86)
 scale = Vector2(0.122549, 0.127451)
 texture = ExtResource("17_223y2")
 
 [node name="Powerup4" type="Sprite2D" parent="ActivePowerup"]
 visible = false
-position = Vector2(148, 56)
+position = Vector2(165, 86)
 scale = Vector2(0.122549, 0.127451)
 texture = ExtResource("17_223y2")
+
+[node name="UltimateButton" type="Button" parent="."]
+visible = false
+offset_left = 447.0
+offset_top = 217.0
+offset_right = 520.0
+offset_bottom = 285.0
 
 [connection signal="timeout" from="PowerUpSpawnClock" to="." method="_on_power_up_spawn_clock_timeout"]
 [connection signal="timeout" from="EnemySpawnClock" to="." method="_on_enemy_spawn_clock_timeout"]
 [connection signal="body_exited" from="Despawn" to="." method="_on_despawn_body_exited"]
 [connection signal="pressed" from="PauseButton" to="." method="_on_pause_button_pressed"]
 [connection signal="button_down" from="Button" to="artifacts" method="_on_button_button_down"]
+[connection signal="pressed" from="UltimateButton" to="player" method="_on_ultimate_button_pressed"]

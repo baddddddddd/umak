@@ -60,7 +60,9 @@ func spawn_artifact():
 func _ready():
 	Global.artifact_info_tracker = Global.artifact_information.duplicate()
 	Global.artifact_collected = []
-	Global.ultimate_charge = 0
+	Global.ultimate_charge = 1
+	$UltimateBar/Fill.frame = 21
+	$UltimateButton.visible =  false
 	
 	for i in range(2):
 		choose_artifact_info()
@@ -175,7 +177,12 @@ func add_ultimate_charge():
 	if Global.ultimate_charge < 2:
 		Global.ultimate_charge += 1
 		
-	print(Global.ultimate_charge)
+
+	if Global.ultimate_charge == 1:
+		$UltimateBar/Fill.frame = 10
+	elif Global.ultimate_charge == 2:
+		$UltimateButton.visible = true
+		$UltimateBar/Fill.frame = 8
 	
 	
 func start_wave():

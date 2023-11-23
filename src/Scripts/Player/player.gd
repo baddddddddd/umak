@@ -118,6 +118,8 @@ func fire_ultimate():
 	ultimate_instance.global_position = muzzle.global_position
 	get_tree().current_scene.add_child(ultimate_instance)
 	await get_tree().create_timer(5.0).timeout
+	Global.ultimate_charge = 0
+	$"../UltimateButton".visible = false
 	ult_active = false
 	
 func deplete_hp(damage):
@@ -196,13 +198,12 @@ func _on_area_2d_body_entered(body):
 			$muzzle/Sprite2D.visible = false
 			$"../ActivePowerup/Powerup4".visible = false
 			
-			
-			
-		
 
 func _on_area_2d_body_exited(body):
 	if entered_body != null:
 		if body == entered_body:
 			entered_body = null
 	
-		
+func _on_ultimate_button_pressed():
+	fire_ultimate()
+	$"../UltimateButton".visible = false
