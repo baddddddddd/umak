@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d2ysq8dvqtdrh"
-path="res://.godot/imported/4.jpg-506493abbe452bd6b7e768525f62d94f.ctex"
+uid="uid://c3t6e3fb0skmv"
+path="res://.godot/imported/sunset_seabg4.png-d8b95f9fea93ec038f7c1bdf8156b810.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/CutScene/4.jpg"
-dest_files=["res://.godot/imported/4.jpg-506493abbe452bd6b7e768525f62d94f.ctex"]
+source_file="res://Assets/BG/sunset_seabg4.png"
+dest_files=["res://.godot/imported/sunset_seabg4.png-d8b95f9fea93ec038f7c1bdf8156b810.ctex"]
 
 [params]
 

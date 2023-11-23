@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d2ysq8dvqtdrh"
-path="res://.godot/imported/4.jpg-506493abbe452bd6b7e768525f62d94f.ctex"
+uid="uid://dcu1hufmrldrp"
+path="res://.godot/imported/night_seacloud.png-8ffe3d4f8199796d3d7ce188753cc837.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/CutScene/4.jpg"
-dest_files=["res://.godot/imported/4.jpg-506493abbe452bd6b7e768525f62d94f.ctex"]
+source_file="res://Assets/BG/night_seacloud.png"
+dest_files=["res://.godot/imported/night_seacloud.png-8ffe3d4f8199796d3d7ce188753cc837.ctex"]
 
 [params]
 

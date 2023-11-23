@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d2ysq8dvqtdrh"
-path="res://.godot/imported/4.jpg-506493abbe452bd6b7e768525f62d94f.ctex"
+uid="uid://bsu3f0e4minv1"
+path="res://.godot/imported/night_sea.png-cf88fc75ce5ac3d81548fcc7ae5cfabf.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/CutScene/4.jpg"
-dest_files=["res://.godot/imported/4.jpg-506493abbe452bd6b7e768525f62d94f.ctex"]
+source_file="res://Assets/BG/night_sea.png"
+dest_files=["res://.godot/imported/night_sea.png-cf88fc75ce5ac3d81548fcc7ae5cfabf.ctex"]
 
 [params]
 

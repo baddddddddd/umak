@@ -143,7 +143,7 @@ func spawn_type_4(position, banner_text, invincible):
 	
 func start_wave():
 	spawn_timer.start()
-	#powerup_timer.start()
+	powerup_timer.start()
 	
 
 func spawn_enemy():

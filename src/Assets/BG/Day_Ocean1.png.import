@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d2ysq8dvqtdrh"
-path="res://.godot/imported/4.jpg-506493abbe452bd6b7e768525f62d94f.ctex"
+uid="uid://bxd1rfk3gygg2"
+path="res://.godot/imported/Day_Ocean1.png-3e8fc6930f29c3ea7639c8e18240d7f9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/CutScene/4.jpg"
-dest_files=["res://.godot/imported/4.jpg-506493abbe452bd6b7e768525f62d94f.ctex"]
+source_file="res://Assets/BG/Day_Ocean1.png"
+dest_files=["res://.godot/imported/Day_Ocean1.png-3e8fc6930f29c3ea7639c8e18240d7f9.ctex"]
 
 [params]
 

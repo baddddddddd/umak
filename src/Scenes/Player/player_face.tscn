@@ -1,0 +1,52 @@
+[gd_scene load_steps=7 format=3 uid="uid://ruwv22b8nti5"]
+
+[ext_resource type="Script" path="res://Scripts/Environment/BG.gd" id="1_1g4k7"]
+[ext_resource type="Script" path="res://Scenes/Player/player_face.gd" id="1_snglk"]
+[ext_resource type="Texture2D" uid="uid://i8amvjm81uja" path="res://Assets/Utilities/camera.svg" id="2_8ld54"]
+[ext_resource type="Texture2D" uid="uid://wubjj38oak5b" path="res://Assets/back.png" id="2_tkk8i"]
+[ext_resource type="Script" path="res://Scenes/Player/cam_sprite.gd" id="5_hknyu"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_k18dh"]
+font_size = 28
+
+[node name="player_face" type="Node2D"]
+script = ExtResource("1_snglk")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 63.0
+offset_top = 33.0
+offset_right = 525.0
+offset_bottom = 105.0
+theme_override_colors/font_color = Color(0.796078, 0.917647, 0.196078, 1)
+theme_override_colors/font_shadow_color = Color(0.431373, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "Please place your face on the oval"
+label_settings = SubResource("LabelSettings_k18dh")
+horizontal_alignment = 1
+
+[node name="Start" type="Button" parent="."]
+offset_left = 273.0
+offset_top = 148.0
+offset_right = 1081.0
+offset_bottom = 956.0
+scale = Vector2(0.0604772, 0.0604772)
+focus_mode = 0
+icon = ExtResource("2_8ld54")
+
+[node name="StageOne" type="Node2D" parent="."]
+
+[node name="BG" type="ParallaxBackground" parent="StageOne"]
+script = ExtResource("1_1g4k7")
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="StageOne/BG"]
+position = Vector2(89, 45)
+motion_mirroring = Vector2(700, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="StageOne/BG/ParallaxLayer"]
+position = Vector2(261, 127)
+scale = Vector2(1.82292, 1.4375)
+texture = ExtResource("2_tkk8i")
+
+[node name="cam_sprite" type="Sprite2D" parent="."]
+script = ExtResource("5_hknyu")
