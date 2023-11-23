@@ -534,3 +534,5 @@ label_settings = SubResource("LabelSettings_645vu")
 autowrap_mode = 2
 justification_flags = 171
 metadata/_edit_use_anchors_ = true
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

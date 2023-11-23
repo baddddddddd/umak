@@ -1,14 +1,14 @@
-extends AnimationPlayer
-
+extends ColorRect
+@onready var a = 1
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	#play("pan1")
 	pass
 	
-
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
-
+	if a != 0:
+		a -= 0.005
+		set_self_modulate(Color(1, 1, 1, a))
+		
+		

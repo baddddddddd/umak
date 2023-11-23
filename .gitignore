@@ -16,3 +16,4 @@ mono_crash.*.json
 
 # Temporary files
 *.tmp
+*.import
