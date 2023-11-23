@@ -89,7 +89,6 @@ metadata/_edit_lock_ = true
 
 [node name="player" parent="." instance=ExtResource("6_7x3ni")]
 position = Vector2(128, 208)
-ultimate = null
 
 [node name="Walls" type="Node2D" parent="."]
 

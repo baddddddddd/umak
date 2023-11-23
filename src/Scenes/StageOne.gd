@@ -33,7 +33,7 @@ var type_4s = []
 var artifact_info_list = []
 var artifact_spawnables = []
 
-# ultimate
+#  
 
 
 func choose_artifact_info():
@@ -76,11 +76,11 @@ func _ready():
 	pause_menu.hide()
 	game_over_screen.hide()
 	
-	start_wave()
+	#start_wave()
 	
-	await get_tree().create_timer(5.0).timeout
+	#await get_tree().create_timer(5.0).timeout
 	spawn_artifact()
-	await get_tree().create_timer(7.0).timeout
+	#await get_tree().create_timer(7.0).timeout
 	
 	var artifact_info = artifact_info_list[0]
 	await trigger_qna(artifact_info.question, artifact_info.choices, artifact_info.answer)

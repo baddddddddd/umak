@@ -1,14 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://d2flkeje3ciyt"]
+[gd_scene load_steps=10 format=3 uid="uid://d2flkeje3ciyt"]
 
 [ext_resource type="Script" path="res://Scenes/Player/ultimate.gd" id="1_h68l3"]
 [ext_resource type="Script" path="res://Scenes/Player/ultimateray.gd" id="2_xl2mf"]
 [ext_resource type="Texture2D" uid="uid://bdx1lwunh3o6d" path="res://Assets/SpaceShooterAssets/SpaceShooterAssetPack_Projectiles.png" id="3_d527v"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5iwtu"]
-atlas = ExtResource("3_d527v")
-region = Rect2(24, 72, 24, 8)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ydbmv"]
 atlas = ExtResource("3_d527v")
 region = Rect2(24, 72, 24, 8)
 
@@ -27,7 +23,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ydbmv")
+"texture": SubResource("AtlasTexture_5iwtu")
 }],
 "loop": true,
 "name": &"Fire",

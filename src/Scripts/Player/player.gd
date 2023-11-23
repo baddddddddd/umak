@@ -9,7 +9,8 @@ signal bullet_shot(bullet_scene, location)
 @onready var joystick = preload("res://Scenes/Player/joystick.tscn").instantiate()
 @onready var bbm = 0
 @onready var double_bullet = false
-@export var ultimate : PackedScene
+@onready var ultimate = preload("res://Scenes/Player/ultimate.tscn")
+@onready var ultieffect = preload("res://Scenes/UltiEffect.tscn").instantiate()
 @onready var ult_active = false
 
 const NUMBER_OF_HP_FRAMES = 6
@@ -38,7 +39,7 @@ func _ready():
 		get_tree().current_scene.add_child.call_deferred(joystick)
 	
 	anim.play("Default")
-	
+	get_tree().current_scene.add_child(ultieffect)
 	Global.player_position = self.global_position
 	
 	var display_text = str(Global.artifact_collected.size()) + " / 7" 
@@ -111,9 +112,17 @@ func shoot():
 			$"../ActivePowerup/Powerup1".visible = false
 			bullet_scene=preload("res://Scenes/Player/bullet.tscn")
 	
+func blink():
+	print("ass")
+	print(ultieffect)
+	var tween = create_tween().set_trans(Tween.TRANS_QUAD)
+	await tween.tween_property(ultieffect, "modulate", Color(0, 0, 0, 0), 3.0).set_ease(Tween.EASE_IN_OUT).finished
 	
 func fire_ultimate():
+	print("aaa")
 	ult_active = true
+	blink()
+	await get_tree().create_timer(3.0).timeout
 	var ultimate_instance = ultimate.instantiate()
 	ultimate_instance.global_position = muzzle.global_position
 	get_tree().current_scene.add_child(ultimate_instance)
@@ -130,7 +139,7 @@ func deplete_hp(damage):
 	var section = hp / bar
 	var frame_offset = NUMBER_OF_HP_FRAMES - section
 	
-	
+	#offset = Vector2(randf)
 	hp -= damage
 	
 	if hp <= 0:
