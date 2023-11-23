@@ -1,9 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://bpbybc0ihfams"]
+[gd_scene load_steps=13 format=3 uid="uid://bpbybc0ihfams"]
 
 [ext_resource type="Script" path="res://Scripts/Enemy/type_2_bullet.gd" id="1_yxjs1"]
 [ext_resource type="Texture2D" uid="uid://c1jncf74hktls" path="res://Assets/SpaceShooterAssets/charging.png" id="2_ui8r8"]
 [ext_resource type="Texture2D" uid="uid://c1yubkkkj8ee2" path="res://Assets/SpaceShooterAssets/firing.png" id="3_2vdxb"]
 [ext_resource type="Script" path="res://Scripts/Enemy/RayCast2D.gd" id="4_pri6r"]
+[ext_resource type="AudioStream" uid="uid://i1wljx0og6i5" path="res://Assets/sfx/laser.mp3" id="5_hvatr"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yga05"]
 atlas = ExtResource("2_ui8r8")
@@ -138,3 +139,6 @@ libraries = {
 }
 
 [node name="AttackTimer" type="Timer" parent="."]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_hvatr")

@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://dvx84x75xn6gu"]
+[gd_scene load_steps=7 format=3 uid="uid://dvx84x75xn6gu"]
 
 [ext_resource type="Script" path="res://Scripts/Enemy/type_1_bullet.gd" id="1_6equy"]
 [ext_resource type="Texture2D" uid="uid://bdx1lwunh3o6d" path="res://Assets/SpaceShooterAssets/SpaceShooterAssetPack_Projectiles.png" id="1_gp4ua"]
+[ext_resource type="AudioStream" uid="uid://japqx8xqjvow" path="res://Assets/sfx/larger_bullet.mp3" id="3_jji5c"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1egx6"]
 atlas = ExtResource("1_gp4ua")
@@ -38,5 +39,10 @@ sprite_frames = SubResource("SpriteFrames_coiqf")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(2, 2)
 shape = SubResource("CircleShape2D_yahxm")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_jji5c")
+volume_db = -5.0
+autoplay = true
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

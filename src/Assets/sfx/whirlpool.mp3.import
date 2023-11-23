@@ -12,8 +12,8 @@ dest_files=["res://.godot/imported/whirlpool.mp3-23735b430922a15dec652a0b3284764
 
 [params]
 
-loop=false
-loop_offset=0
-bpm=0
+loop=true
+loop_offset=0.04
+bpm=0.0
 beat_count=0
 bar_beats=4
