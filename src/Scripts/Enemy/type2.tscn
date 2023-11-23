@@ -45,4 +45,18 @@ wait_time = 5.0
 [node name="BulletSpawn" type="Node2D" parent="."]
 position = Vector2(-16.595, 0)
 
+[node name="HPBar" type="ColorRect" parent="."]
+offset_left = -6.4
+offset_top = 10.0
+offset_right = 6.6
+offset_bottom = 12.0
+color = Color(0.101961, 0.101961, 0.101961, 1)
+
+[node name="HPFill" type="ColorRect" parent="."]
+offset_left = -6.4
+offset_top = 10.0
+offset_right = 6.6
+offset_bottom = 12.0
+color = Color(0.705882, 0.117647, 0.211765, 1)
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
