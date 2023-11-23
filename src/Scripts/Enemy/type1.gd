@@ -7,13 +7,17 @@ extends CharacterBody2D
 
 
 func _ready():
+	velocity.x = -speed
+	hp_fill.hide()
+	hp_bar.hide()
+
 	await get_tree().create_timer(1.0).timeout
 	attack()
 	$Timer.start()
+	
+	await move_random()
 
 func _physics_process(delta):
-	velocity.x = -speed
-	
 	move_and_slide()
 	
 	
@@ -28,11 +32,33 @@ func _on_timer_timeout():
 	attack()
 
 		
-func deplete_hp(damage):
+@onready var hp_fill = $HPFill
+@onready var hp_bar = $HPBar
+func deplete_hp(damage):	
 	hp -= damage
+	
+	hp_fill.size.x = (float(hp) / max_hp) * hp_bar.size.x
+	hp_fill.show()
+	hp_bar.show()
 	
 	if hp <= 0:
 		destroy()
 		
 func destroy():
 	queue_free()
+	
+	
+func move_random():
+	var rng = RandomNumberGenerator.new()
+	
+	var top_speed = rng.randf_range(-50, 50)
+	var duration = rng.randf_range(0.1, 0.7)
+	
+	var tween = create_tween().set_trans(Tween.TRANS_QUAD)
+	await tween.tween_property(self, "velocity", Vector2(velocity.x, top_speed), duration).set_ease(Tween.EASE_IN_OUT).finished
+	await get_tree().create_timer(0.5).timeout
+	var tween2 = create_tween().set_trans(Tween.TRANS_QUAD)
+	await tween2.tween_property(self, "velocity", Vector2(velocity.x, 0), duration).set_ease(Tween.EASE_IN_OUT).finished
+
+	await get_tree().create_timer(3).timeout
+	return await move_random()

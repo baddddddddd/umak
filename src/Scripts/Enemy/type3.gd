@@ -46,8 +46,14 @@ func spawn_whirlpool():
 	get_tree().current_scene.add_child(whirlpool)
 	
 	
-func deplete_hp(damage):
+@onready var hp_fill = $HPFill
+@onready var hp_bar = $HPBar
+func deplete_hp(damage):	
 	hp -= damage
+	
+	hp_fill.size.x = (float(hp) / max_hp) * hp_bar.size.x
+	hp_fill.show()
+	hp_bar.show()
 	
 	if hp <= 0:
 		destroy()

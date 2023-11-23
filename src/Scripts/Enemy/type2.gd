@@ -29,8 +29,14 @@ func attack():
 func _on_timer_timeout():
 	attack()
 	
-func deplete_hp(damage):
+@onready var hp_fill = $HPFill
+@onready var hp_bar = $HPBar
+func deplete_hp(damage):	
 	hp -= damage
+	
+	hp_fill.size.x = (float(hp) / max_hp) * hp_bar.size.x
+	hp_fill.show()
+	hp_bar.show()
 	
 	if hp <= 0:
 		destroy()
