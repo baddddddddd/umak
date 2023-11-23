@@ -7,8 +7,9 @@ func _ready():
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if a != 0:
-		a -= 0.005
+	if a > 0:
+		a -= delta / 2
 		set_self_modulate(Color(1, 1, 1, a))
-		
+	else:
+		queue_free()
 		

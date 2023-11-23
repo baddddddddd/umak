@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://bfoc0his1pf4p"]
+[gd_scene load_steps=25 format=3 uid="uid://bfoc0his1pf4p"]
 
 [ext_resource type="Script" path="res://Scenes/StageTwo.gd" id="1_5pkdt"]
 [ext_resource type="PackedScene" uid="uid://bkex7j6m7a446" path="res://Scripts/Enemy/type1.tscn" id="2_65kpi"]
@@ -16,7 +16,6 @@
 [ext_resource type="Texture2D" uid="uid://wtbomb1bylno" path="res://Assets/BG/sunset_seabg3.png" id="14_1gkqj"]
 [ext_resource type="Texture2D" uid="uid://c3t6e3fb0skmv" path="res://Assets/BG/sunset_seabg4.png" id="15_h51ym"]
 [ext_resource type="Texture2D" uid="uid://by2tddm70nhnb" path="res://Assets/BG/sunset_seacloud.png" id="16_hhws0"]
-[ext_resource type="Texture2D" uid="uid://kq0apa0yv5yb" path="res://Assets/BG/day_sea.png" id="16_jbncr"]
 [ext_resource type="Texture2D" uid="uid://bv02fcorbbwcd" path="res://Assets/BG/sunset_sea.png" id="17_1biab"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5j10q"]
@@ -253,7 +252,7 @@ texture = ExtResource("17_1biab")
 [node name="Sprite2D2" type="Sprite2D" parent="BG/ParallaxLayer6"]
 position = Vector2(775, 59)
 scale = Vector2(1.2, 1.2)
-texture = ExtResource("16_jbncr")
+texture = ExtResource("17_1biab")
 
 [connection signal="timeout" from="PowerUpSpawnClock" to="." method="_on_power_up_spawn_clock_timeout"]
 [connection signal="timeout" from="EnemySpawnClock" to="." method="_on_enemy_spawn_clock_timeout"]

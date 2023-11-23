@@ -21,6 +21,7 @@ var top_left = Vector2(0, 0)
 
 # Quiz mode
 @onready var hud = $Hud
+var type_4s = []
 
 
 # boss fight
@@ -97,7 +98,22 @@ func _on_enemy_spawn_clock_timeout():
 
 
 func show_banner(text):
-	hud.get_node("MarginContainer/RichTextLabel").text = text
+	if hud.position.y > 0:
+		return
+		
+	var tween = create_tween().set_trans(Tween.TRANS_QUAD)
+	tween.tween_property(hud, "position", Vector2(hud.position.x, hud.position.y + 75), 1.0).set_ease(Tween.EASE_OUT)
+	
+	var display_text = "[center]" + text + "[/center]"
+	hud.get_node("MarginContainer/RichTextLabel").text = display_text
+	
+	
+func hide_banner():
+	if hud.position.y < 0:
+		return
+		
+	var tween = create_tween().set_trans(Tween.TRANS_QUAD)
+	tween.tween_property(hud, "position", Vector2(hud.position.x, hud.position.y - 75), 1.0).set_ease(Tween.EASE_IN)
 	
 	
 
@@ -123,6 +139,7 @@ func trigger_qna(question, choices, answer):
 			spawn_type_4(position, banner_text, true)
 			
 	await get_tree().create_timer(10.0).timeout
+	hide_banner()
 	
 
 func spawn_type_4(position, banner_text, invincible):
@@ -136,6 +153,17 @@ func spawn_type_4(position, banner_text, invincible):
 	
 	get_tree().current_scene.add_child(enemy_instance)
 	banner.show()
+	
+	type_4s.push_back(enemy_instance)
+	
+	
+func destroy_qna():
+	for enemy in type_4s:
+		if enemy.has_method("destroy"):
+			enemy.destroy()
+			
+	await get_tree().create_timer(1.0).timeout
+	hide_banner()
 	
 	
 func start_wave():

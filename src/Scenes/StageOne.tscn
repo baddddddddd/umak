@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Scripts/Environment/BG.gd" id="1_esl4a"]
 [ext_resource type="Script" path="res://Scenes/StageOne.gd" id="1_oiyt2"]
 [ext_resource type="PackedScene" uid="uid://bkex7j6m7a446" path="res://Scripts/Enemy/type1.tscn" id="2_gdivj"]
-[ext_resource type="PackedScene" uid="uid://cprwy5678flet" path="res://Scenes/PowerUps/powerup4.tscn" id="3_3qkk7"]
+[ext_resource type="PackedScene" path="res://Scenes/PowerUps/powerup4.tscn" id="3_3qkk7"]
 [ext_resource type="Texture2D" uid="uid://ds0xgatxquywp" path="res://Assets/Pixel UI pack 3/04.png" id="3_w6px1"]
 [ext_resource type="PackedScene" uid="uid://b5f8vpqafyeaa" path="res://Scenes/Player/player.tscn" id="5_650px"]
 [ext_resource type="Texture2D" uid="uid://dl5gdjukqkwmy" path="res://Assets/BG/day_seabg1.png" id="5_tkq36"]
@@ -17,7 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://dfbx04ou617ld" path="res://Scenes/game_over_screen.tscn" id="10_k1l4d"]
 [ext_resource type="Texture2D" uid="uid://kq0apa0yv5yb" path="res://Assets/BG/day_sea.png" id="10_lxrlf"]
 [ext_resource type="PackedScene" uid="uid://twv1egtiejei" path="res://Scenes/artifacts.tscn" id="11_0hv7f"]
-[ext_resource type="Texture2D" uid="uid://bwp53dykhoxwn" path="res://Assets/Objects/artifact.png" id="17_223y2"]
+[ext_resource type="Texture2D" uid="uid://cq44rh4a3gr34" path="res://Assets/Objects/artifact.png" id="17_223y2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5j10q"]
 size = Vector2(552, 161.5)
@@ -232,9 +232,9 @@ offset_bottom = 112.0
 
 [node name="Hud" parent="." instance=ExtResource("9_ai6gi")]
 offset_left = 173.0
-offset_top = 12.0
+offset_top = -61.0
 offset_right = 173.0
-offset_bottom = 12.0
+offset_bottom = -61.0
 
 [node name="ArtifactCounter" parent="." instance=ExtResource("10_2jw3l")]
 offset_left = -41.0
