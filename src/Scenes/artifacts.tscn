@@ -185,3 +185,11 @@ offset_bottom = 42.0
 theme_override_colors/font_color = Color(0.819608, 0.780392, 0, 1)
 theme_override_fonts/font = ExtResource("1_6m7ix")
 text = "ARTIFACTS"
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 63.0
+offset_top = -4.0
+offset_right = 512.0
+offset_bottom = 237.0
+color = Color(1, 1, 1, 0)
