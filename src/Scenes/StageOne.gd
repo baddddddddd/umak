@@ -21,6 +21,7 @@ var top_left = Vector2(0, 0)
 
 # Quiz mode
 @onready var hud = $Hud
+var type_4s = []
 
 
 # boss fight
@@ -134,9 +135,16 @@ func spawn_type_4(position, banner_text, invincible):
 	var banner_text_ui = banner.get_node("MarginContainer/RichTextLabel")
 	banner_text_ui.text = banner_text
 	
-	
 	get_tree().current_scene.add_child(enemy_instance)
 	banner.show()
+	
+	type_4s.push_back(enemy_instance)
+	
+	
+func destroy_qna():
+	for enemy in type_4s:
+		if enemy.has_method("destroy"):
+			enemy.destroy()
 	
 	
 func start_wave():

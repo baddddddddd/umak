@@ -22,10 +22,12 @@ func deplete_hp(damage):
 	hp -= damage
 	
 	if hp <= 0:
-		destroy()
+		destroy_wave()
+		
+		
+func destroy_wave():
+	$"..".destroy_qna()	
 		
 		
 func destroy():
-	
-	
 	queue_free()
