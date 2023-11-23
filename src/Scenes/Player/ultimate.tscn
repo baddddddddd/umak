@@ -134,5 +134,3 @@ flip_h = true
 libraries = {
 "": SubResource("AnimationLibrary_0d6qy")
 }
-
-[node name="AttackTimer" type="Timer" parent="."]

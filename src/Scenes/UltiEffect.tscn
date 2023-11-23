@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://ds0radj6s2ohs"]
+[gd_scene format=3 uid="uid://di1ss76kddjto"]
 
 [node name="UltiEffect" type="ColorRect"]
 z_index = 100
