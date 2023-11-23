@@ -93,7 +93,7 @@ func _ready():
 	await get_tree().create_timer(3.0).timeout	
 	artifact_info = artifact_info_list[1]
 	await trigger_qna(artifact_info.question, artifact_info.choices, artifact_info.answer)
-	await get_tree().create_timer(7.0).timeout
+	await get_tree().create_timer(5.0).timeout
 
 	start_bossfight()	
 	

@@ -1,18 +1,14 @@
-[gd_scene load_steps=7 format=3 uid="uid://bkex7j6m7a446"]
+[gd_scene load_steps=6 format=3 uid="uid://bkex7j6m7a446"]
 
-[ext_resource type="Texture2D" uid="uid://4oyiimjl8fcm" path="res://Assets/SpaceShooterAssets/SpaceShooterAssetPack_Ships.png" id="1_0ywqm"]
 [ext_resource type="Script" path="res://Scripts/Enemy/type1.gd" id="1_ne2sj"]
 [ext_resource type="PackedScene" uid="uid://dvx84x75xn6gu" path="res://Scripts/Enemy/type_1_bullet.tscn" id="2_1iu7c"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_2008r"]
-atlas = ExtResource("1_0ywqm")
-region = Rect2(32, 64, 16, 16)
+[ext_resource type="Texture2D" uid="uid://da8lxqwbo4lc6" path="res://Assets/Objects/enemy 2.png" id="3_d25ic"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_lil8y"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_2008r")
+"texture": ExtResource("3_d25ic")
 }],
 "loop": true,
 "name": &"default",
@@ -33,7 +29,7 @@ max_hp = 150
 metadata/entity_type = "enemy"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-rotation = 1.5708
+scale = Vector2(0.048, 0.048)
 sprite_frames = SubResource("SpriteFrames_lil8y")
 
 [node name="Timer" type="Timer" parent="."]

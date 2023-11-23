@@ -20,7 +20,7 @@ metadata/entity_type = "player_bullet"
 metadata/damages_enemies = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.0230947, 0.0230947)
+scale = Vector2(0.06, 0.06)
 texture = ExtResource("1_02mwa")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

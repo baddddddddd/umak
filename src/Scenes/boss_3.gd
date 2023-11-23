@@ -18,6 +18,7 @@ var hp = max_hp
 @onready var whirlpool_scene = preload("res://Scripts/Enemy/type_3_bullet.tscn")
 @onready var curve_scene = preload("res://Scripts/Enemy/type_5_bullet.tscn")
 @onready var missile_scence = preload("res://Scripts/Enemy/type_6_bullet.tscn")
+@onready var homing_scene = preload("res://Scripts/Enemy/type_6_bullet.tscn")
 
 
 func _ready():
@@ -27,6 +28,7 @@ func _ready():
 	
 	velocity.x = 0
 	
+	await homing_missile_attack()
 	await missile_attack()
 	await curve_attack()
 	await whirlpool_attack()
@@ -38,8 +40,8 @@ func _ready():
 
 
 func attack():
-	var attacks = [laser_attack, cannon_attack, whirlpool_attack, curve_attack, missile_attack]
-	for i in range(3):
+	var attacks = [laser_attack, cannon_attack, whirlpool_attack, curve_attack, missile_attack, homing_missile_attack]
+	for i in range(4):
 		var attack_type = rng.randi_range(0, 1)
 		await attacks[attack_type].call()
 		
@@ -134,6 +136,14 @@ func missile_attack():
 	
 	get_tree().current_scene.add_child(missile_bullet)
 	
+	
+func homing_missile_attack():
+	await get_tree().create_timer(0.2).timeout
+	
+	var homing_missile = homing_scene.instantiate()
+	homing_missile.global_position = cannon_muzzle.global_position
+	
+	get_tree().current_scene.add_child(homing_missile)	
 	
 	
 func deplete_hp(damage):
