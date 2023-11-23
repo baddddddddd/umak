@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bqlkor1ts2k8f"
-path="res://.godot/imported/banner.png-60c416ddad483bd7a2ad66f02eb4891e.ctex"
+uid="uid://bx6gbb1f1rkjs"
+path="res://.godot/imported/day_seabg2.png-9c2bd8c99128559fda04e1424f5d7350.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/CutScene/banner.png"
-dest_files=["res://.godot/imported/banner.png-60c416ddad483bd7a2ad66f02eb4891e.ctex"]
+source_file="res://Assets/BG/day_seabg2.png"
+dest_files=["res://.godot/imported/day_seabg2.png-9c2bd8c99128559fda04e1424f5d7350.ctex"]
 
 [params]
 
