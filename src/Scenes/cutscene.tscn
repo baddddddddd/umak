@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://cq2riibf1pe61"]
+[gd_scene load_steps=18 format=3 uid="uid://cq2riibf1pe61"]
 
 [ext_resource type="Script" path="res://Scenes/cutscene.gd" id="1_6tqvt"]
 [ext_resource type="Texture2D" uid="uid://cj0vy6oskwp01" path="res://Assets/CutScene/1.jpg" id="1_7twfj"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://d2ysq8dvqtdrh" path="res://Assets/CutScene/4.jpg" id="5_qraht"]
 [ext_resource type="Texture2D" uid="uid://yotwcixajxob" path="res://Assets/Utilities/banner.png" id="9_cpreh"]
 [ext_resource type="FontFile" uid="uid://timtq8nyjxep" path="res://Assets/font/Pixeled.ttf" id="10_0lo6t"]
+[ext_resource type="FontFile" uid="uid://dme7r2me7sese" path="res://Assets/font/game_over.ttf" id="12_jcyp3"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_o11xv"]
 font = ExtResource("10_0lo6t")
@@ -307,8 +308,8 @@ _data = {
 }
 
 [sub_resource type="LabelSettings" id="LabelSettings_645vu"]
-font = ExtResource("10_0lo6t")
-font_size = 60
+font = ExtResource("12_jcyp3")
+font_size = 230
 
 [node name="cutscene" type="Node2D"]
 script = ExtResource("1_6tqvt")
@@ -383,9 +384,11 @@ metadata/_edit_group_ = true
 
 [node name="Label" type="Label" parent="v8"]
 offset_left = -1489.0
-offset_top = -221.0
+offset_top = -192.831
 offset_right = 1551.0
-offset_bottom = 120.0
+offset_bottom = 148.169
+size_flags_horizontal = 8
+size_flags_vertical = 1
 text = "With the help of my amphibian vehicle, TOAD, I'll reclaim the Pearlest Sea back myself!"
 label_settings = SubResource("LabelSettings_645vu")
 autowrap_mode = 2
@@ -401,9 +404,11 @@ metadata/_edit_group_ = true
 
 [node name="Label" type="Label" parent="v7"]
 offset_left = -1489.0
-offset_top = -221.0
+offset_top = -192.831
 offset_right = 1551.0
-offset_bottom = 120.0
+offset_bottom = 148.169
+size_flags_horizontal = 8
+size_flags_vertical = 1
 text = "Jun: Fear not! I hail from PhilipBeans land!"
 label_settings = SubResource("LabelSettings_645vu")
 autowrap_mode = 2
@@ -419,9 +424,11 @@ metadata/_edit_group_ = true
 
 [node name="Label" type="Label" parent="v6"]
 offset_left = -1489.0
-offset_top = -221.0
+offset_top = -192.831
 offset_right = 1551.0
-offset_bottom = 120.0
+offset_bottom = 148.169
+size_flags_horizontal = 8
+size_flags_vertical = 1
 text = "Suddenly, a courageous figure enters."
 label_settings = SubResource("LabelSettings_645vu")
 autowrap_mode = 2
@@ -437,9 +444,11 @@ metadata/_edit_group_ = true
 
 [node name="Label" type="Label" parent="v5"]
 offset_left = -1489.0
-offset_top = -221.0
+offset_top = -192.831
 offset_right = 1551.0
-offset_bottom = 120.0
+offset_bottom = 148.169
+size_flags_horizontal = 8
+size_flags_vertical = 1
 text = "Therefore I shall return, adios! [flees]"
 label_settings = SubResource("LabelSettings_645vu")
 autowrap_mode = 2
@@ -455,9 +464,11 @@ metadata/_edit_group_ = true
 
 [node name="Label" type="Label" parent="v4"]
 offset_left = -1488.53
-offset_top = -221.075
+offset_top = -192.906
 offset_right = 1551.47
-offset_bottom = 627.925
+offset_bottom = 656.094
+size_flags_horizontal = 8
+size_flags_vertical = 1
 text = "That stirred my stew! I wanted Pearlest Sea back but lacked hands, feet, and tails...."
 label_settings = SubResource("LabelSettings_645vu")
 autowrap_mode = 2
@@ -473,9 +484,11 @@ metadata/_edit_group_ = true
 
 [node name="Label" type="Label" parent="v3"]
 offset_left = -1489.0
-offset_top = -221.0
+offset_top = -192.831
 offset_right = 1551.0
-offset_bottom = 227.0
+offset_bottom = 255.169
+size_flags_horizontal = 8
+size_flags_vertical = 1
 text = "but Zhi Jin's vessel sprayed him away like an angry cat with a water cannon! "
 label_settings = SubResource("LabelSettings_645vu")
 autowrap_mode = 2
@@ -491,9 +504,11 @@ metadata/_edit_group_ = true
 
 [node name="Label" type="Label" parent="v2"]
 offset_left = -1489.0
-offset_top = -221.0
+offset_top = -192.831
 offset_right = 1551.0
-offset_bottom = 130.0
+offset_bottom = 158.169
+size_flags_horizontal = 8
+size_flags_vertical = 1
 text = "Our fisherman went to Pearlest Sea to fish"
 label_settings = SubResource("LabelSettings_645vu")
 autowrap_mode = 2
@@ -509,9 +524,11 @@ metadata/_edit_group_ = true
 
 [node name="Label" type="Label" parent="v1"]
 offset_left = -1488.53
-offset_top = -221.075
+offset_top = -192.906
 offset_right = 1551.47
-offset_bottom = 627.925
+offset_bottom = 656.094
+size_flags_horizontal = 8
+size_flags_vertical = 1
 text = "Chief Banban: Attention to all people of PhilipBeans! Chief Zhi Jin lays claim to Pearl Sea!"
 label_settings = SubResource("LabelSettings_645vu")
 autowrap_mode = 2
