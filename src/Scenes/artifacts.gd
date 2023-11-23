@@ -25,7 +25,7 @@ func update_display():
 	for i in range(1, Global.artifact_collected.size() + 1):
 		var string_node = "NinePatchRect/ScrollContainer/VBoxContainer/Label" + str(i) + "/artifact_slot/MarginContainer/RichTextLabel"
 		var text_label = get_node(string_node)
-		text_label.text = Global.artifact_information[i - 1].information
+		text_label.text = Global.artifact_collected[i - 1].quiz.information
 		
 		
 

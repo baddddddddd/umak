@@ -198,7 +198,6 @@ func shoot_missile():
 	get_tree().current_scene.add_child(homing_missile)
 
 
-
 func end_game():
 	Engine.time_scale = 0
 	game_over_screen.show()
@@ -208,6 +207,5 @@ func _on_pause_button_pressed():
 	pause()
 
 
-func _on_powerup_spawn_clock_timeout():
+func _on_power_up_spawn_clock_timeout():
 	spawn_powerup()
-	
