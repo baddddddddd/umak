@@ -1,5 +1,5 @@
 extends RayCast2D
-
+@onready var fired = false
 func _ready():
 	pass
 
@@ -9,8 +9,9 @@ func _process(delta):
 	if is_colliding() and firing:
 		print("collide")
 		var obj = get_collider()
-		if obj.is_in_group("enemy"):
+		if obj.is_in_group("enemy") and fired == false:
 			obj.deplete_hp(500)
+			fired = true
 		
 	
 		
