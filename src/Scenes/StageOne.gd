@@ -33,6 +33,8 @@ var type_4s = []
 var artifact_info_list = []
 var artifact_spawnables = []
 
+# ultimate
+
 
 func choose_artifact_info():
 	var random_idx = rng.randi_range(0, Global.artifact_info_tracker.size() - 1)
@@ -58,6 +60,7 @@ func spawn_artifact():
 func _ready():
 	Global.artifact_info_tracker = Global.artifact_information.duplicate()
 	Global.artifact_collected = []
+	Global.ultimate_charge = 0
 	
 	for i in range(2):
 		choose_artifact_info()
@@ -162,8 +165,17 @@ func destroy_qna():
 		if enemy.has_method("destroy"):
 			enemy.destroy()
 			
+	add_ultimate_charge()
+			
 	await get_tree().create_timer(1.0).timeout
 	hide_banner()
+	
+	
+func add_ultimate_charge():
+	if Global.ultimate_charge < 2:
+		Global.ultimate_charge += 1
+		
+	print(Global.ultimate_charge)
 	
 	
 func start_wave():
