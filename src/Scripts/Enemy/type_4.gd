@@ -26,4 +26,6 @@ func deplete_hp(damage):
 		
 		
 func destroy():
+	
+	
 	queue_free()

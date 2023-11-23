@@ -134,6 +134,7 @@ func spawn_type_4(position, banner_text, invincible):
 	var banner_text_ui = banner.get_node("MarginContainer/RichTextLabel")
 	banner_text_ui.text = banner_text
 	
+	
 	get_tree().current_scene.add_child(enemy_instance)
 	banner.show()
 	
