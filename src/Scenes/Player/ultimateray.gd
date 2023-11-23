@@ -10,7 +10,7 @@ func _process(delta):
 		print("collide")
 		var obj = get_collider()
 		if obj.is_in_group("enemy") and fired == false:
-			obj.deplete_hp(500)
+			obj.deplete_hp(2000)
 			fired = true
 		
 	
