@@ -10,12 +10,12 @@
 [ext_resource type="PackedScene" uid="uid://dfbx04ou617ld" path="res://Scenes/game_over_screen.tscn" id="8_li6lg"]
 [ext_resource type="PackedScene" uid="uid://bvb7b5qu535gq" path="res://Scripts/Enemy/hud.tscn" id="9_r23go"]
 [ext_resource type="PackedScene" uid="uid://c2kacknu36x4l" path="res://Scenes/artifact_counter.tscn" id="11_8nvil"]
-[ext_resource type="Texture2D" uid="uid://c4dg31efsldfi" path="res://Assets/BG/day_seabg1.png" id="11_t0vmg"]
-[ext_resource type="Texture2D" uid="uid://x67yilpb6gww" path="res://Assets/BG/day_seabg2.png" id="12_q6cc0"]
-[ext_resource type="Texture2D" uid="uid://dioayq42ag6bg" path="res://Assets/BG/day_seabg3.png" id="13_t3i8v"]
-[ext_resource type="Texture2D" uid="uid://dl470t0mbr28" path="res://Assets/BG/day_seabg4.png" id="14_5btxw"]
-[ext_resource type="Texture2D" uid="uid://ctto1dbyh8wm2" path="res://Assets/BG/day_seacloud.png" id="15_4aunj"]
-[ext_resource type="Texture2D" uid="uid://dwbt20il4jyib" path="res://Assets/BG/day_sea.png" id="16_jbncr"]
+[ext_resource type="Texture2D" uid="uid://dl5gdjukqkwmy" path="res://Assets/BG/day_seabg1.png" id="11_t0vmg"]
+[ext_resource type="Texture2D" uid="uid://bx6gbb1f1rkjs" path="res://Assets/BG/day_seabg2.png" id="12_q6cc0"]
+[ext_resource type="Texture2D" uid="uid://datjoc6o6qhiu" path="res://Assets/BG/day_seabg3.png" id="13_t3i8v"]
+[ext_resource type="Texture2D" uid="uid://bc7rttv62tkdu" path="res://Assets/BG/day_seabg4.png" id="14_5btxw"]
+[ext_resource type="Texture2D" uid="uid://b06nbdxrne3ri" path="res://Assets/BG/day_seacloud.png" id="15_4aunj"]
+[ext_resource type="Texture2D" uid="uid://kq0apa0yv5yb" path="res://Assets/BG/day_sea.png" id="16_jbncr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5j10q"]
 size = Vector2(552, 161.5)
