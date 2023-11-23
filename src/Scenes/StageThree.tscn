@@ -1,15 +1,22 @@
-[gd_scene load_steps=26 format=3 uid="uid://btqqgd4cvsgif"]
+[gd_scene load_steps=33 format=3 uid="uid://btqqgd4cvsgif"]
 
 [ext_resource type="Script" path="res://Scenes/StageThree.gd" id="1_mjt62"]
+[ext_resource type="PackedScene" uid="uid://bkex7j6m7a446" path="res://Scripts/Enemy/type1.tscn" id="2_wnklj"]
+[ext_resource type="PackedScene" uid="uid://dm38gd1lhlp5r" path="res://Scripts/Enemy/type2.tscn" id="3_t3r4j"]
 [ext_resource type="Texture2D" uid="uid://ds0xgatxquywp" path="res://Assets/Pixel UI pack 3/04.png" id="4_dqta0"]
 [ext_resource type="Texture2D" uid="uid://lq4po1oq0mbf" path="res://Assets/BG/sunset_seastar.png" id="4_q3uyl"]
+[ext_resource type="PackedScene" uid="uid://eppq2k6h042w" path="res://Scripts/Enemy/type3.tscn" id="4_vbqtx"]
+[ext_resource type="PackedScene" uid="uid://b8rqlb6m0g7so" path="res://Scenes/PowerUps/powerup1.tscn" id="5_6gdac"]
 [ext_resource type="Texture2D" uid="uid://dd07nrxl33i7v" path="res://Assets/BG/sunset_seabg1.png" id="5_h1xt2"]
 [ext_resource type="Script" path="res://Scripts/Environment/BG.gd" id="5_ji4gb"]
+[ext_resource type="PackedScene" uid="uid://bvo3e3uq6vffw" path="res://Scenes/PowerUps/powerup2.tscn" id="6_2rxqn"]
 [ext_resource type="Texture2D" uid="uid://bbagphk1a1qjs" path="res://Assets/BG/sunset_seabg2.png" id="6_u1q1d"]
 [ext_resource type="Texture2D" uid="uid://wtbomb1bylno" path="res://Assets/BG/sunset_seabg3.png" id="7_7q7ly"]
+[ext_resource type="PackedScene" uid="uid://c7lsoh7frekg6" path="res://Scenes/PowerUps/powerup3.tscn" id="7_fjdxv"]
 [ext_resource type="PackedScene" uid="uid://b5f8vpqafyeaa" path="res://Scenes/Player/player.tscn" id="7_h4nq2"]
 [ext_resource type="PackedScene" uid="uid://71x7rr26fjou" path="res://Scenes/pause_menu.tscn" id="8_1mkv6"]
 [ext_resource type="Texture2D" uid="uid://c3t6e3fb0skmv" path="res://Assets/BG/sunset_seabg4.png" id="8_1w0y0"]
+[ext_resource type="PackedScene" uid="uid://c5qnocipj4yq1" path="res://Scenes/PowerUps/powerup4.tscn" id="8_ihlgy"]
 [ext_resource type="Texture2D" uid="uid://by2tddm70nhnb" path="res://Assets/BG/sunset_seacloud.png" id="9_g2ltt"]
 [ext_resource type="PackedScene" uid="uid://dfbx04ou617ld" path="res://Scenes/game_over_screen.tscn" id="9_lcgje"]
 [ext_resource type="Texture2D" uid="uid://bv02fcorbbwcd" path="res://Assets/BG/sunset_sea.png" id="10_3pd4k"]
@@ -46,8 +53,8 @@ b = Vector2(572, 149)
 
 [node name="StageThree" type="Node2D"]
 script = ExtResource("1_mjt62")
-enemies = null
-powerups = null
+enemies = Array[PackedScene]([ExtResource("2_wnklj"), ExtResource("3_t3r4j"), ExtResource("4_vbqtx")])
+powerups = Array[PackedScene]([ExtResource("5_6gdac"), ExtResource("6_2rxqn"), ExtResource("7_fjdxv"), ExtResource("8_ihlgy")])
 
 [node name="HealthBar" type="Sprite2D" parent="."]
 position = Vector2(97.132, 30.25)
