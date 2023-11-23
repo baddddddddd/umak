@@ -7,14 +7,16 @@ extends CharacterBody2D
 var current_laser = null
 
 func _ready():
+	velocity.x = -speed
+	hp_fill.hide()
+	hp_bar.hide()
+	
 	await get_tree().create_timer(0.5).timeout
 	attack()
 	$Timer.start()
 	
 
 func _physics_process(delta):
-	velocity.x = -speed
-	
 	move_and_slide()
 	
 	
