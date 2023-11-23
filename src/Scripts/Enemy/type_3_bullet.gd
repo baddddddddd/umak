@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@export var speed = 40
+@export var speed = 150
 @export var suction_speed = 300
 var entered = false
 var target_body
