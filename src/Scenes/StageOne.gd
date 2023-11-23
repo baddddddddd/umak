@@ -67,7 +67,7 @@ func _ready():
 	for i in range(2):
 		choose_artifact_info()
 		
-	#get_tree().change_scene_to_file("res://Scenes/StageThree.tscn")
+	get_tree().change_scene_to_file("res://Scenes/StageTwo.tscn")
 		
 	
 	top_left.x = spawn_area.global_position.x - (spawn_area.shape.size.x * 0.5)

@@ -1,3 +1,331 @@
-[gd_scene format=3 uid="uid://btqqgd4cvsgif"]
+[gd_scene load_steps=26 format=3 uid="uid://btqqgd4cvsgif"]
+
+[ext_resource type="Script" path="res://Scenes/StageThree.gd" id="1_mjt62"]
+[ext_resource type="Texture2D" uid="uid://ds0xgatxquywp" path="res://Assets/Pixel UI pack 3/04.png" id="4_dqta0"]
+[ext_resource type="Texture2D" uid="uid://lq4po1oq0mbf" path="res://Assets/BG/sunset_seastar.png" id="4_q3uyl"]
+[ext_resource type="Texture2D" uid="uid://dd07nrxl33i7v" path="res://Assets/BG/sunset_seabg1.png" id="5_h1xt2"]
+[ext_resource type="Script" path="res://Scripts/Environment/BG.gd" id="5_ji4gb"]
+[ext_resource type="Texture2D" uid="uid://bbagphk1a1qjs" path="res://Assets/BG/sunset_seabg2.png" id="6_u1q1d"]
+[ext_resource type="Texture2D" uid="uid://wtbomb1bylno" path="res://Assets/BG/sunset_seabg3.png" id="7_7q7ly"]
+[ext_resource type="PackedScene" uid="uid://b5f8vpqafyeaa" path="res://Scenes/Player/player.tscn" id="7_h4nq2"]
+[ext_resource type="PackedScene" uid="uid://71x7rr26fjou" path="res://Scenes/pause_menu.tscn" id="8_1mkv6"]
+[ext_resource type="Texture2D" uid="uid://c3t6e3fb0skmv" path="res://Assets/BG/sunset_seabg4.png" id="8_1w0y0"]
+[ext_resource type="Texture2D" uid="uid://by2tddm70nhnb" path="res://Assets/BG/sunset_seacloud.png" id="9_g2ltt"]
+[ext_resource type="PackedScene" uid="uid://dfbx04ou617ld" path="res://Scenes/game_over_screen.tscn" id="9_lcgje"]
+[ext_resource type="Texture2D" uid="uid://bv02fcorbbwcd" path="res://Assets/BG/sunset_sea.png" id="10_3pd4k"]
+[ext_resource type="PackedScene" uid="uid://bvb7b5qu535gq" path="res://Scripts/Enemy/hud.tscn" id="10_kyj0h"]
+[ext_resource type="PackedScene" uid="uid://c2kacknu36x4l" path="res://Scenes/artifact_counter.tscn" id="18_1h3bs"]
+[ext_resource type="PackedScene" uid="uid://twv1egtiejei" path="res://Scenes/artifacts.tscn" id="19_48ff6"]
+[ext_resource type="Texture2D" uid="uid://cq44rh4a3gr34" path="res://Assets/Objects/artifact.png" id="20_ap1rc"]
+[ext_resource type="PackedScene" uid="uid://dfvk5l83m2lid" path="res://Scenes/level_success.tscn" id="21_dq81a"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_py1vy"]
+size = Vector2(552, 161.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2axl7"]
+size = Vector2(97, 160)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tsfpu"]
+size = Vector2(656, 400)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_wjps1"]
+a = Vector2(15, 315)
+b = Vector2(15, 145)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_rgpsq"]
+a = Vector2(569, 317)
+b = Vector2(569, 147)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_gmkyg"]
+a = Vector2(13, 313)
+b = Vector2(572, 313)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_0h486"]
+a = Vector2(10, 149)
+b = Vector2(572, 149)
 
 [node name="StageThree" type="Node2D"]
+script = ExtResource("1_mjt62")
+enemies = null
+powerups = null
+
+[node name="HealthBar" type="Sprite2D" parent="."]
+position = Vector2(97.132, 30.25)
+scale = Vector2(2.5, 1.735)
+texture = ExtResource("4_dqta0")
+hframes = 7
+vframes = 15
+
+[node name="Fill" type="Sprite2D" parent="HealthBar"]
+texture = ExtResource("4_dqta0")
+hframes = 7
+vframes = 15
+frame = 8
+
+[node name="UltimateBar" type="Sprite2D" parent="."]
+position = Vector2(97.132, 54.25)
+scale = Vector2(2.5, 1.735)
+texture = ExtResource("4_dqta0")
+hframes = 7
+vframes = 15
+
+[node name="Fill" type="Sprite2D" parent="UltimateBar"]
+texture = ExtResource("4_dqta0")
+hframes = 7
+vframes = 15
+frame = 8
+
+[node name="PowerUpSpawnClock" type="Timer" parent="."]
+wait_time = 5.0
+
+[node name="EnemySpawnClock" type="Timer" parent="."]
+wait_time = 2.5
+
+[node name="PlayArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayArea"]
+position = Vector2(292, 231.25)
+shape = SubResource("RectangleShape2D_py1vy")
+
+[node name="SpawnArea" type="Area2D" parent="."]
+position = Vector2(600, 208)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SpawnArea"]
+position = Vector2(42, 24)
+shape = SubResource("RectangleShape2D_2axl7")
+
+[node name="Despawn" type="Area2D" parent="."]
+position = Vector2(-48, 208)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Despawn"]
+position = Vector2(344, -32)
+shape = SubResource("RectangleShape2D_tsfpu")
+metadata/_edit_lock_ = true
+
+[node name="player" parent="." instance=ExtResource("7_h4nq2")]
+position = Vector2(128, 208)
+
+[node name="Walls" type="Node2D" parent="."]
+
+[node name="LeftWall" type="StaticBody2D" parent="Walls"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/LeftWall"]
+shape = SubResource("SegmentShape2D_wjps1")
+
+[node name="RightWall" type="StaticBody2D" parent="Walls"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/RightWall"]
+shape = SubResource("SegmentShape2D_rgpsq")
+
+[node name="Ceiling" type="StaticBody2D" parent="Walls"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Ceiling"]
+shape = SubResource("SegmentShape2D_gmkyg")
+
+[node name="Floor" type="StaticBody2D" parent="Walls"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Floor"]
+shape = SubResource("SegmentShape2D_0h486")
+
+[node name="BG" type="ParallaxBackground" parent="."]
+script = ExtResource("5_ji4gb")
+
+[node name="ParallaxLayer0" type="ParallaxLayer" parent="BG"]
+position = Vector2(89, 45)
+motion_scale = Vector2(0.1, 0.1)
+motion_mirroring = Vector2(1152, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="BG/ParallaxLayer0"]
+position = Vector2(199, 59)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("4_q3uyl")
+
+[node name="Sprite2D2" type="Sprite2D" parent="BG/ParallaxLayer0"]
+position = Vector2(775, 59)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("4_q3uyl")
+
+[node name="ParallaxLayer1" type="ParallaxLayer" parent="BG"]
+position = Vector2(89, 45)
+motion_scale = Vector2(0.1, 0.1)
+motion_mirroring = Vector2(1152, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="BG/ParallaxLayer1"]
+position = Vector2(199, 59)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("5_h1xt2")
+
+[node name="Sprite2D2" type="Sprite2D" parent="BG/ParallaxLayer1"]
+position = Vector2(775, 59)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("5_h1xt2")
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="BG"]
+position = Vector2(89, 45)
+motion_scale = Vector2(0.2, 0.2)
+motion_mirroring = Vector2(1152, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="BG/ParallaxLayer2"]
+position = Vector2(199, 59)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("6_u1q1d")
+
+[node name="Sprite2D2" type="Sprite2D" parent="BG/ParallaxLayer2"]
+position = Vector2(775, 59)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("6_u1q1d")
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="BG"]
+position = Vector2(89, 45)
+motion_scale = Vector2(0.3, 0.3)
+motion_mirroring = Vector2(1152, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="BG/ParallaxLayer3"]
+position = Vector2(199, 59)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("7_7q7ly")
+
+[node name="Sprite2D2" type="Sprite2D" parent="BG/ParallaxLayer3"]
+position = Vector2(775, 59)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("7_7q7ly")
+
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="BG"]
+position = Vector2(89, 45)
+motion_scale = Vector2(0.4, 0.4)
+motion_mirroring = Vector2(1152, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="BG/ParallaxLayer4"]
+position = Vector2(199, 59)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("8_1w0y0")
+
+[node name="Sprite2D2" type="Sprite2D" parent="BG/ParallaxLayer4"]
+position = Vector2(775, 59)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("8_1w0y0")
+
+[node name="ParallaxLayer5" type="ParallaxLayer" parent="BG"]
+position = Vector2(89, 45)
+motion_scale = Vector2(0.5, 0.5)
+motion_mirroring = Vector2(1152, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="BG/ParallaxLayer5"]
+position = Vector2(199, 59)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("9_g2ltt")
+
+[node name="Sprite2D2" type="Sprite2D" parent="BG/ParallaxLayer5"]
+position = Vector2(775, 59)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("9_g2ltt")
+
+[node name="ParallaxLayer6" type="ParallaxLayer" parent="BG"]
+position = Vector2(89, 45)
+motion_scale = Vector2(1.5, 1.5)
+motion_mirroring = Vector2(1152, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="BG/ParallaxLayer6"]
+position = Vector2(199, 59)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("10_3pd4k")
+
+[node name="Sprite2D2" type="Sprite2D" parent="BG/ParallaxLayer6"]
+position = Vector2(775, 59)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("10_3pd4k")
+
+[node name="PauseButton" type="Button" parent="."]
+offset_left = 8.0
+offset_top = 16.0
+offset_right = 32.0
+offset_bottom = 48.0
+
+[node name="PauseMenu" parent="." instance=ExtResource("8_1mkv6")]
+visible = false
+z_index = 10
+offset_left = 256.0
+offset_top = 136.0
+offset_right = 256.0
+offset_bottom = 136.0
+
+[node name="GameOverScreen" parent="." instance=ExtResource("9_lcgje")]
+visible = false
+offset_left = 248.0
+offset_top = 112.0
+offset_right = 248.0
+offset_bottom = 112.0
+
+[node name="Hud" parent="." instance=ExtResource("10_kyj0h")]
+offset_left = 173.0
+offset_top = -61.0
+offset_right = 173.0
+offset_bottom = -61.0
+
+[node name="ArtifactCounter" parent="." instance=ExtResource("18_1h3bs")]
+offset_left = -41.0
+offset_top = 89.0
+offset_right = -41.0
+offset_bottom = 89.0
+
+[node name="artifacts" parent="." instance=ExtResource("19_48ff6")]
+visible = false
+z_index = 10
+offset_left = 11.0
+offset_top = 63.0
+offset_right = 582.0
+offset_bottom = 387.0
+
+[node name="Button" type="Button" parent="."]
+offset_left = 8.0
+offset_top = 91.0
+offset_right = 32.0
+offset_bottom = 118.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Button"]
+position = Vector2(12, 14)
+scale = Vector2(0.102941, 0.102941)
+texture = ExtResource("20_ap1rc")
+
+[node name="ActivePowerup" type="Node2D" parent="."]
+
+[node name="Powerup1" type="Sprite2D" parent="ActivePowerup"]
+visible = false
+position = Vector2(53, 86)
+scale = Vector2(0.122549, 0.127451)
+texture = ExtResource("20_ap1rc")
+
+[node name="Powerup2" type="Sprite2D" parent="ActivePowerup"]
+visible = false
+position = Vector2(89, 86)
+scale = Vector2(0.122549, 0.127451)
+texture = ExtResource("20_ap1rc")
+
+[node name="Powerup3" type="Sprite2D" parent="ActivePowerup"]
+visible = false
+position = Vector2(128, 86)
+scale = Vector2(0.122549, 0.127451)
+texture = ExtResource("20_ap1rc")
+
+[node name="Powerup4" type="Sprite2D" parent="ActivePowerup"]
+visible = false
+position = Vector2(165, 86)
+scale = Vector2(0.122549, 0.127451)
+texture = ExtResource("20_ap1rc")
+
+[node name="UltimateButton" type="Button" parent="."]
+visible = false
+offset_left = 447.0
+offset_top = 217.0
+offset_right = 520.0
+offset_bottom = 285.0
+
+[node name="LevelSuccess" parent="." instance=ExtResource("21_dq81a")]
+visible = false
+offset_left = 224.0
+offset_top = 96.0
+offset_right = 224.0
+offset_bottom = 96.0
+
+[connection signal="timeout" from="EnemySpawnClock" to="." method="_on_enemy_spawn_clock_timeout"]
+[connection signal="body_exited" from="Despawn" to="." method="_on_despawn_body_exited"]
