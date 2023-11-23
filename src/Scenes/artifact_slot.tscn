@@ -1,0 +1,61 @@
+[gd_scene load_steps=5 format=3 uid="uid://c0maeguosrh4k"]
+
+[ext_resource type="Script" path="res://Scenes/artifact_slot.gd" id="1_4b8cx"]
+[ext_resource type="Texture2D" uid="uid://ilyoerqn2fp6" path="res://Assets/Pixel UI pack 3/inventory-slot.png" id="1_8spc8"]
+[ext_resource type="Texture2D" uid="uid://bwp53dykhoxwn" path="res://Assets/Objects/artifact.png" id="2_tg4y3"]
+[ext_resource type="FontFile" uid="uid://timtq8nyjxep" path="res://Assets/font/Pixeled.ttf" id="4_b4ghf"]
+
+[node name="artifact_slot" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4b8cx")
+metadata/_edit_use_anchors_ = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 102.0
+offset_top = 78.0
+offset_right = 142.0
+offset_bottom = 118.0
+text = "awdawdaawdawdawdddddddddddddddddddddddddddddd"
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+modulate = Color(0.85098, 0.85098, 0.85098, 1)
+layout_mode = 0
+offset_left = 85.0
+offset_top = 64.0
+offset_right = 477.0
+offset_bottom = 134.0
+texture = ExtResource("1_8spc8")
+patch_margin_left = 15
+patch_margin_top = 15
+patch_margin_right = 15
+patch_margin_bottom = 15
+axis_stretch_horizontal = 1
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 102.0
+offset_top = 78.0
+offset_right = 146.0
+offset_bottom = 122.0
+texture = ExtResource("2_tg4y3")
+expand_mode = 5
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_left = 164.0
+offset_top = 78.0
+offset_right = 463.0
+offset_bottom = 124.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer"]
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("4_b4ghf")
+theme_override_font_sizes/normal_font_size = 6
+text = "???"
+fit_content = true

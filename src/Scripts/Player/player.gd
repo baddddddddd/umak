@@ -42,7 +42,7 @@ func _ready():
 	Global.player_position = self.global_position
 	
 	var display_text = str(Global.artifact_collected.size()) + " / 7" 
-	artifact_counter_label.get_node("MarginContainer/VBoxContainer/RichTextLabel").text = "[center]" + display_text + "[/center]"
+	#artifact_counter_label.get_node("MarginContainer/VBoxContainer/RichTextLabel").text = "[center]" + display_text + "[/center]"
 		
 	
 	
