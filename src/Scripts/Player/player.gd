@@ -108,6 +108,7 @@ func shoot():
 	if bbm > 0:
 		bbm -= 1
 		if bbm == 0:
+			$"../ActivePowerup/Powerup1".visible = false
 			bullet_scene=preload("res://Scenes/Player/bullet.tscn")
 	
 	
@@ -168,16 +169,21 @@ func _on_area_2d_body_entered(body):
 		if body.is_in_group("powerup1"):
 			body.queue_free()
 			bullet_scene=preload("res://Scenes/PowerUps/BBM.tscn")
+			$"../ActivePowerup/Powerup1".visible = true
 			bbm = 3			
 		elif body.is_in_group("powerup2"):
 			body.queue_free()
 			shootingDelay = 0.05
+			$"../ActivePowerup/Powerup2".visible = true
 			await get_tree().create_timer(5.0).timeout
+			$"../ActivePowerup/Powerup2".visible = false
 			shootingDelay = 0.1
 		elif body.is_in_group("powerup3"): 
 			body.queue_free()
 			double_bullet = true
+			$"../ActivePowerup/Powerup3".visible = true
 			await get_tree().create_timer(5.0).timeout
+			$"../ActivePowerup/Powerup3".visible = false
 			double_bullet = false
 		
 
