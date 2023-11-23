@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=3 uid="uid://cjiharyu8c6uv"]
+
+[ext_resource type="Texture2D" uid="uid://bwwujgganilg0" path="res://warninggg.png" id="1_lo54u"]
+[ext_resource type="FontFile" uid="uid://timtq8nyjxep" path="res://Assets/font/Pixeled.ttf" id="2_w244n"]
+
+[node name="Warning" type="ColorRect"]
+z_index = 20
+offset_right = 592.0
+offset_bottom = 344.0
+color = Color(1, 1, 0.458824, 0.196078)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(156, 168)
+scale = Vector2(0.510582, 0.510582)
+texture = ExtResource("1_lo54u")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(432, 168)
+scale = Vector2(0.510582, 0.510582)
+texture = ExtResource("1_lo54u")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 168.0
+offset_top = 104.0
+offset_right = 408.0
+offset_bottom = 224.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/normal_font = ExtResource("2_w244n")
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "[center]SHAKE YOUR SCREEN![/center]"
