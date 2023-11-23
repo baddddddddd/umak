@@ -61,14 +61,13 @@ func spawn_artifact():
 func _ready():
 	Global.artifact_info_tracker = Global.artifact_information.duplicate()
 	Global.artifact_collected = []
-	Global.ultimate_charge = 1
 	$UltimateBar/Fill.frame = 21
 	$UltimateButton.visible =  false
 	
 	for i in range(2):
 		choose_artifact_info()
 		
-	#get_tree().change_scene_to_file("res://Scenes/StageTwo.tscn")
+	#get_tree().change_scene_to_file("res://Scenes/StageThree.tscn")
 		
 	
 	top_left.x = spawn_area.global_position.x - (spawn_area.shape.size.x * 0.5)
@@ -91,13 +90,14 @@ func _ready():
 	
 	await get_tree().create_timer(5.0).timeout
 	spawn_artifact()
+	await get_tree().create_timer(3.0).timeout	
+	artifact_info = artifact_info_list[1]
+	await trigger_qna(artifact_info.question, artifact_info.choices, artifact_info.answer)
 	await get_tree().create_timer(7.0).timeout
 
 	start_bossfight()	
 	
-	await get_tree().create_timer(15.0).timeout	
-	artifact_info = artifact_info_list[1]
-	await trigger_qna(artifact_info.question, artifact_info.choices, artifact_info.answer)
+	
 	
 
 func _on_enemy_spawn_clock_timeout():

@@ -24,6 +24,8 @@ func _ready():
 	attack()
 	$Timer.start()
 	
+	await move_random()
+	
 	
 func attack():
 	spawn_whirlpool()
@@ -71,3 +73,18 @@ func destroy():
 	cancel_whirlpool()
 		
 	queue_free()
+	
+func move_random():
+	var rng = RandomNumberGenerator.new()
+	
+	var top_speed = rng.randf_range(-50, 50)
+	var duration = rng.randf_range(0.1, 0.7)
+	
+	var tween = create_tween().set_trans(Tween.TRANS_QUAD)
+	await tween.tween_property(self, "velocity", Vector2(velocity.x, top_speed), duration).set_ease(Tween.EASE_IN_OUT).finished
+	await get_tree().create_timer(0.5).timeout
+	var tween2 = create_tween().set_trans(Tween.TRANS_QUAD)
+	await tween2.tween_property(self, "velocity", Vector2(velocity.x, 0), duration).set_ease(Tween.EASE_IN_OUT).finished
+
+	await get_tree().create_timer(3).timeout
+	return await move_random()

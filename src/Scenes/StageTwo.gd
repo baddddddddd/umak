@@ -34,8 +34,6 @@ var type_4s = []
 var artifact_info_list = []
 var artifact_spawnables = []
 
-#  
-
 
 func choose_artifact_info():
 	var random_idx = rng.randi_range(0, Global.artifact_info_tracker.size() - 1)
@@ -58,10 +56,15 @@ func spawn_artifact():
 	get_tree().current_scene.add_child(artifact)
 	
 
+@onready var artifact_counter_label = $"ArtifactCounter/MarginContainer/VBoxContainer/RichTextLabel"
 func _ready():
 	Global.artifact_info_tracker = Global.artifact_information.duplicate()
 	$UltimateBar/Fill.frame = 21
 	$UltimateButton.visible =  false
+	
+	var display_text = str(Global.artifact_collected.size()) + " / 7" 
+	artifact_counter_label.text = "[center]" + display_text + "[/center]"
+		
 	
 	for i in range(2):
 		choose_artifact_info()
