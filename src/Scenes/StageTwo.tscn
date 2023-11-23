@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://bfoc0his1pf4p"]
+[gd_scene load_steps=26 format=3 uid="uid://bfoc0his1pf4p"]
 
 [ext_resource type="Script" path="res://Scenes/StageTwo.gd" id="1_5pkdt"]
 [ext_resource type="PackedScene" uid="uid://bkex7j6m7a446" path="res://Scripts/Enemy/type1.tscn" id="2_65kpi"]
@@ -10,12 +10,14 @@
 [ext_resource type="PackedScene" uid="uid://dfbx04ou617ld" path="res://Scenes/game_over_screen.tscn" id="8_li6lg"]
 [ext_resource type="PackedScene" uid="uid://bvb7b5qu535gq" path="res://Scripts/Enemy/hud.tscn" id="9_r23go"]
 [ext_resource type="PackedScene" uid="uid://c2kacknu36x4l" path="res://Scenes/artifact_counter.tscn" id="11_8nvil"]
-[ext_resource type="Texture2D" uid="uid://dl5gdjukqkwmy" path="res://Assets/BG/day_seabg1.png" id="11_t0vmg"]
-[ext_resource type="Texture2D" uid="uid://bx6gbb1f1rkjs" path="res://Assets/BG/day_seabg2.png" id="12_q6cc0"]
-[ext_resource type="Texture2D" uid="uid://datjoc6o6qhiu" path="res://Assets/BG/day_seabg3.png" id="13_t3i8v"]
-[ext_resource type="Texture2D" uid="uid://bc7rttv62tkdu" path="res://Assets/BG/day_seabg4.png" id="14_5btxw"]
-[ext_resource type="Texture2D" uid="uid://b06nbdxrne3ri" path="res://Assets/BG/day_seacloud.png" id="15_4aunj"]
+[ext_resource type="Texture2D" uid="uid://lq4po1oq0mbf" path="res://Assets/BG/sunset_seastar.png" id="11_ox464"]
+[ext_resource type="Texture2D" uid="uid://dd07nrxl33i7v" path="res://Assets/BG/sunset_seabg1.png" id="12_s8dqj"]
+[ext_resource type="Texture2D" uid="uid://bbagphk1a1qjs" path="res://Assets/BG/sunset_seabg2.png" id="13_0jlpk"]
+[ext_resource type="Texture2D" uid="uid://wtbomb1bylno" path="res://Assets/BG/sunset_seabg3.png" id="14_1gkqj"]
+[ext_resource type="Texture2D" uid="uid://c3t6e3fb0skmv" path="res://Assets/BG/sunset_seabg4.png" id="15_h51ym"]
+[ext_resource type="Texture2D" uid="uid://by2tddm70nhnb" path="res://Assets/BG/sunset_seacloud.png" id="16_hhws0"]
 [ext_resource type="Texture2D" uid="uid://kq0apa0yv5yb" path="res://Assets/BG/day_sea.png" id="16_jbncr"]
+[ext_resource type="Texture2D" uid="uid://bv02fcorbbwcd" path="res://Assets/BG/sunset_sea.png" id="17_1biab"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5j10q"]
 size = Vector2(552, 161.5)
@@ -148,20 +150,35 @@ offset_bottom = 112.0
 [node name="BG" type="ParallaxBackground" parent="."]
 script = ExtResource("4_8mscw")
 
-[node name="ParallaxLayer" type="ParallaxLayer" parent="BG"]
+[node name="ParallaxLayer0" type="ParallaxLayer" parent="BG"]
 position = Vector2(89, 45)
 motion_scale = Vector2(0.1, 0.1)
 motion_mirroring = Vector2(1152, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="BG/ParallaxLayer"]
+[node name="Sprite2D" type="Sprite2D" parent="BG/ParallaxLayer0"]
 position = Vector2(199, 59)
 scale = Vector2(1.2, 1.2)
-texture = ExtResource("11_t0vmg")
+texture = ExtResource("11_ox464")
 
-[node name="Sprite2D2" type="Sprite2D" parent="BG/ParallaxLayer"]
+[node name="Sprite2D2" type="Sprite2D" parent="BG/ParallaxLayer0"]
 position = Vector2(775, 59)
 scale = Vector2(1.2, 1.2)
-texture = ExtResource("11_t0vmg")
+texture = ExtResource("11_ox464")
+
+[node name="ParallaxLayer1" type="ParallaxLayer" parent="BG"]
+position = Vector2(89, 45)
+motion_scale = Vector2(0.1, 0.1)
+motion_mirroring = Vector2(1152, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="BG/ParallaxLayer1"]
+position = Vector2(199, 59)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("12_s8dqj")
+
+[node name="Sprite2D2" type="Sprite2D" parent="BG/ParallaxLayer1"]
+position = Vector2(775, 59)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("12_s8dqj")
 
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="BG"]
 position = Vector2(89, 45)
@@ -171,12 +188,12 @@ motion_mirroring = Vector2(1152, 0)
 [node name="Sprite2D" type="Sprite2D" parent="BG/ParallaxLayer2"]
 position = Vector2(199, 59)
 scale = Vector2(1.2, 1.2)
-texture = ExtResource("12_q6cc0")
+texture = ExtResource("13_0jlpk")
 
 [node name="Sprite2D2" type="Sprite2D" parent="BG/ParallaxLayer2"]
 position = Vector2(775, 59)
 scale = Vector2(1.2, 1.2)
-texture = ExtResource("12_q6cc0")
+texture = ExtResource("13_0jlpk")
 
 [node name="ParallaxLayer3" type="ParallaxLayer" parent="BG"]
 position = Vector2(89, 45)
@@ -186,12 +203,12 @@ motion_mirroring = Vector2(1152, 0)
 [node name="Sprite2D" type="Sprite2D" parent="BG/ParallaxLayer3"]
 position = Vector2(199, 59)
 scale = Vector2(1.2, 1.2)
-texture = ExtResource("13_t3i8v")
+texture = ExtResource("14_1gkqj")
 
 [node name="Sprite2D2" type="Sprite2D" parent="BG/ParallaxLayer3"]
 position = Vector2(775, 59)
 scale = Vector2(1.2, 1.2)
-texture = ExtResource("13_t3i8v")
+texture = ExtResource("14_1gkqj")
 
 [node name="ParallaxLayer4" type="ParallaxLayer" parent="BG"]
 position = Vector2(89, 45)
@@ -201,12 +218,12 @@ motion_mirroring = Vector2(1152, 0)
 [node name="Sprite2D" type="Sprite2D" parent="BG/ParallaxLayer4"]
 position = Vector2(199, 59)
 scale = Vector2(1.2, 1.2)
-texture = ExtResource("14_5btxw")
+texture = ExtResource("15_h51ym")
 
 [node name="Sprite2D2" type="Sprite2D" parent="BG/ParallaxLayer4"]
 position = Vector2(775, 59)
 scale = Vector2(1.2, 1.2)
-texture = ExtResource("14_5btxw")
+texture = ExtResource("15_h51ym")
 
 [node name="ParallaxLayer5" type="ParallaxLayer" parent="BG"]
 position = Vector2(89, 45)
@@ -216,12 +233,12 @@ motion_mirroring = Vector2(1152, 0)
 [node name="Sprite2D" type="Sprite2D" parent="BG/ParallaxLayer5"]
 position = Vector2(199, 59)
 scale = Vector2(1.2, 1.2)
-texture = ExtResource("15_4aunj")
+texture = ExtResource("16_hhws0")
 
 [node name="Sprite2D2" type="Sprite2D" parent="BG/ParallaxLayer5"]
 position = Vector2(775, 59)
 scale = Vector2(1.2, 1.2)
-texture = ExtResource("15_4aunj")
+texture = ExtResource("16_hhws0")
 
 [node name="ParallaxLayer6" type="ParallaxLayer" parent="BG"]
 position = Vector2(89, 45)
@@ -231,7 +248,7 @@ motion_mirroring = Vector2(1152, 0)
 [node name="Sprite2D" type="Sprite2D" parent="BG/ParallaxLayer6"]
 position = Vector2(199, 59)
 scale = Vector2(1.2, 1.2)
-texture = ExtResource("16_jbncr")
+texture = ExtResource("17_1biab")
 
 [node name="Sprite2D2" type="Sprite2D" parent="BG/ParallaxLayer6"]
 position = Vector2(775, 59)
