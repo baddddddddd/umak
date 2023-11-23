@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://dnjk18na4sq4b"]
+[gd_scene load_steps=18 format=3 uid="uid://dnjk18na4sq4b"]
 
 [ext_resource type="Script" path="res://Scripts/Environment/BG.gd" id="1_esl4a"]
 [ext_resource type="Script" path="res://Scenes/StageOne.gd" id="1_oiyt2"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://b5f8vpqafyeaa" path="res://Scenes/Player/player.tscn" id="5_650px"]
 [ext_resource type="PackedScene" uid="uid://71x7rr26fjou" path="res://Scenes/pause_menu.tscn" id="7_xpqh7"]
 [ext_resource type="PackedScene" uid="uid://bvb7b5qu535gq" path="res://Scripts/Enemy/hud.tscn" id="9_ai6gi"]
+[ext_resource type="PackedScene" uid="uid://c2kacknu36x4l" path="res://Scenes/artifact_counter.tscn" id="10_2jw3l"]
 [ext_resource type="PackedScene" uid="uid://dfbx04ou617ld" path="res://Scenes/game_over_screen.tscn" id="10_k1l4d"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5j10q"]
@@ -145,6 +146,12 @@ offset_left = 173.0
 offset_top = 12.0
 offset_right = 173.0
 offset_bottom = 12.0
+
+[node name="ArtifactCounter" parent="." instance=ExtResource("10_2jw3l")]
+offset_left = 392.0
+offset_top = 112.0
+offset_right = 392.0
+offset_bottom = 112.0
 
 [connection signal="timeout" from="PowerUpSpawnClock" to="." method="_on_power_up_spawn_clock_timeout"]
 [connection signal="timeout" from="EnemySpawnClock" to="." method="_on_enemy_spawn_clock_timeout"]

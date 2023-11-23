@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/Player/player.gd" id="1_15tx1"]
 [ext_resource type="Texture2D" uid="uid://pt5s68i4crlp" path="res://Assets/Character/player.png" id="1_y50mj"]
-[ext_resource type="PackedScene" path="res://Scenes/Player/ultimate.tscn" id="2_nkfk5"]
+[ext_resource type="PackedScene" uid="uid://d2flkeje3ciyt" path="res://Scenes/Player/ultimate.tscn" id="2_nkfk5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_guvb3"]
 size = Vector2(32, 32)
@@ -140,7 +140,7 @@ libraries = {
 }
 
 [node name="Area2D" type="Area2D" parent="."]
-collision_mask = 6
+collision_mask = 2054
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_4dh58")
