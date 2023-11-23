@@ -1,7 +1,10 @@
 [gd_scene load_steps=10 format=3 uid="uid://bvo3e3uq6vffw"]
 
-[ext_resource type="Script" path="res://Scenes/PowerUps/powerup2.gd" id="1_u0f5b"]
+[ext_resource type="Script" path="res://Scenes/PowerUps/powerup1.gd" id="1_iui5a"]
 [ext_resource type="Texture2D" uid="uid://btstwqd85sxbu" path="res://Assets/Pixel UI pack 3/01.png" id="2_3n6it"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4pplm"]
+size = Vector2(37, 37)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_y3rdi"]
 atlas = ExtResource("2_3n6it")
@@ -25,8 +28,33 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_4pplm"]
-size = Vector2(37, 37)
+[sub_resource type="Animation" id="Animation_7phwg"]
+resource_name = "Bob"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.6),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Powerup2"]
+}
 
 [sub_resource type="Animation" id="Animation_06p4d"]
 loop_mode = 1
@@ -55,61 +83,27 @@ tracks/1/keys = {
 "values": [&"default"]
 }
 
-[sub_resource type="Animation" id="Animation_7phwg"]
-resource_name = "Powerup2"
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [0, 1]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("AnimatedSprite2D:animation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0.6),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [&"Powerup2"]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_th8iw"]
 _data = {
-"Powerup2": SubResource("Animation_7phwg"),
+"Bob": SubResource("Animation_7phwg"),
 "RESET": SubResource("Animation_06p4d")
 }
 
-[node name="powerup2" type="CharacterBody2D" groups=["powerup2"]]
-collision_layer = 0
+[node name="powerup2" type="CharacterBody2D" groups=["powerup", "powerup2"]]
+collision_layer = 2048
 collision_mask = 0
-script = ExtResource("1_u0f5b")
+script = ExtResource("1_iui5a")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, -2.5)
+shape = SubResource("RectangleShape2D_4pplm")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_5s48p")
 animation = &"Powerup2"
-script = ExtResource("1_u0f5b")
-
-[node name="Area2D" type="Area2D" parent="AnimatedSprite2D" groups=["powerup2"]]
-collision_layer = 4
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/Area2D"]
-position = Vector2(0.5, -2.5)
-shape = SubResource("RectangleShape2D_4pplm")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 reset_on_save = false
 libraries = {
 "": SubResource("AnimationLibrary_th8iw")
 }
-
-[connection signal="body_entered" from="AnimatedSprite2D/Area2D" to="." method="_on_area_2d_body_entered"]

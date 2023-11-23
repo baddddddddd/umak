@@ -1,17 +1,10 @@
 extends CharacterBody2D
 
-@export var speed = 40
+@export var speed = 150
 
 func _ready():
-	$AnimationPlayer.play("Powerup1")
-	
-func _physics_process(delta):
+	$AnimationPlayer.play("Bob")
 	velocity.x = -speed
-	
+
+func _physics_process(delta):
 	move_and_slide()
-
-
-func _on_area_2d_body_entered(body):
-	if body.is_in_group("friendly"):
-		queue_free()
-		

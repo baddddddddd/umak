@@ -42,7 +42,7 @@ func _ready():
 	Global.player_position = self.global_position
 	
 	var display_text = str(Global.artifact_collected.size()) + " / 7" 
-	artifact_counter_label.get_node("MarginContainer/VBoxContainer/RichTextLabel").text = "[center]" + display_text + "[/center]"
+	#artifact_counter_label.get_node("MarginContainer/VBoxContainer/RichTextLabel").text = "[center]" + display_text + "[/center]"
 		
 	
 	
@@ -164,24 +164,26 @@ func _on_area_2d_body_entered(body):
 		var display_text = str(Global.artifact_collected.size()) + " / 7" 
 		artifact_counter_label.get_node("MarginContainer/VBoxContainer/RichTextLabel").text = "[center]" + display_text + "[/center]"
 		body.queue_free()
+	elif body.is_in_group("powerup"):
+		if body.is_in_group("powerup1"):
+			body.queue_free()
+			bullet_scene=preload("res://Scenes/PowerUps/BBM.tscn")
+			bbm = 3			
+		elif body.is_in_group("powerup2"):
+			body.queue_free()
+			shootingDelay = 0.05
+			await get_tree().create_timer(5.0).timeout
+			shootingDelay = 0.1
+		elif body.is_in_group("powerup3"): 
+			body.queue_free()
+			double_bullet = true
+			await get_tree().create_timer(5.0).timeout
+			double_bullet = false
 		
 
 func _on_area_2d_body_exited(body):
 	if entered_body != null:
 		if body == entered_body:
 			entered_body = null
-
-func _on_area_2d_area_entered(area):
-		
-	if area.is_in_group("powerup1"):
-		bullet_scene=preload("res://Scenes/PowerUps/BBM.tscn")
-		bbm = 3
-	if area.is_in_group("powerup2"):
-		shootingDelay = 0.05
-		await get_tree().create_timer(5.0).timeout
-		shootingDelay = 0.1
-	if area.is_in_group("powerup3"):
-		double_bullet = true
-		await get_tree().create_timer(5.0).timeout
-		double_bullet = false
+	
 		
