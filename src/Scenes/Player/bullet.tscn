@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://ccy1equtsobr2"]
+[gd_scene load_steps=5 format=3 uid="uid://ccy1equtsobr2"]
 
 [ext_resource type="Texture2D" uid="uid://qyvq86im6lyj" path="res://Assets/Objects/bullet.png" id="1_02mwa"]
 [ext_resource type="Script" path="res://Scripts/Player/bullet.gd" id="1_d8eki"]
+[ext_resource type="AudioStream" uid="uid://pnw4eojif4fa" path="res://Assets/sfx/bullet.mp3" id="3_cbs1e"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qn3c7"]
 radius = 7.07107
@@ -28,6 +29,12 @@ shape = SubResource("CircleShape2D_qn3c7")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 scale = Vector2(0.45, 0.45)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_cbs1e")
+volume_db = -3.0
+pitch_scale = 0.7
+autoplay = true
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

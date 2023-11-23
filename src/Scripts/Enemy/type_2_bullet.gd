@@ -28,5 +28,6 @@ func charge():
 func fire():
 	firing = true
 	anim.play("Fire")
+	$AudioStreamPlayer2D.play()
 	
 

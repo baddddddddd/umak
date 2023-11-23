@@ -1,9 +1,10 @@
-[gd_scene load_steps=13 format=3 uid="uid://bjnhnrasmevd8"]
+[gd_scene load_steps=14 format=3 uid="uid://bjnhnrasmevd8"]
 
 [ext_resource type="Script" path="res://Scripts/Enemy/type_3_bullet.gd" id="1_8ydq3"]
 [ext_resource type="Texture2D" uid="uid://dxadgt8ctuoeg" path="res://Assets/Objects/wp.png" id="2_xrir6"]
 [ext_resource type="Texture2D" uid="uid://bbd15hee4s88l" path="res://Assets/Objects/wp1.png" id="3_p5ppm"]
 [ext_resource type="Texture2D" uid="uid://cslkkrds2xocn" path="res://Assets/Objects/wp2.png" id="4_rcjf7"]
+[ext_resource type="AudioStream" uid="uid://hxg5qde67k71" path="res://Assets/sfx/whirlpool.mp3" id="5_va6u0"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j43t0"]
 atlas = ExtResource("2_xrir6")
@@ -112,6 +113,10 @@ rotation = 1.5708
 shape = SubResource("CapsuleShape2D_y32rn")
 
 [node name="Timer" type="Timer" parent="."]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_va6u0")
+autoplay = true
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
