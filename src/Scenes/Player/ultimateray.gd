@@ -1,12 +1,13 @@
 extends RayCast2D
-# Called when the node enters the scene tree for the first time.
+
 func _ready():
-	pass # Replace with function body.
+	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	var firing = $"..".get("firing")
+	var firing = $"..".firing
 	if is_colliding() and firing:
+		print("collide")
 		var obj = get_collider()
 		if obj.is_in_group("enemy"):
 			obj.deplete_hp(500)
