@@ -28,7 +28,22 @@ var top_left = Vector2(0, 0)
 @onready var homing_missile_scene = preload("res://Scenes/homing_missile.tscn")
 @onready var boss_scene = preload("res://Scenes/boss_2.tscn")
 
+var artifact_info_list = []
+
+
+func choose_artifact_info():
+	var random_idx = rng.randi_range(0, Global.artifact_info_tracker.size() - 1)
+	var info = Global.artifact_info_tracker[random_idx]
+	artifact_info_list.push_back(info)
+	
+	Global.artifact_info_tracker.remove_at(random_idx)
+	
+
 func _ready():
+	for i in range(2):
+		choose_artifact_info()
+		
+		
 	top_left.x = spawn_area.global_position.x - (spawn_area.shape.size.x * 0.5)
 	top_left.y = spawn_area.global_position.y - (spawn_area.shape.size.y * 0.5)
 	

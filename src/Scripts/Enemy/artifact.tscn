@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://bsf4xuf862ptu"]
+
+[ext_resource type="Script" path="res://Scripts/Enemy/artifact.gd" id="1_487ks"]
+[ext_resource type="Texture2D" uid="uid://cq44rh4a3gr34" path="res://Assets/Objects/artifact.png" id="2_ll75l"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_e5xyi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_ll75l")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k1cpk"]
+
+[node name="Artifact" type="CharacterBody2D" groups=["pickup"]]
+y_sort_enabled = true
+scale = Vector2(1.5, 1.5)
+collision_layer = 2048
+collision_mask = 0
+script = ExtResource("1_487ks")
+metadata/entity_type = "enemy"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+rotation = 1.5708
+scale = Vector2(0.0941211, 0.0941211)
+sprite_frames = SubResource("SpriteFrames_e5xyi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_k1cpk")

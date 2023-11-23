@@ -28,7 +28,41 @@ var top_left = Vector2(0, 0)
 @onready var homing_missile_scene = preload("res://Scenes/homing_missile.tscn")
 @onready var boss_scene = preload("res://Scenes/boss_1.tscn")
 
+# artifact
+@onready var artifact_scene = preload("res://Scripts/Enemy/artifact.tscn")
+var artifact_info_list = []
+var artifact_spawnables = []
+
+
+func choose_artifact_info():
+	var random_idx = rng.randi_range(0, Global.artifact_info_tracker.size() - 1)
+	var info = Global.artifact_info_tracker[random_idx]
+	artifact_info_list.push_back(info)
+	
+	Global.artifact_info_tracker.remove_at(random_idx)
+	
+	var artifact_body = artifact_scene.instantiate()
+	artifact_body.quiz = info
+	
+	artifact_spawnables.push_back(artifact_body)
+	
+	
+func spawn_artifact():
+	var random_y = rng.randf_range(top_left.y, top_left.y + spawn_area.shape.size.y)
+	
+	var artifact = artifact_spawnables.pop_back()
+	artifact.global_position = Vector2(top_left.x, random_y)
+	get_tree().current_scene.add_child(artifact)
+	
+
 func _ready():
+	Global.artifact_info_tracker = Global.artifact_information.duplicate()
+	Global.artifact_collected = []
+	
+	for i in range(2):
+		choose_artifact_info()
+		
+	
 	top_left.x = spawn_area.global_position.x - (spawn_area.shape.size.x * 0.5)
 	top_left.y = spawn_area.global_position.y - (spawn_area.shape.size.y * 0.5)
 	
@@ -37,21 +71,18 @@ func _ready():
 	
 	start_wave()
 	
-	await get_tree().create_timer(10.0).timeout
+	await get_tree().create_timer(5.0).timeout
+	spawn_artifact()
+	await get_tree().create_timer(7.0).timeout
 	
-	var question = "Bibingka came from the word Bebinca which is influenced by ______"
-	var choices = [
-		"Chinese",
-		"Spanish",
-		"Russians"
-	]
-	var answer = "Indians"
-	
-	await trigger_qna(question, choices, answer)
+	var artifact_info = artifact_info_list[0]
+	await trigger_qna(artifact_info.question, artifact_info.choices, artifact_info.answer)
 	
 	start_wave()
 	
-	await get_tree().create_timer(10.0).timeout
+	await get_tree().create_timer(5.0).timeout
+	spawn_artifact()
+	await get_tree().create_timer(7.0).timeout
 
 	start_bossfight()	
 	

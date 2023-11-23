@@ -28,6 +28,8 @@ var shootTimer = 0.0
 var bullet_scene=preload("res://Scenes/Player/bullet.tscn")
 #var bullet_scene=preload("res://Scenes/PowerUps/BBM.tscn")
 
+@onready var artifact_counter_label = $"../ArtifactCounter"
+
 
 func _ready():
 	if OS.get_name() == "Android":
@@ -38,6 +40,10 @@ func _ready():
 	anim.play("Default")
 	
 	Global.player_position = self.global_position
+	
+	var display_text = str(Global.artifact_collected.size()) + " / 7" 
+	artifact_counter_label.get_node("MarginContainer/VBoxContainer/RichTextLabel").text = "[center]" + display_text + "[/center]"
+		
 	
 	
 func _input(event):
@@ -153,6 +159,12 @@ func _on_area_2d_body_entered(body):
 	if body.is_in_group("enemy"):
 		entered_body = body
 		deplete_hp(30)
+	elif body.is_in_group("pickup"):
+		Global.artifact_collected.push_back(body)
+		var display_text = str(Global.artifact_collected.size()) + " / 7" 
+		artifact_counter_label.get_node("MarginContainer/VBoxContainer/RichTextLabel").text = "[center]" + display_text + "[/center]"
+		body.queue_free()
+		
 
 func _on_area_2d_body_exited(body):
 	if entered_body != null:
@@ -160,6 +172,7 @@ func _on_area_2d_body_exited(body):
 			entered_body = null
 
 func _on_area_2d_area_entered(area):
+		
 	if area.is_in_group("powerup1"):
 		bullet_scene=preload("res://Scenes/PowerUps/BBM.tscn")
 		bbm = 3
