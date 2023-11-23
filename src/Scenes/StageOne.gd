@@ -10,6 +10,7 @@ var my_random_number = rng.randf_range(-10.0, 10.0)
 @onready var spawn_area = $SpawnArea/CollisionShape2D
 @onready var pause_menu = $PauseMenu
 @onready var game_over_screen = $GameOverScreen
+@onready var success_screen = $LevelSuccess
 var paused = true
 
 @onready var spawn_timer = $EnemySpawnClock
@@ -75,12 +76,13 @@ func _ready():
 	
 	pause_menu.hide()
 	game_over_screen.hide()
+	success_screen.hide()
 	
-	#start_wave()
+	start_wave()
 	
-	#await get_tree().create_timer(5.0).timeout
+	await get_tree().create_timer(5.0).timeout
 	spawn_artifact()
-	#await get_tree().create_timer(7.0).timeout
+	await get_tree().create_timer(7.0).timeout
 	
 	var artifact_info = artifact_info_list[0]
 	await trigger_qna(artifact_info.question, artifact_info.choices, artifact_info.answer)
@@ -92,6 +94,10 @@ func _ready():
 	await get_tree().create_timer(7.0).timeout
 
 	start_bossfight()	
+	
+	await get_tree().create_timer(15.0).timeout	
+	artifact_info = artifact_info_list[1]
+	await trigger_qna(artifact_info.question, artifact_info.choices, artifact_info.answer)
 	
 
 func _on_enemy_spawn_clock_timeout():
@@ -164,7 +170,7 @@ func spawn_type_4(position, banner_text, invincible):
 	
 func destroy_qna():
 	for enemy in type_4s:
-		if enemy.has_method("destroy"):
+		if enemy != null and enemy.has_method("destroy"):
 			enemy.destroy()
 			
 	add_ultimate_charge()
@@ -256,3 +262,8 @@ func _on_pause_button_pressed():
 
 func _on_power_up_spawn_clock_timeout():
 	spawn_powerup()
+
+
+func level_succeed():
+	get_node("player").invincibility = true
+	get_node("LevelSuccess").show()

@@ -13,11 +13,13 @@ var my_random_number = rng.randf_range(-10.0, 10.0)
 var top_left = Vector2(0, 0)
 
 func _physics_process(delta):
-	velocity.x = -speed
-	
 	move_and_slide()
 
 func _ready():
+	velocity.x = -speed
+	hp_fill.hide()
+	hp_bar.hide()
+	
 	await get_tree().create_timer(0.5).timeout
 	attack()
 	$Timer.start()

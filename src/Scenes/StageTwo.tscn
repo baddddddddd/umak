@@ -1,11 +1,14 @@
-[gd_scene load_steps=25 format=3 uid="uid://bfoc0his1pf4p"]
+[gd_scene load_steps=31 format=3 uid="uid://bfoc0his1pf4p"]
 
 [ext_resource type="Script" path="res://Scenes/StageTwo.gd" id="1_5pkdt"]
 [ext_resource type="PackedScene" uid="uid://bkex7j6m7a446" path="res://Scripts/Enemy/type1.tscn" id="2_65kpi"]
 [ext_resource type="PackedScene" uid="uid://dm38gd1lhlp5r" path="res://Scripts/Enemy/type2.tscn" id="3_1x48i"]
 [ext_resource type="Texture2D" uid="uid://ds0xgatxquywp" path="res://Assets/Pixel UI pack 3/04.png" id="3_3bf5q"]
 [ext_resource type="Script" path="res://Scripts/Environment/BG.gd" id="4_8mscw"]
+[ext_resource type="PackedScene" path="res://Scenes/PowerUps/powerup4.tscn" id="4_fuonr"]
+[ext_resource type="PackedScene" uid="uid://bvo3e3uq6vffw" path="res://Scenes/PowerUps/powerup2.tscn" id="5_cwbyj"]
 [ext_resource type="PackedScene" uid="uid://b5f8vpqafyeaa" path="res://Scenes/Player/player.tscn" id="6_7x3ni"]
+[ext_resource type="PackedScene" uid="uid://c7lsoh7frekg6" path="res://Scenes/PowerUps/powerup3.tscn" id="6_nxm0n"]
 [ext_resource type="PackedScene" uid="uid://71x7rr26fjou" path="res://Scenes/pause_menu.tscn" id="7_vmume"]
 [ext_resource type="PackedScene" uid="uid://dfbx04ou617ld" path="res://Scenes/game_over_screen.tscn" id="8_li6lg"]
 [ext_resource type="PackedScene" uid="uid://bvb7b5qu535gq" path="res://Scripts/Enemy/hud.tscn" id="9_r23go"]
@@ -17,6 +20,9 @@
 [ext_resource type="Texture2D" uid="uid://c3t6e3fb0skmv" path="res://Assets/BG/sunset_seabg4.png" id="15_h51ym"]
 [ext_resource type="Texture2D" uid="uid://by2tddm70nhnb" path="res://Assets/BG/sunset_seacloud.png" id="16_hhws0"]
 [ext_resource type="Texture2D" uid="uid://bv02fcorbbwcd" path="res://Assets/BG/sunset_sea.png" id="17_1biab"]
+[ext_resource type="PackedScene" uid="uid://twv1egtiejei" path="res://Scenes/artifacts.tscn" id="18_nwwbp"]
+[ext_resource type="Texture2D" uid="uid://cq44rh4a3gr34" path="res://Assets/Objects/artifact.png" id="19_6ws0c"]
+[ext_resource type="PackedScene" uid="uid://dfvk5l83m2lid" path="res://Scenes/level_success.tscn" id="20_yb0eo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5j10q"]
 size = Vector2(552, 161.5)
@@ -46,6 +52,7 @@ b = Vector2(572, 149)
 [node name="StageTwo" type="Node2D"]
 script = ExtResource("1_5pkdt")
 enemies = Array[PackedScene]([ExtResource("2_65kpi"), ExtResource("3_1x48i")])
+powerups = Array[PackedScene]([ExtResource("4_fuonr"), ExtResource("5_cwbyj"), ExtResource("6_nxm0n")])
 
 [node name="HealthBar" type="Sprite2D" parent="."]
 position = Vector2(97.132, 30.25)
@@ -111,39 +118,6 @@ shape = SubResource("SegmentShape2D_p75h0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Floor"]
 shape = SubResource("SegmentShape2D_upbr8")
-
-[node name="PauseButton" type="Button" parent="."]
-offset_left = 8.0
-offset_top = 16.0
-offset_right = 32.0
-offset_bottom = 48.0
-
-[node name="PauseMenu" parent="." instance=ExtResource("7_vmume")]
-visible = false
-z_index = 10
-offset_left = 256.0
-offset_top = 136.0
-offset_right = 256.0
-offset_bottom = 136.0
-
-[node name="GameOverScreen" parent="." instance=ExtResource("8_li6lg")]
-visible = false
-offset_left = 248.0
-offset_top = 112.0
-offset_right = 248.0
-offset_bottom = 112.0
-
-[node name="Hud" parent="." instance=ExtResource("9_r23go")]
-offset_left = 173.0
-offset_top = 12.0
-offset_right = 173.0
-offset_bottom = 12.0
-
-[node name="ArtifactCounter" parent="." instance=ExtResource("11_8nvil")]
-offset_left = 392.0
-offset_top = 112.0
-offset_right = 392.0
-offset_bottom = 112.0
 
 [node name="BG" type="ParallaxBackground" parent="."]
 script = ExtResource("4_8mscw")
@@ -253,7 +227,99 @@ position = Vector2(775, 59)
 scale = Vector2(1.2, 1.2)
 texture = ExtResource("17_1biab")
 
+[node name="PauseButton" type="Button" parent="."]
+offset_left = 8.0
+offset_top = 16.0
+offset_right = 32.0
+offset_bottom = 48.0
+
+[node name="PauseMenu" parent="." instance=ExtResource("7_vmume")]
+visible = false
+z_index = 10
+offset_left = 256.0
+offset_top = 136.0
+offset_right = 256.0
+offset_bottom = 136.0
+
+[node name="GameOverScreen" parent="." instance=ExtResource("8_li6lg")]
+visible = false
+offset_left = 248.0
+offset_top = 112.0
+offset_right = 248.0
+offset_bottom = 112.0
+
+[node name="Hud" parent="." instance=ExtResource("9_r23go")]
+offset_left = 173.0
+offset_top = -61.0
+offset_right = 173.0
+offset_bottom = -61.0
+
+[node name="ArtifactCounter" parent="." instance=ExtResource("11_8nvil")]
+offset_left = -41.0
+offset_top = 89.0
+offset_right = -41.0
+offset_bottom = 89.0
+
+[node name="artifacts" parent="." instance=ExtResource("18_nwwbp")]
+visible = false
+z_index = 10
+offset_left = 11.0
+offset_top = 63.0
+offset_right = 582.0
+offset_bottom = 387.0
+
+[node name="Button" type="Button" parent="."]
+offset_left = 8.0
+offset_top = 91.0
+offset_right = 32.0
+offset_bottom = 118.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Button"]
+position = Vector2(12, 14)
+scale = Vector2(0.102941, 0.102941)
+texture = ExtResource("19_6ws0c")
+
+[node name="ActivePowerup" type="Node2D" parent="."]
+
+[node name="Powerup1" type="Sprite2D" parent="ActivePowerup"]
+visible = false
+position = Vector2(53, 86)
+scale = Vector2(0.122549, 0.127451)
+texture = ExtResource("19_6ws0c")
+
+[node name="Powerup2" type="Sprite2D" parent="ActivePowerup"]
+visible = false
+position = Vector2(89, 86)
+scale = Vector2(0.122549, 0.127451)
+texture = ExtResource("19_6ws0c")
+
+[node name="Powerup3" type="Sprite2D" parent="ActivePowerup"]
+visible = false
+position = Vector2(128, 86)
+scale = Vector2(0.122549, 0.127451)
+texture = ExtResource("19_6ws0c")
+
+[node name="Powerup4" type="Sprite2D" parent="ActivePowerup"]
+visible = false
+position = Vector2(165, 86)
+scale = Vector2(0.122549, 0.127451)
+texture = ExtResource("19_6ws0c")
+
+[node name="UltimateButton" type="Button" parent="."]
+visible = false
+offset_left = 447.0
+offset_top = 217.0
+offset_right = 520.0
+offset_bottom = 285.0
+
+[node name="LevelSuccess" parent="." instance=ExtResource("20_yb0eo")]
+visible = false
+offset_left = 224.0
+offset_top = 96.0
+offset_right = 224.0
+offset_bottom = 96.0
+next_stage = null
+
 [connection signal="timeout" from="PowerUpSpawnClock" to="." method="_on_power_up_spawn_clock_timeout"]
 [connection signal="timeout" from="EnemySpawnClock" to="." method="_on_enemy_spawn_clock_timeout"]
 [connection signal="body_exited" from="Despawn" to="." method="_on_despawn_body_exited"]
-[connection signal="pressed" from="PauseButton" to="." method="_on_pause_button_pressed"]

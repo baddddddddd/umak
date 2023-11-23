@@ -88,19 +88,23 @@ func cannon_attack():
 	await get_tree().create_timer(1.0).timeout	
 	
 	
-func deplete_hp(damage):
+@onready var hp_fill = $HPFill
+@onready var hp_bar = $HPBar
+func deplete_hp(damage):	
 	hp -= damage
-	print(hp)
+	
+	hp_fill.size.x = (float(hp) / max_hp) * hp_bar.size.x
+	hp_fill.show()
+	hp_bar.show()
+	
 	if hp <= 0:
 		destroy()
 		
 		
+		
 func destroy():
 	queue_free()
-	proceed_to_next_stage()
-	
-func proceed_to_next_stage():
-	get_tree().change_scene_to_file("res://Scenes/StageTwo.tscn")
+	$"..".level_succeed()
 	
 	
 func _physics_process(delta):

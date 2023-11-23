@@ -18,6 +18,14 @@ func _ready():
 	
 
 func blink():
+	for i in range(3):
+		$"..".set_position(Vector2(2, 2))
+		await get_tree().create_timer(0.05).timeout
+		$"..".set_position(Vector2(-2, 2))
+		await get_tree().create_timer(0.05).timeout
+		$"..".set_position(Vector2(2, -2))
+		await get_tree().create_timer(0.05).timeout
+		$"..".set_position(Vector2(-2, -2))
 	var tween = create_tween().set_trans(Tween.TRANS_QUAD)
 	await tween.tween_property(warning, "modulate", Color(1, 1, 1, 0), 0.5).set_ease(Tween.EASE_IN_OUT).finished
 	
