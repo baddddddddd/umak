@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Scripts/Environment/BG.gd" id="1_esl4a"]
 [ext_resource type="Script" path="res://Scenes/StageOne.gd" id="1_oiyt2"]
 [ext_resource type="PackedScene" uid="uid://bkex7j6m7a446" path="res://Scripts/Enemy/type1.tscn" id="2_gdivj"]
-[ext_resource type="PackedScene" uid="uid://b8rqlb6m0g7so" path="res://Scenes/PowerUps/powerup1.tscn" id="3_fl82w"]
+[ext_resource type="PackedScene" uid="uid://cprwy5678flet" path="res://Scenes/PowerUps/powerup4.tscn" id="3_3qkk7"]
 [ext_resource type="Texture2D" uid="uid://ds0xgatxquywp" path="res://Assets/Pixel UI pack 3/04.png" id="3_w6px1"]
 [ext_resource type="PackedScene" uid="uid://b5f8vpqafyeaa" path="res://Scenes/Player/player.tscn" id="5_650px"]
 [ext_resource type="Texture2D" uid="uid://dl5gdjukqkwmy" path="res://Assets/BG/day_seabg1.png" id="5_tkq36"]
@@ -47,7 +47,7 @@ b = Vector2(572, 149)
 [node name="StageOne" type="Node2D"]
 script = ExtResource("1_oiyt2")
 enemies = Array[PackedScene]([ExtResource("2_gdivj")])
-powerups = Array[PackedScene]([ExtResource("3_fl82w")])
+powerups = Array[PackedScene]([ExtResource("3_3qkk7")])
 
 [node name="HealthBar" type="Sprite2D" parent="."]
 position = Vector2(97.132, 30.25)
@@ -271,17 +271,18 @@ texture = ExtResource("17_223y2")
 
 [node name="Powerup2" type="Sprite2D" parent="ActivePowerup"]
 visible = false
-position = Vector2(116, 56)
+position = Vector2(87, 57)
 scale = Vector2(0.122549, 0.127451)
 texture = ExtResource("17_223y2")
 
 [node name="Powerup3" type="Sprite2D" parent="ActivePowerup"]
 visible = false
-position = Vector2(85, 56)
+position = Vector2(118, 57)
 scale = Vector2(0.122549, 0.127451)
 texture = ExtResource("17_223y2")
 
 [node name="Powerup4" type="Sprite2D" parent="ActivePowerup"]
+visible = false
 position = Vector2(148, 56)
 scale = Vector2(0.122549, 0.127451)
 texture = ExtResource("17_223y2")
