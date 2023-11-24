@@ -173,7 +173,6 @@ scale = Vector2(1.2, 1.2)
 texture = ExtResource("10_lxrlf")
 
 [node name="PowerUpSpawnClock" type="Timer" parent="."]
-wait_time = 15.0
 autostart = true
 
 [node name="EnemySpawnClock" type="Timer" parent="."]
