@@ -155,6 +155,8 @@ func deplete_hp(damage):
 		await get_tree().create_timer(0.05).timeout
 		$"..".set_position(Vector2(-2, -2))
 		
+	$AudioStreamPlayer2D2.play()
+		
 		
 func activate_invincible():
 	invincibility = true
@@ -182,6 +184,8 @@ func _on_area_2d_body_entered(body):
 		var display_text = str(Global.artifact_collected.size()) + " / 7" 
 		artifact_counter_label.get_node("MarginContainer/VBoxContainer/RichTextLabel").text = "[center]" + display_text + "[/center]"
 		get_tree().current_scene.remove_child(body)
+		
+		$AudioStreamPlayer2D3.play()
 		
 	elif body.is_in_group("powerup"):
 		if body.is_in_group("powerup1"):
