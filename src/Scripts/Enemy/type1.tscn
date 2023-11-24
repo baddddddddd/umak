@@ -29,8 +29,8 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k1cpk"]
 size = Vector2(20.8, 20)
 
-[sub_resource type="Animation" id="Animation_3ardf"]
-resource_name = "moving"
+[sub_resource type="Animation" id="Animation_g0nyi"]
+length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -44,8 +44,8 @@ tracks/0/keys = {
 "values": [&"default"]
 }
 
-[sub_resource type="Animation" id="Animation_g0nyi"]
-length = 0.001
+[sub_resource type="Animation" id="Animation_3ardf"]
+resource_name = "moving"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -89,7 +89,6 @@ position = Vector2(-16.595, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.8, -0.4)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_k1cpk")
 
 [node name="HPBar" type="ColorRect" parent="."]
