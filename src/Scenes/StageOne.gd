@@ -67,7 +67,7 @@ func _ready():
 	for i in range(2):
 		choose_artifact_info()
 		
-	get_tree().change_scene_to_file("res://Scenes/StageTwo.tscn")
+	#get_tree().change_scene_to_file("res://Scenes/StageTwo.tscn")
 		
 	
 	top_left.x = spawn_area.global_position.x - (spawn_area.shape.size.x * 0.5)
@@ -209,7 +209,7 @@ func spawn_enemy():
 func spawn_powerup():
 	var random_y = rng.randf_range(top_left.y, top_left.y + spawn_area.shape.size.y)
 	
-	var random_type = rng.randi_range(0, enemies.size() - 1)
+	var random_type = rng.randi_range(0, powerups.size() - 1)
 	
 	var powerup = powerups[random_type].instantiate()
 	powerup.global_position = Vector2(top_left.x, random_y)
