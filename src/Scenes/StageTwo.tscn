@@ -83,7 +83,7 @@ vframes = 15
 frame = 8
 
 [node name="PowerUpSpawnClock" type="Timer" parent="."]
-wait_time = 5.0
+wait_time = 15.0
 
 [node name="EnemySpawnClock" type="Timer" parent="."]
 wait_time = 2.5
