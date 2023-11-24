@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://c5qnocipj4yq1"]
+[gd_scene load_steps=10 format=3 uid="uid://cprwy5678flet"]
 
 [ext_resource type="Script" path="res://Scenes/PowerUps/powerup1.gd" id="1_td2n3"]
 [ext_resource type="Texture2D" uid="uid://btstwqd85sxbu" path="res://Assets/Pixel UI pack 3/01.png" id="2_qa2i6"]

@@ -1,11 +1,11 @@
-[gd_scene load_steps=33 format=3 uid="uid://bfoc0his1pf4p"]
+[gd_scene load_steps=36 format=3 uid="uid://bfoc0his1pf4p"]
 
 [ext_resource type="Script" path="res://Scenes/StageTwo.gd" id="1_5pkdt"]
 [ext_resource type="PackedScene" uid="uid://bkex7j6m7a446" path="res://Scripts/Enemy/type1.tscn" id="2_65kpi"]
 [ext_resource type="PackedScene" uid="uid://dm38gd1lhlp5r" path="res://Scripts/Enemy/type2.tscn" id="3_1x48i"]
 [ext_resource type="Texture2D" uid="uid://ds0xgatxquywp" path="res://Assets/Pixel UI pack 3/04.png" id="3_3bf5q"]
 [ext_resource type="Script" path="res://Scripts/Environment/BG.gd" id="4_8mscw"]
-[ext_resource type="PackedScene" uid="uid://c5qnocipj4yq1" path="res://Scenes/PowerUps/powerup4.tscn" id="4_fuonr"]
+[ext_resource type="PackedScene" uid="uid://cprwy5678flet" path="res://Scenes/PowerUps/powerup4.tscn" id="4_fuonr"]
 [ext_resource type="PackedScene" uid="uid://bvo3e3uq6vffw" path="res://Scenes/PowerUps/powerup2.tscn" id="5_cwbyj"]
 [ext_resource type="PackedScene" uid="uid://b5f8vpqafyeaa" path="res://Scenes/Player/player.tscn" id="6_7x3ni"]
 [ext_resource type="PackedScene" uid="uid://c7lsoh7frekg6" path="res://Scenes/PowerUps/powerup3.tscn" id="6_nxm0n"]
@@ -22,8 +22,11 @@
 [ext_resource type="Texture2D" uid="uid://bv02fcorbbwcd" path="res://Assets/BG/sunset_sea.png" id="17_1biab"]
 [ext_resource type="PackedScene" uid="uid://twv1egtiejei" path="res://Scenes/artifacts.tscn" id="18_nwwbp"]
 [ext_resource type="Texture2D" uid="uid://cq44rh4a3gr34" path="res://Assets/Objects/artifact.png" id="19_6ws0c"]
-[ext_resource type="PackedScene" uid="uid://dfvk5l83m2lid" path="res://Scenes/level_success.tscn" id="20_yb0eo"]
-[ext_resource type="AudioStream" uid="uid://byp6qyosql1y5" path="res://Assets/sfx/bgm_stage2.mp3" id="25_w4wh0"]
+[ext_resource type="PackedScene" path="res://Scenes/level_success.tscn" id="20_yb0eo"]
+[ext_resource type="Texture2D" uid="uid://cuixhfeokguwx" path="res://Assets/Objects/missiles powerup.png" id="23_ypie5"]
+[ext_resource type="Texture2D" uid="uid://dyjc7jdeljom8" path="res://Assets/Objects/rapid fire.png" id="24_3uko8"]
+[ext_resource type="Texture2D" uid="uid://5alp8m51vnus" path="res://Assets/Objects/double bullets.png" id="25_81cec"]
+[ext_resource type="AudioStream" uid="uid://cjsyrtbc6jvye" path="res://Assets/sfx/bgm_stage2.mp3" id="25_w4wh0"]
 [ext_resource type="PackedScene" uid="uid://btqqgd4cvsgif" path="res://Scenes/StageThree.tscn" id="26_4ue25"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5j10q"]
@@ -296,29 +299,24 @@ texture = ExtResource("19_6ws0c")
 
 [node name="ActivePowerup" type="Node2D" parent="."]
 
-[node name="Powerup1" type="Sprite2D" parent="ActivePowerup"]
-visible = false
-position = Vector2(53, 86)
-scale = Vector2(0.122549, 0.127451)
-texture = ExtResource("19_6ws0c")
-
-[node name="Powerup2" type="Sprite2D" parent="ActivePowerup"]
-visible = false
-position = Vector2(89, 86)
-scale = Vector2(0.122549, 0.127451)
-texture = ExtResource("19_6ws0c")
-
-[node name="Powerup3" type="Sprite2D" parent="ActivePowerup"]
-visible = false
-position = Vector2(128, 86)
-scale = Vector2(0.122549, 0.127451)
-texture = ExtResource("19_6ws0c")
-
 [node name="Powerup4" type="Sprite2D" parent="ActivePowerup"]
-visible = false
 position = Vector2(165, 86)
 scale = Vector2(0.122549, 0.127451)
-texture = ExtResource("19_6ws0c")
+
+[node name="Powerup1" type="Sprite2D" parent="ActivePowerup"]
+position = Vector2(53, 86)
+scale = Vector2(0.122549, 0.127451)
+texture = ExtResource("23_ypie5")
+
+[node name="Powerup2" type="Sprite2D" parent="ActivePowerup"]
+position = Vector2(89, 86)
+scale = Vector2(0.122549, 0.127451)
+texture = ExtResource("24_3uko8")
+
+[node name="Powerup3" type="Sprite2D" parent="ActivePowerup"]
+position = Vector2(128, 86)
+scale = Vector2(0.122549, 0.127451)
+texture = ExtResource("25_81cec")
 
 [node name="UltimateButton" type="Button" parent="."]
 visible = false
