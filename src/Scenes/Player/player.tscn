@@ -1,11 +1,11 @@
 [gd_scene load_steps=16 format=3 uid="uid://b5f8vpqafyeaa"]
 
 [ext_resource type="Script" path="res://Scripts/Player/player.gd" id="1_15tx1"]
-[ext_resource type="Texture2D" uid="uid://m7aems0och12" path="res://Assets/Character/player (anim).png" id="2_6swcp"]
-[ext_resource type="AudioStream" uid="uid://bgf5hj6hvigwu" path="res://Assets/sfx/damage.mp3" id="4_fp7m5"]
+[ext_resource type="Texture2D" uid="uid://lhvri2tp30h8" path="res://Assets/Character/player (anim).png" id="2_6swcp"]
+[ext_resource type="AudioStream" uid="uid://ccgfueijhmsb3" path="res://Assets/sfx/damage.mp3" id="4_fp7m5"]
 [ext_resource type="Texture2D" uid="uid://bnf5ab7y7f3mh" path="res://Assets/Pixel UI pack 3/00.png" id="4_mfty5"]
-[ext_resource type="AudioStream" uid="uid://b3gtksr87fhic" path="res://Assets/sfx/pickup.mp3" id="5_85hop"]
-[ext_resource type="AudioStream" uid="uid://d01lkf1f3ycec" path="res://Assets/sfx/engine.mp3" id="6_jthcw"]
+[ext_resource type="AudioStream" uid="uid://dyxfqx8ap0of3" path="res://Assets/sfx/pickup.mp3" id="5_85hop"]
+[ext_resource type="AudioStream" uid="uid://cf7sko5gssobt" path="res://Assets/sfx/engine.mp3" id="6_jthcw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_guvb3"]
 size = Vector2(55.7143, 35.7143)

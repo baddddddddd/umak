@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://bc7rttv62tkdu" path="res://Assets/BG/day_seabg4.png" id="7_m0x81"]
 [ext_resource type="Texture2D" uid="uid://b06nbdxrne3ri" path="res://Assets/BG/day_seacloud.png" id="8_736k3"]
 [ext_resource type="Texture2D" uid="uid://kq0apa0yv5yb" path="res://Assets/BG/day_sea.png" id="9_4rnxp"]
-[ext_resource type="Texture2D" uid="uid://di0fbhpxvmalx" path="res://Assets/Objects/logo.png" id="10_kfeht"]
+[ext_resource type="Texture2D" uid="uid://uix7xgbmucxc" path="res://Assets/Objects/logo.png" id="10_kfeht"]
 [ext_resource type="AudioStream" uid="uid://cdfq4fjq44863" path="res://Assets/sfx/bgm_start.mp3" id="11_wgwvr"]
 
 [node name="TitleScreen" type="Node2D"]
