@@ -300,20 +300,24 @@ texture = ExtResource("19_6ws0c")
 [node name="ActivePowerup" type="Node2D" parent="."]
 
 [node name="Powerup4" type="Sprite2D" parent="ActivePowerup"]
+visible = false
 position = Vector2(165, 86)
 scale = Vector2(0.122549, 0.127451)
 
 [node name="Powerup1" type="Sprite2D" parent="ActivePowerup"]
+visible = false
 position = Vector2(53, 86)
 scale = Vector2(0.122549, 0.127451)
 texture = ExtResource("23_ypie5")
 
 [node name="Powerup2" type="Sprite2D" parent="ActivePowerup"]
+visible = false
 position = Vector2(89, 86)
 scale = Vector2(0.122549, 0.127451)
 texture = ExtResource("24_3uko8")
 
 [node name="Powerup3" type="Sprite2D" parent="ActivePowerup"]
+visible = false
 position = Vector2(128, 86)
 scale = Vector2(0.122549, 0.127451)
 texture = ExtResource("25_81cec")

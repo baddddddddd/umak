@@ -203,6 +203,7 @@ offset_left = 8.0
 offset_top = 16.0
 offset_right = 32.0
 offset_bottom = 48.0
+text = "II"
 
 [node name="PauseMenu" parent="." instance=ExtResource("8_1mkv6")]
 visible = false
@@ -226,10 +227,10 @@ offset_right = 173.0
 offset_bottom = -61.0
 
 [node name="ArtifactCounter" parent="." instance=ExtResource("18_1h3bs")]
-offset_left = -41.0
-offset_top = 89.0
-offset_right = -41.0
-offset_bottom = 89.0
+offset_left = -45.0
+offset_top = 97.0
+offset_right = -22.0
+offset_bottom = 125.0
 
 [node name="artifacts" parent="." instance=ExtResource("19_48ff6")]
 visible = false
@@ -241,9 +242,9 @@ offset_bottom = 387.0
 
 [node name="Button" type="Button" parent="."]
 offset_left = 8.0
-offset_top = 91.0
+offset_top = 101.0
 offset_right = 32.0
-offset_bottom = 118.0
+offset_bottom = 128.0
 
 [node name="Sprite2D" type="Sprite2D" parent="Button"]
 position = Vector2(12, 14)
@@ -253,20 +254,24 @@ texture = ExtResource("20_ap1rc")
 [node name="ActivePowerup" type="Node2D" parent="."]
 
 [node name="Powerup4" type="Sprite2D" parent="ActivePowerup"]
+visible = false
 position = Vector2(165, 86)
 scale = Vector2(0.122549, 0.127451)
 
 [node name="Powerup1" type="Sprite2D" parent="ActivePowerup"]
+visible = false
 position = Vector2(53, 86)
 scale = Vector2(0.122549, 0.127451)
 texture = ExtResource("22_q2byg")
 
 [node name="Powerup2" type="Sprite2D" parent="ActivePowerup"]
+visible = false
 position = Vector2(89, 86)
 scale = Vector2(0.122549, 0.127451)
 texture = ExtResource("23_cjxyk")
 
 [node name="Powerup3" type="Sprite2D" parent="ActivePowerup"]
+visible = false
 position = Vector2(128, 86)
 scale = Vector2(0.122549, 0.127451)
 texture = ExtResource("24_bgsyx")
