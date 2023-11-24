@@ -1,8 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://b5f8vpqafyeaa"]
+[gd_scene load_steps=14 format=3 uid="uid://b5f8vpqafyeaa"]
 
 [ext_resource type="Script" path="res://Scripts/Player/player.gd" id="1_15tx1"]
 [ext_resource type="Texture2D" uid="uid://pt5s68i4crlp" path="res://Assets/Character/player.png" id="1_y50mj"]
+[ext_resource type="AudioStream" uid="uid://bgf5hj6hvigwu" path="res://Assets/sfx/damage.mp3" id="4_fp7m5"]
 [ext_resource type="Texture2D" uid="uid://bnf5ab7y7f3mh" path="res://Assets/Pixel UI pack 3/00.png" id="4_mfty5"]
+[ext_resource type="AudioStream" uid="uid://b3gtksr87fhic" path="res://Assets/sfx/pickup.mp3" id="5_85hop"]
+[ext_resource type="AudioStream" uid="uid://d01lkf1f3ycec" path="res://Assets/sfx/engine.mp3" id="6_jthcw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_guvb3"]
 size = Vector2(32, 32)
@@ -153,6 +156,17 @@ collision_mask = 2054
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_4dh58")
+
+[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_fp7m5")
+
+[node name="AudioStreamPlayer2D3" type="AudioStreamPlayer2D" parent="."]
+scale = Vector2(1, 1)
+stream = ExtResource("5_85hop")
+
+[node name="AudioStreamPlayer2D4" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_jthcw")
+autoplay = true
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
