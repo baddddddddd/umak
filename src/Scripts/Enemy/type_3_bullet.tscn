@@ -97,6 +97,7 @@ metadata/entity_type = "bullet"
 scale = Vector2(0.191153, 0.17419)
 sprite_frames = SubResource("SpriteFrames_coiqf")
 animation = &"Whirlpool"
+frame = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
