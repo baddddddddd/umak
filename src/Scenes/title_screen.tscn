@@ -1,24 +1,18 @@
-[gd_scene load_steps=5 format=3 uid="uid://n6m2iil72ebo"]
+[gd_scene load_steps=11 format=3 uid="uid://n6m2iil72ebo"]
 
 [ext_resource type="Script" path="res://TitleScreen.gd" id="1_jdcpc"]
 [ext_resource type="Script" path="res://Scripts/Environment/BG.gd" id="2_jmmlf"]
-[ext_resource type="Texture2D" uid="uid://wubjj38oak5b" path="res://Assets/back.png" id="3_kfpft"]
+[ext_resource type="Texture2D" uid="uid://dl5gdjukqkwmy" path="res://Assets/BG/day_seabg1.png" id="4_e113f"]
 [ext_resource type="Script" path="res://Scenes/ColorRect.gd" id="4_j8o4e"]
+[ext_resource type="Texture2D" uid="uid://bx6gbb1f1rkjs" path="res://Assets/BG/day_seabg2.png" id="5_p33s0"]
+[ext_resource type="Texture2D" uid="uid://datjoc6o6qhiu" path="res://Assets/BG/day_seabg3.png" id="6_n1xp3"]
+[ext_resource type="Texture2D" uid="uid://bc7rttv62tkdu" path="res://Assets/BG/day_seabg4.png" id="7_m0x81"]
+[ext_resource type="Texture2D" uid="uid://b06nbdxrne3ri" path="res://Assets/BG/day_seacloud.png" id="8_736k3"]
+[ext_resource type="Texture2D" uid="uid://kq0apa0yv5yb" path="res://Assets/BG/day_sea.png" id="9_4rnxp"]
+[ext_resource type="Texture2D" uid="uid://uix7xgbmucxc" path="res://Assets/Objects/logo.png" id="10_kfeht"]
 
 [node name="TitleScreen" type="Node2D"]
 script = ExtResource("1_jdcpc")
-
-[node name="Label" type="Label" parent="."]
-offset_left = 155.0
-offset_top = 16.0
-offset_right = 437.0
-offset_bottom = 88.0
-theme_override_colors/font_color = Color(0.796078, 0.917647, 0.196078, 1)
-theme_override_colors/font_shadow_color = Color(0.431373, 0, 0, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 50
-text = "Title Screen"
-horizontal_alignment = 1
 
 [node name="Start" type="Button" parent="."]
 offset_left = 232.0
@@ -54,24 +48,111 @@ text = "EXIT"
 
 [node name="StageOne" type="Node2D" parent="."]
 
-[node name="BG" type="ParallaxBackground" parent="StageOne"]
-script = ExtResource("2_jmmlf")
-
-[node name="ParallaxLayer" type="ParallaxLayer" parent="StageOne/BG"]
-position = Vector2(89, 45)
-motion_mirroring = Vector2(700, 0)
-
-[node name="Sprite2D" type="Sprite2D" parent="StageOne/BG/ParallaxLayer"]
-position = Vector2(261, 127)
-scale = Vector2(1.82292, 1.4375)
-texture = ExtResource("3_kfpft")
-
 [node name="ColorRect" type="ColorRect" parent="."]
+visible = false
 offset_left = -19.0
 offset_top = -24.0
 offset_right = 591.0
 offset_bottom = 349.0
 color = Color(0, 0, 0, 1)
 script = ExtResource("4_j8o4e")
+
+[node name="BG" type="ParallaxBackground" parent="."]
+script = ExtResource("2_jmmlf")
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="BG"]
+position = Vector2(89, 45)
+motion_scale = Vector2(0.1, 0.1)
+motion_mirroring = Vector2(1152, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="BG/ParallaxLayer"]
+position = Vector2(199, 59)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("4_e113f")
+
+[node name="Sprite2D2" type="Sprite2D" parent="BG/ParallaxLayer"]
+position = Vector2(775, 59)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("4_e113f")
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="BG"]
+position = Vector2(89, 45)
+motion_scale = Vector2(0.15, 0.15)
+motion_mirroring = Vector2(1152, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="BG/ParallaxLayer2"]
+position = Vector2(199, 59)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("5_p33s0")
+
+[node name="Sprite2D2" type="Sprite2D" parent="BG/ParallaxLayer2"]
+position = Vector2(775, 59)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("5_p33s0")
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="BG"]
+position = Vector2(89, 45)
+motion_scale = Vector2(0.2, 0.2)
+motion_mirroring = Vector2(1152, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="BG/ParallaxLayer3"]
+position = Vector2(199, 59)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("6_n1xp3")
+
+[node name="Sprite2D2" type="Sprite2D" parent="BG/ParallaxLayer3"]
+position = Vector2(775, 59)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("6_n1xp3")
+
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="BG"]
+position = Vector2(89, 45)
+motion_scale = Vector2(0.25, 0.25)
+motion_mirroring = Vector2(1152, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="BG/ParallaxLayer4"]
+position = Vector2(199, 59)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("7_m0x81")
+
+[node name="Sprite2D2" type="Sprite2D" parent="BG/ParallaxLayer4"]
+position = Vector2(775, 59)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("7_m0x81")
+
+[node name="ParallaxLayer5" type="ParallaxLayer" parent="BG"]
+position = Vector2(89, 45)
+motion_scale = Vector2(0.4, 0.4)
+motion_mirroring = Vector2(1152, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="BG/ParallaxLayer5"]
+position = Vector2(199, 59)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("8_736k3")
+
+[node name="Sprite2D2" type="Sprite2D" parent="BG/ParallaxLayer5"]
+position = Vector2(775, 59)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("8_736k3")
+
+[node name="ParallaxLayer6" type="ParallaxLayer" parent="BG"]
+position = Vector2(89, 45)
+motion_scale = Vector2(1.5, 1.5)
+motion_mirroring = Vector2(1152, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="BG/ParallaxLayer6"]
+position = Vector2(199, 59)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("9_4rnxp")
+
+[node name="Sprite2D2" type="Sprite2D" parent="BG/ParallaxLayer6"]
+position = Vector2(775, 59)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("9_4rnxp")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(294.75, 72)
+scale = Vector2(0.73, 0.73)
+texture = ExtResource("10_kfeht")
 
 [connection signal="pressed" from="Start" to="." method="_on_start_pressed"]
