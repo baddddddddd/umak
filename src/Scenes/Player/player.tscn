@@ -161,7 +161,6 @@ shape = SubResource("RectangleShape2D_4dh58")
 stream = ExtResource("4_fp7m5")
 
 [node name="AudioStreamPlayer2D3" type="AudioStreamPlayer2D" parent="."]
-scale = Vector2(1, 1)
 stream = ExtResource("5_85hop")
 
 [node name="AudioStreamPlayer2D4" type="AudioStreamPlayer2D" parent="."]

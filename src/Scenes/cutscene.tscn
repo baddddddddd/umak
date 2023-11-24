@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://cq2riibf1pe61"]
+[gd_scene load_steps=19 format=3 uid="uid://cq2riibf1pe61"]
 
 [ext_resource type="Script" path="res://Scenes/cutscene.gd" id="1_6tqvt"]
 [ext_resource type="Texture2D" uid="uid://cj0vy6oskwp01" path="res://Assets/CutScene/1.jpg" id="1_7twfj"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://yotwcixajxob" path="res://Assets/Utilities/banner.png" id="9_cpreh"]
 [ext_resource type="FontFile" uid="uid://timtq8nyjxep" path="res://Assets/font/Pixeled.ttf" id="10_0lo6t"]
 [ext_resource type="FontFile" uid="uid://dme7r2me7sese" path="res://Assets/font/game_over.ttf" id="12_jcyp3"]
+[ext_resource type="AudioStream" uid="uid://cdfq4fjq44863" path="res://Assets/sfx/bgm_start.mp3" id="13_8k1xv"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_o11xv"]
 font = ExtResource("10_0lo6t")
@@ -534,5 +535,9 @@ label_settings = SubResource("LabelSettings_645vu")
 autowrap_mode = 2
 justification_flags = 171
 metadata/_edit_use_anchors_ = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("13_8k1xv")
+autoplay = true
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
