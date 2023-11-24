@@ -1,27 +1,27 @@
 [gd_scene load_steps=10 format=3 uid="uid://c7lsoh7frekg6"]
 
 [ext_resource type="Script" path="res://Scenes/PowerUps/powerup1.gd" id="1_asyad"]
-[ext_resource type="Texture2D" uid="uid://btstwqd85sxbu" path="res://Assets/Pixel UI pack 3/01.png" id="2_bk6ec"]
+[ext_resource type="Texture2D" uid="uid://5alp8m51vnus" path="res://Assets/Objects/double bullets.png" id="2_8d1xv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4pplm"]
 size = Vector2(37, 37)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_7so2t"]
-atlas = ExtResource("2_bk6ec")
-region = Rect2(178, 48, 44, 48)
+[sub_resource type="AtlasTexture" id="AtlasTexture_5oq11"]
+atlas = ExtResource("2_8d1xv")
+region = Rect2(0, 0, 200, 200)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_vc153"]
-atlas = ExtResource("2_bk6ec")
-region = Rect2(178, 52, 44, 48)
+[sub_resource type="AtlasTexture" id="AtlasTexture_8bypk"]
+atlas = ExtResource("2_8d1xv")
+region = Rect2(0, 9, 200, 191)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_5s48p"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_7so2t")
+"texture": SubResource("AtlasTexture_5oq11")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_vc153")
+"texture": SubResource("AtlasTexture_8bypk")
 }],
 "loop": true,
 "name": &"Powerup3",
@@ -99,6 +99,8 @@ position = Vector2(0.5, -2.5)
 shape = SubResource("RectangleShape2D_4pplm")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -3)
+scale = Vector2(0.18, 0.18)
 sprite_frames = SubResource("SpriteFrames_5s48p")
 animation = &"Powerup3"
 frame_progress = 0.992624

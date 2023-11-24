@@ -1,27 +1,27 @@
 [gd_scene load_steps=10 format=3 uid="uid://b8rqlb6m0g7so"]
 
-[ext_resource type="Texture2D" uid="uid://btstwqd85sxbu" path="res://Assets/Pixel UI pack 3/01.png" id="1_jgxhv"]
 [ext_resource type="Script" path="res://Scenes/PowerUps/powerup1.gd" id="1_pcvjr"]
+[ext_resource type="Texture2D" uid="uid://cuixhfeokguwx" path="res://Assets/Objects/missiles powerup.png" id="2_4hnsk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4pplm"]
 size = Vector2(37, 37)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ho35j"]
-atlas = ExtResource("1_jgxhv")
-region = Rect2(83, 48, 41, 48)
+[sub_resource type="AtlasTexture" id="AtlasTexture_vyka0"]
+atlas = ExtResource("2_4hnsk")
+region = Rect2(0, 0, 200, 200)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_0qwro"]
-atlas = ExtResource("1_jgxhv")
-region = Rect2(83, 52, 41, 48)
+[sub_resource type="AtlasTexture" id="AtlasTexture_pxeyo"]
+atlas = ExtResource("2_4hnsk")
+region = Rect2(0, 9, 200, 191)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_5s48p"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ho35j")
+"texture": SubResource("AtlasTexture_vyka0")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_0qwro")
+"texture": SubResource("AtlasTexture_pxeyo")
 }],
 "loop": true,
 "name": &"Powerup1",
@@ -99,8 +99,11 @@ position = Vector2(0.5, -2.5)
 shape = SubResource("RectangleShape2D_4pplm")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0.249998, -2.75)
+scale = Vector2(0.1875, 0.1875)
 sprite_frames = SubResource("SpriteFrames_5s48p")
 animation = &"Powerup1"
+frame = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 reset_on_save = false
