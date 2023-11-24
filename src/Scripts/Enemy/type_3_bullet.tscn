@@ -1,34 +1,32 @@
-[gd_scene load_steps=14 format=3 uid="uid://bjnhnrasmevd8"]
+[gd_scene load_steps=12 format=3 uid="uid://bjnhnrasmevd8"]
 
 [ext_resource type="Script" path="res://Scripts/Enemy/type_3_bullet.gd" id="1_8ydq3"]
-[ext_resource type="Texture2D" uid="uid://dxadgt8ctuoeg" path="res://Assets/Objects/wp.png" id="2_xrir6"]
-[ext_resource type="Texture2D" uid="uid://bbd15hee4s88l" path="res://Assets/Objects/wp1.png" id="3_p5ppm"]
-[ext_resource type="Texture2D" uid="uid://cslkkrds2xocn" path="res://Assets/Objects/wp2.png" id="4_rcjf7"]
+[ext_resource type="Texture2D" uid="uid://cvmgcgy63bci2" path="res://Assets/Objects/whirlpool anim.png" id="2_ig7e8"]
 [ext_resource type="AudioStream" uid="uid://hxg5qde67k71" path="res://Assets/sfx/whirlpool.mp3" id="5_va6u0"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_j43t0"]
-atlas = ExtResource("2_xrir6")
-region = Rect2(0, 0, 154, 108)
+[sub_resource type="AtlasTexture" id="AtlasTexture_t6or1"]
+atlas = ExtResource("2_ig7e8")
+region = Rect2(0, 0, 200, 200)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_a2eh0"]
-atlas = ExtResource("3_p5ppm")
-region = Rect2(0, 0, 154, 108)
+[sub_resource type="AtlasTexture" id="AtlasTexture_0w7eo"]
+atlas = ExtResource("2_ig7e8")
+region = Rect2(200, 0, 200, 200)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_85c5r"]
-atlas = ExtResource("4_rcjf7")
-region = Rect2(0, 0, 154, 107)
+[sub_resource type="AtlasTexture" id="AtlasTexture_4lhxx"]
+atlas = ExtResource("2_ig7e8")
+region = Rect2(0, 200, 200, 200)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_coiqf"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_j43t0")
+"texture": SubResource("AtlasTexture_t6or1")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_a2eh0")
+"texture": SubResource("AtlasTexture_0w7eo")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_85c5r")
+"texture": SubResource("AtlasTexture_4lhxx")
 }],
 "loop": true,
 "name": &"Whirlpool",
@@ -99,7 +97,6 @@ metadata/entity_type = "bullet"
 scale = Vector2(0.191153, 0.17419)
 sprite_frames = SubResource("SpriteFrames_coiqf")
 animation = &"Whirlpool"
-frame = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
