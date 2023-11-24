@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scenes/artifact_slot.gd" id="1_4b8cx"]
 [ext_resource type="Texture2D" uid="uid://ilyoerqn2fp6" path="res://Assets/Pixel UI pack 3/inventory-slot.png" id="1_8spc8"]
-[ext_resource type="Texture2D" uid="uid://bwp53dykhoxwn" path="res://Assets/Objects/artifact.png" id="2_tg4y3"]
+[ext_resource type="Texture2D" uid="uid://cq44rh4a3gr34" path="res://Assets/Objects/artifact.png" id="2_tg4y3"]
 [ext_resource type="FontFile" uid="uid://timtq8nyjxep" path="res://Assets/font/Pixeled.ttf" id="4_b4ghf"]
 
 [node name="artifact_slot" type="Control"]

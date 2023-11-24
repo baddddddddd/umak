@@ -53,7 +53,7 @@ func choose_artifact_info():
 func spawn_artifact():
 	var random_y = rng.randf_range(top_left.y, top_left.y + spawn_area.shape.size.y)
 	
-	var artifact = artifact_spawnables.pop_back()
+	var artifact = artifact_spawnables.pop_front()
 	artifact.global_position = Vector2(top_left.x, random_y)
 	get_tree().current_scene.add_child(artifact)
 	
