@@ -1,17 +1,24 @@
-[gd_scene load_steps=6 format=3 uid="uid://dgdhhuk8ka43o"]
+[gd_scene load_steps=10 format=3 uid="uid://dgdhhuk8ka43o"]
 
 [ext_resource type="Script" path="res://Scenes/boss_2.gd" id="1_8ln81"]
-[ext_resource type="Texture2D" uid="uid://4oyiimjl8fcm" path="res://Assets/SpaceShooterAssets/SpaceShooterAssetPack_Ships.png" id="2_h5hqr"]
+[ext_resource type="Texture2D" uid="uid://8td2khvn8nbe" path="res://Assets/Objects/warship animation.png" id="2_pisup"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_vieaq"]
-atlas = ExtResource("2_h5hqr")
-region = Rect2(64, 64, 16, 16)
+[sub_resource type="AtlasTexture" id="AtlasTexture_qcapg"]
+atlas = ExtResource("2_pisup")
+region = Rect2(0, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6rmtk"]
+atlas = ExtResource("2_pisup")
+region = Rect2(200, 0, 200, 200)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_4iysk"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_vieaq")
+"texture": SubResource("AtlasTexture_qcapg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6rmtk")
 }],
 "loop": true,
 "name": &"default",
@@ -19,6 +26,66 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k8ebk"]
+
+[sub_resource type="Animation" id="Animation_wg561"]
+resource_name = "moving"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"default"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="Animation" id="Animation_cr0vb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"default"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_b6vuq"]
+_data = {
+"RESET": SubResource("Animation_cr0vb"),
+"moving": SubResource("Animation_wg561")
+}
 
 [node name="Boss2" type="CharacterBody2D" groups=["enemy"]]
 y_sort_enabled = true
@@ -28,6 +95,8 @@ collision_mask = 0
 script = ExtResource("1_8ln81")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0.312499, 0.0124991)
+scale = Vector2(0.098875, 0.098875)
 sprite_frames = SubResource("SpriteFrames_4iysk")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -45,5 +114,10 @@ position = Vector2(-12.8, -6.4)
 
 [node name="LaserMuzzle2" type="Marker2D" parent="."]
 position = Vector2(-12.8, 6.4)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_b6vuq")
+}
 
 [connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]
