@@ -209,7 +209,7 @@ func spawn_enemy():
 func spawn_powerup():
 	var random_y = rng.randf_range(top_left.y, top_left.y + spawn_area.shape.size.y)
 	
-	var random_type = rng.randi_range(0, enemies.size() - 1)
+	var random_type = rng.randi_range(0, powerups.size() - 1)
 	
 	var powerup = powerups[random_type].instantiate()
 	powerup.global_position = Vector2(top_left.x, random_y)
