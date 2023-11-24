@@ -47,7 +47,6 @@ func _process(delta):
 					suction_speed = 0
 					elapsed_time_since_shake = 0.0
 					warning.visible = false
-					warning.queue_free()
 	
 func _physics_process(delta):
 	velocity.x = -speed
@@ -64,6 +63,6 @@ func _on_area_2d_body_entered(body):
 func _on_area_2d_body_exited(body):
 	if entered:
 		entered = not entered
-		warning.queue_free()
+		warning.visible = false
 
 

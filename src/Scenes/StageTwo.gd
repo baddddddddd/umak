@@ -51,7 +51,7 @@ func choose_artifact_info():
 func spawn_artifact():
 	var random_y = rng.randf_range(top_left.y, top_left.y + spawn_area.shape.size.y)
 	
-	var artifact = artifact_spawnables.pop_back()
+	var artifact = artifact_spawnables.pop_front()
 	artifact.global_position = Vector2(top_left.x, random_y)
 	get_tree().current_scene.add_child(artifact)
 	
@@ -80,6 +80,8 @@ func _ready():
 	success_screen.hide()
 	
 	start_wave()
+	start_bossfight()
+	
 	
 	await get_tree().create_timer(5.0).timeout
 	spawn_artifact()
@@ -267,3 +269,4 @@ func _on_power_up_spawn_clock_timeout():
 func level_succeed():
 	get_node("player").invincibility = true
 	get_node("LevelSuccess").show()
+
