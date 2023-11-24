@@ -10,7 +10,7 @@ func _ready():
 	velocity.x = -speed
 	hp_fill.hide()
 	hp_bar.hide()
-
+	$AnimationPlayer.play("moving")
 	await get_tree().create_timer(1.0).timeout
 	attack()
 	$Timer.start()

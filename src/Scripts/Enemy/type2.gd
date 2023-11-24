@@ -14,7 +14,7 @@ func _ready():
 	await get_tree().create_timer(0.5).timeout
 	attack()
 	$Timer.start()
-	
+	$AnimationPlayer.play("moving")
 	await get_tree().create_timer(4.3).timeout
 	await move_random()
 	
