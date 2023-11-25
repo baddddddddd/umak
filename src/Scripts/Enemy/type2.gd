@@ -46,10 +46,14 @@ func deplete_hp(damage):
 	if hp <= 0:
 		destroy()
 		
+
 func destroy():
+	$AnimationPlayer.play("death")
+	await $AnimationPlayer.animation_finished
 	if current_laser != null:
 		current_laser.queue_free()
 	queue_free()
+	
 	
 
 func move_random():

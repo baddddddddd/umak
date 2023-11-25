@@ -71,8 +71,11 @@ func cancel_whirlpool():
 		
 func destroy():
 	cancel_whirlpool()
-		
+	
+	$AnimationPlayer.play("death")
+	await $AnimationPlayer.animation_finished
 	queue_free()
+	
 	
 func move_random():
 	var rng = RandomNumberGenerator.new()

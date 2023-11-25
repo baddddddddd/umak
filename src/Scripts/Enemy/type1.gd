@@ -45,6 +45,8 @@ func deplete_hp(damage):
 		destroy()
 		
 func destroy():
+	$AnimationPlayer.play("death")
+	await $AnimationPlayer.animation_finished
 	queue_free()
 	
 	

@@ -80,8 +80,6 @@ func _ready():
 	success_screen.hide()
 	
 	start_wave()
-	start_bossfight()
-	
 	
 	await get_tree().create_timer(5.0).timeout
 	spawn_artifact()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://dnjk18na4sq4b"]
+[gd_scene load_steps=34 format=3 uid="uid://dnjk18na4sq4b"]
 
 [ext_resource type="Script" path="res://Scripts/Environment/BG.gd" id="1_esl4a"]
 [ext_resource type="Script" path="res://Scenes/StageOne.gd" id="1_oiyt2"]
@@ -25,6 +25,7 @@
 [ext_resource type="Texture2D" uid="uid://dyjc7jdeljom8" path="res://Assets/Objects/rapid fire.png" id="21_ts04p"]
 [ext_resource type="Texture2D" uid="uid://5alp8m51vnus" path="res://Assets/Objects/double bullets.png" id="22_i2wtm"]
 [ext_resource type="AudioStream" uid="uid://cdfq4fjq44863" path="res://Assets/sfx/bgm_start.mp3" id="22_irqj2"]
+[ext_resource type="Texture2D" uid="uid://lhmlelg4rket" path="res://Assets/Objects/missle.png" id="23_v6ex7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5j10q"]
 size = Vector2(552, 161.5)
@@ -233,6 +234,7 @@ offset_left = 8.0
 offset_top = 16.0
 offset_right = 32.0
 offset_bottom = 48.0
+text = "II"
 
 [node name="PauseMenu" parent="." instance=ExtResource("7_xpqh7")]
 visible = false
@@ -307,11 +309,16 @@ position = Vector2(165, 86)
 scale = Vector2(0.122549, 0.127451)
 
 [node name="UltimateButton" type="Button" parent="."]
-visible = false
 offset_left = 447.0
 offset_top = 217.0
 offset_right = 520.0
 offset_bottom = 285.0
+
+[node name="Sprite2D" type="Sprite2D" parent="UltimateButton"]
+position = Vector2(38, 34)
+rotation = 0.785398
+scale = Vector2(0.33, 0.33)
+texture = ExtResource("23_v6ex7")
 
 [node name="LevelSuccess" parent="." instance=ExtResource("19_rsfhu")]
 visible = false

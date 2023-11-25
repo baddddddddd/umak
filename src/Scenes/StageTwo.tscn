@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://bfoc0his1pf4p"]
+[gd_scene load_steps=37 format=3 uid="uid://bfoc0his1pf4p"]
 
 [ext_resource type="Script" path="res://Scenes/StageTwo.gd" id="1_5pkdt"]
 [ext_resource type="PackedScene" uid="uid://bkex7j6m7a446" path="res://Scripts/Enemy/type1.tscn" id="2_65kpi"]
@@ -26,7 +26,8 @@
 [ext_resource type="Texture2D" uid="uid://cuixhfeokguwx" path="res://Assets/Objects/missiles powerup.png" id="23_ypie5"]
 [ext_resource type="Texture2D" uid="uid://dyjc7jdeljom8" path="res://Assets/Objects/rapid fire.png" id="24_3uko8"]
 [ext_resource type="Texture2D" uid="uid://5alp8m51vnus" path="res://Assets/Objects/double bullets.png" id="25_81cec"]
-[ext_resource type="AudioStream" uid="uid://cjsyrtbc6jvye" path="res://Assets/sfx/bgm_stage2.mp3" id="25_w4wh0"]
+[ext_resource type="AudioStream" uid="uid://byp6qyosql1y5" path="res://Assets/sfx/bgm_stage2.mp3" id="25_w4wh0"]
+[ext_resource type="Texture2D" uid="uid://lhmlelg4rket" path="res://Assets/Objects/missle.png" id="26_3ygbw"]
 [ext_resource type="PackedScene" uid="uid://btqqgd4cvsgif" path="res://Scenes/StageThree.tscn" id="26_4ue25"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5j10q"]
@@ -250,6 +251,7 @@ offset_left = 8.0
 offset_top = 16.0
 offset_right = 32.0
 offset_bottom = 48.0
+text = "II"
 
 [node name="PauseMenu" parent="." instance=ExtResource("7_vmume")]
 visible = false
@@ -329,6 +331,12 @@ offset_top = 217.0
 offset_right = 520.0
 offset_bottom = 285.0
 
+[node name="Sprite2D" type="Sprite2D" parent="UltimateButton"]
+position = Vector2(38, 34)
+rotation = 0.785398
+scale = Vector2(0.33, 0.33)
+texture = ExtResource("26_3ygbw")
+
 [node name="LevelSuccess" parent="." instance=ExtResource("20_yb0eo")]
 visible = false
 offset_left = 224.0
@@ -346,3 +354,4 @@ autoplay = true
 [connection signal="body_exited" from="Despawn" to="." method="_on_despawn_body_exited"]
 [connection signal="pressed" from="PauseButton" to="." method="_on_pause_button_pressed"]
 [connection signal="button_down" from="Button" to="artifacts" method="_on_button_button_down"]
+[connection signal="pressed" from="UltimateButton" to="player" method="_on_ultimate_button_pressed"]

@@ -6,6 +6,7 @@ extends CharacterBody2D
 
 func _ready():
 	$Banner.hide()
+	$AnimationPlayer.play("moving")
 
 
 func _physics_process(delta):
@@ -30,4 +31,6 @@ func destroy_wave():
 		
 		
 func destroy():
+	$AnimationPlayer.play("death")
+	await $AnimationPlayer.animation_finished
 	queue_free()

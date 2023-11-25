@@ -33,7 +33,7 @@ func _ready():
 	await move_random()
 	
 	attack_timer.start()
-
+	$AnimationPlayer.play("moving")
 
 func attack():
 	var attacks = [laser_attack, cannon_attack, whirlpool_attack, curve_attack]
